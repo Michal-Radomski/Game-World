@@ -1,7 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import {addGame} from "./components/Firebase"
 
 function App() {
+  addGame();
   return (
     <div className="App">
       <header className="App-header">
