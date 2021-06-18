@@ -1,27 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-import {addGame} from "./components/Firebase"
+import "./App.css";
+// import {addGame} from "./components/Firebase"
+import Slider from "./components/Slider";
 
 function App() {
-  addGame();
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> Lubię React
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // addGame();
+    return (
+        <div className="App">
+            <header className="App-header">
+                <Slider />
+            </header>
+        </div>
+    );
 }
 
 export default App;

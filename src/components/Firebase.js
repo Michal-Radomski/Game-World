@@ -1,7 +1,7 @@
-import firebase from 'firebase';
-import { data } from './Data';
+import firebase from "firebase";
+import { data } from "./Data";
 
-const settings = {timestampsInSnapshots: true};
+const settings = { timestampsInSnapshots: true };
 
 var firebaseConfig = {
     apiKey: "AIzaSyD6K_UBeeC2EwujnsrwxBgwcHW-JN0JeUw",
@@ -10,15 +10,16 @@ var firebaseConfig = {
     storageBucket: "gameworld-a20b3.appspot.com",
     messagingSenderId: "124412031906",
     appId: "1:124412031906:web:368c522047cb5751bbb8fb",
-    measurementId: "G-NN47R5618M"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.firestore().settings(settings);
+    measurementId: "G-NN47R5618M",
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.firestore().settings(settings);
 
-  const db = firebase.firestore();
+const db = firebase.firestore();
 
-  export const addGame = e => {
-    // e.preventDefault();
-    db.collection("games").add(data[0]);
-}
+export const addGame = (e) => {
+    data.forEach((item) => {
+        db.collection("games").add(item);
+    });
+};
