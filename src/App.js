@@ -1,11 +1,12 @@
+import "./App.css";
 import Layout from "./components/Layout";
-// import {addGame} from "./components/Firebase"
-import Slider from "./components/Slider";
+import { Carousel } from "3d-react-carousal";
+import { slides } from "./components/Slides";
 
 function App() {
     return (
         <Layout>
-            <Slider />
+            <Carousel slides={slides} autoplay={true} interval={3000} />
             <p>Tu ma być kontent</p>
             <p>Tu ma być kontent</p>
             <p>Tu ma być kontent</p>
