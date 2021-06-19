@@ -1,0 +1,39 @@
+.main-footer {
+
+    color: white;
+    background-color: #3F46BF;
+    padding-top: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+
+    display: inline-block;
+    justify-content: center;
+
+
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+
+
+.container {
+    display: inline-block;
+    /* border:1px solid black; */
+    width: 100%;
+
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.info {
+    padding-top: 1em;
+}
