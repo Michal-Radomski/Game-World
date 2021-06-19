@@ -1,16 +1,14 @@
-import "./App.css";
-// import {addGame} from "./components/Firebase"
 import Slider from "./components/Slider";
+import Layout from "./components/Layout";
 
 function App() {
-    // addGame();
-    return (
-        <div className="App">
-            <header className="App-header">
-                <Slider />
-            </header>
-        </div>
-    );
+  // addGame();
+  return (
+    <>
+      <Slider />
+      <Layout />
+    </>
+  );
 }
 
 export default App;
