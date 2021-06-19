@@ -1,7 +1,14 @@
+import Slider from "./components/Slider";
 import Layout from "./components/Layout";
 
 function App() {
-  return <Layout />;
+  // addGame();
+  return (
+    <>
+      <Slider />
+      <Layout />
+    </>
+  );
 }
 
 export default App;
