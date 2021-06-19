@@ -1,7 +1,8 @@
-// import "./App.css";
+
 import Layout from "./components/Layout";
 // import {addGame} from "./components/Firebase"
 import Slider from "./components/Slider";
+import Layout from "./components/Layout";
 
 function App() {
 
