@@ -2,7 +2,7 @@
 import Layout from "./components/Layout";
 // import {addGame} from "./components/Firebase"
 import Slider from "./components/Slider";
-import Layout from "./components/Layout";
+
 
 function App() {
 
@@ -23,6 +23,7 @@ function App() {
     <p>Tu ma być kontent</p>
     <p>Tu ma być kontent</p>
     <p>Tu ma być kontent</p>
+    
     </Layout>;
   }
 

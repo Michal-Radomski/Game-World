@@ -28,12 +28,21 @@
 
 }
 
-ul {
+
+
+ul{
     margin: 0;
     padding: 0;
     list-style: none;
+    
 }
 
+
+a{
+    color:white;
+    text-decoration: none;
+
+}
 .info {
     padding-top: 1em;
 }
