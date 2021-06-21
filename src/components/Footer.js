@@ -93,7 +93,7 @@ const Footer = () => {
 				<div className="row">
 					<p className="info">
 						&copy;{new Date().getFullYear()} GAMEWORLD | ALL right
-						reserved | Terms of service | Privacy
+						reserved 
 					</p>
 				</div>
 			</div>
