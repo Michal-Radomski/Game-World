@@ -1,3 +1,8 @@
+body {
+    background-image: url("./images/zane-lee-IHj0xtWtLKE-unsplash.jpg");
+    background-color: black;
+}
+
 .App {
     text-align: center;
 }
@@ -15,4 +20,32 @@
 
 .react-3d-carousel {
     margin: 20px 0;
+}
+
+.carouselContainer {
+    min-height: 350px;
+}
+
+.topGameImg {
+    max-height: 150px;
+    width: fit-content;
+}
+
+.topGamesContainer {
+    padding: 5px;
+    background-color: rgb(57 74 167 / 42%);
+    border-radius: 7px;
+}
+h2 {
+    color: white;
+    background-color: rgb(66 66 206 / 56%);
+    width: fit-content;
+    padding: 2px 15px 5px;
+    border-radius: 5px;
+}
+
+.paperInnerStyle {
+    background-color: black;
+    padding: 15px;
+    color: white;
 }
