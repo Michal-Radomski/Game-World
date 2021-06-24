@@ -1,5 +1,6 @@
 import firebase from "firebase";
 import { data } from "./Data";
+import { useState, useEffect } from "react";
 
 const settings = { timestampsInSnapshots: true };
 
@@ -23,3 +24,17 @@ export const addGame = (e) => {
         db.collection("games").add(item);
     });
 };
+
+export function useTopGames() {
+    const [topGames, setTopGames] = useState([]);
+
+    useEffect(() => {
+        db.collection("games").onSnapshot((snapshot) => {
+            const games = [];
+            snapshot.docs.forEach((game) => games.push({ id: game.id, ...game.data() }));
+            setTopGames(games);
+        });
+    }, []);
+
+    return topGames;
+}

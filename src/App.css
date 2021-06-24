@@ -1,49 +1,51 @@
+body {
+    background-image: url("./images/zane-lee-IHj0xtWtLKE-unsplash.jpg");
+    background-color: black;
+}
+
 .App {
     text-align: center;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-.App-link {
-    color: #61dafb;
-}
-
-.MuiMobileStepper-root {
-    background-color: darkred;
-}
-
-.MuiPaper-elevation0 {
-    width: 500px;
+.slider {
+    width: 27%;
     margin: auto;
-    background-color: darkred;
 }
 
+.content {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.476);
+    padding: 10px;
+}
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.react-3d-carousel {
+    margin: 20px 0;
+}
+
+.carouselContainer {
+    min-height: 350px;
+}
+
+.topGameImg {
+    max-height: 150px;
+    width: fit-content;
+}
+
+.topGamesContainer {
+    padding: 5px;
+    background-color: rgb(57 74 167 / 42%);
+    border-radius: 7px;
+}
+h2 {
+    color: white;
+    background-color: rgb(66 66 206 / 56%);
+    width: fit-content;
+    padding: 2px 15px 5px;
+    border-radius: 5px;
+}
+
+.paperInnerStyle {
+    background-color: black;
+    padding: 15px;
+    color: white;
 }
