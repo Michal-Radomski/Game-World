@@ -65,10 +65,16 @@ h2 {
 .content-sidebar {
     flex: 150px 0 0;
     background-color: rgb(57 74 167 / 42%);
-    padding: 20px 20px 40px;
+    padding: 20px;
     border-radius: 7px;
 }
 
 li {
-    padding: 10px;
+    padding: 0 10px 10px;
+    display: flex;
+    align-items: end;
+}
+
+.content-sidebar span {
+    margin-left: 10px;
 }

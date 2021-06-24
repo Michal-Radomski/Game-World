@@ -12,11 +12,11 @@ export function Sidebar() {
                 <div className="content-sidebar" style={{ color: "white" }}>
                     <ul>
                         <li>
-                            <MenuBookIcon />
+                            <ImportContactsIcon />
                             <span> Articles</span>
                         </li>
                         <li>
-                            <ImportContactsIcon />
+                            <MenuBookIcon />
                             <span> Create your article</span>
                         </li>
                         <li>
