@@ -1,48 +1,80 @@
+body {
+    background-image: url("./images/zane-lee-IHj0xtWtLKE-unsplash.jpg");
+    background-color: black;
+}
+
 .App {
     text-align: center;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+.slider {
+    width: 27%;
+    margin: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.content {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.476);
+    padding: 10px;
 }
 
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
+.react-3d-carousel {
+    margin: 20px 0;
+}
+
+.carouselContainer {
+    min-height: 350px;
+}
+
+.topGameImg {
+    max-height: 150px;
+    width: fit-content;
+}
+
+.topGamesContainer {
+    padding: 5px;
+    background-color: rgb(57 74 167 / 42%);
+    border-radius: 7px;
+    max-width: 1100px;
+}
+h2 {
+    color: white;
+    background-color: rgb(66 66 206 / 56%);
+    width: fit-content;
+    padding: 2px 15px 5px;
+    border-radius: 5px;
+}
+
+.paperInnerStyle {
+    background-color: black;
+    padding: 15px;
     color: white;
 }
 
-.App-link {
-    color: #61dafb;
+.side-by-side {
+    display: flex;
+    align-items: flex-start;
+    padding: 30px 20px;
 }
 
-.MuiMobileStepper-root {
-    background-color: darkred;
+.sidebarHeader {
+    margin-bottom: 10px;
+    margin-top: 50px;
 }
 
-.MuiPaper-elevation0 {
-    width: 500px;
-    margin: auto;
-    background-color: darkred;
+.content-sidebar {
+    flex: 150px 0 0;
+    background-color: rgb(57 74 167 / 42%);
+    padding: 20px;
+    border-radius: 7px;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+li {
+    padding: 0 10px 10px;
+    display: flex;
+    align-items: end;
+}
+
+.content-sidebar span {
+    margin-left: 10px;
 }
