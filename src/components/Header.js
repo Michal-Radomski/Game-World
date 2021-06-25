@@ -62,6 +62,30 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  buttonSingUp: {
+    backgroundColor: "darkViolet",
+    color: "#fff",
+    marginRight: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
+    border: "1px solid darkblue",
+    "&:hover": {
+      backgroundColor: "#fff",
+      color: "darkViolet",
+    },
+  },
+  buttonLogIn: {
+    backgroundColor: "#1e88e5",
+    color: "#fff",
+    marginRight: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
+    border: "1px solid darkblue",
+    "&:hover": {
+      backgroundColor: "#fff",
+      color: "#1e88e5",
+    },
+  },
 }));
 
 export default function Header() {
@@ -77,10 +101,10 @@ export default function Header() {
           <Typography className={classes.title} variant="h6" noWrap>
             GAMEWORLD
           </Typography>
-          <Button variant="outlined" color="default">
+          <Button className={classes.buttonSingUp} style={{borderRadius: 5}}>
             Sign Up
           </Button>
-          <Button variant="outlined" color="secondary">
+          <Button className={classes.buttonLogIn} style={{borderRadius: 5}}>
             Log In
           </Button>
           <div className={classes.search}>
