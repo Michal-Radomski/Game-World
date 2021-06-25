@@ -5,9 +5,11 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import {fade, makeStyles} from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
+// import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import Button from "@material-ui/core/Button";
+import TopBarMenu from "./TopBarMenu";
+// import ModalSignUp from "./ModalSignUp";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -62,6 +64,30 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  buttonSingUp: {
+    backgroundColor: "darkViolet",
+    color: "#fff",
+    marginRight: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
+    border: "1px solid darkblue",
+    "&:hover": {
+      backgroundColor: "#fff",
+      color: "darkViolet",
+    },
+  },
+  buttonLogIn: {
+    backgroundColor: "#1e88e5",
+    color: "#fff",
+    marginRight: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
+    border: "1px solid darkblue",
+    "&:hover": {
+      backgroundColor: "#fff",
+      color: "#1e88e5",
+    },
+  },
 }));
 
 export default function Header() {
@@ -72,15 +98,16 @@ export default function Header() {
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer">
-            <MenuIcon />
+            {/* <MenuIcon /> */}
+            <TopBarMenu />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             GAMEWORLD
           </Typography>
-          <Button variant="outlined" color="default">
+          <Button className={classes.buttonSingUp} style={{borderRadius: 5}}>
             Sign Up
           </Button>
-          <Button variant="outlined" color="secondary">
+          <Button className={classes.buttonLogIn} style={{borderRadius: 5}}>
             Log In
           </Button>
           <div className={classes.search}>
