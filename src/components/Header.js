@@ -9,6 +9,7 @@ import {fade, makeStyles} from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
 import Button from "@material-ui/core/Button";
 import TopBarMenu from "./TopBarMenu";
+// import ModalSignUp from "./ModalSignUp";
 
 const useStyles = makeStyles((theme) => ({
   root: {
