@@ -51,22 +51,25 @@ export default function Gallery() {
     const topGames = useTopGames();
     function changeOriginalImageSize(image, size) {
         const splitImage = image.split("thumb");
+        console.log(splitImage)
         return `https://${splitImage[0]}${size}${splitImage[1]}`;
     }
     const modalClasses = useModalStyles();
     const [modalStyle] = React.useState(getModalStyle);
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(null);
 
-    const handleOpen = () => {
-        setOpen(true);
+    const handleOpen = (img)=> () => {
+        setOpen(img);
     };
 
     const handleClose = () => {
-        setOpen(false);
+        setOpen(null);
     };
-
+    //src="https://images.igdb.com/igdb/image/upload/t_cover_big/sc7fxs.jpg"
+    //https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc8t1c.jpg
     // console.log("IMAGE---", changeOriginalImageSize("images.igdb.com/igdb/image/upload/t_thumb/npe0c8mphnlmp9elxqko.jpg", "cover_big"));
     return (
+        <>
         <div className={classes.root}>
             <h2>Gallery</h2>
 
@@ -77,7 +80,7 @@ export default function Gallery() {
                         <>
                             <h3 className="galleryHeader">{game.name}</h3>
                             <Grid item xs>
-                                <Button onClick={handleOpen}>
+                                <Button onClick={handleOpen(game.screenshots[0])}>
                                     <Paper className={(classes.paper, "paperInnerStyle")} key={game.id}>
                                         <img className="topGameImg" src={changeOriginalImageSize(`${game.screenshots[0]}`, "cover_big")} alt=""></img>
                                     </Paper>
@@ -88,13 +91,10 @@ export default function Gallery() {
                                     <Button>
                                         <Paper className={(classes.paper, "paperInnerStyle")} key={game.id}>
                                             <img className="topGameImg" src={changeOriginalImageSize(`${game.screenshots[1]}`, "cover_big")} alt=""></img>
-                                            {console.log("game 1", game)}
-                                            <Modal open={open} onClose={handleClose}>
-                                                <div style={modalStyle} className={modalClasses.paper}>
-                                                    <img src={changeOriginalImageSize(`${game.screenshots[1]}`, "screenshot_big")} alt=""></img>
-                                                    {console.log("game 2", game)}
-                                                </div>
-                                            </Modal>
+                                            {/*{console.log("game 1", game)}*/}
+                                            {/*{console.log(game.screenshots[1])}*/}
+                                            {console.log('nomodal', changeOriginalImageSize(`${game.screenshots[1]}`, "cover_big"))}
+
                                         </Paper>
                                     </Button>
                                 </Grid>
@@ -113,5 +113,11 @@ export default function Gallery() {
                 })}
             </Grid>
         </div>
+    <Modal open={!!open} onClose={handleClose}>
+        <div style={modalStyle} className={modalClasses.paper}>
+            <img src={changeOriginalImageSize(open || '', "screenshot_big")} alt=""/>
+        </div>
+    </Modal>
+     </>
     );
 }
