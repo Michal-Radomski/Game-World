@@ -6,6 +6,8 @@ import { useTopGames } from "../components/Firebase";
 import { Button } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
 import "../App.css";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import Dialog from "@material-ui/core/Dialog";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -46,7 +48,7 @@ const useModalStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Gallery() {
+export default function Gallery2() {
     const classes = useStyles();
     const topGames = useTopGames();
     function changeOriginalImageSize(image, size) {
