@@ -2,3 +2,5 @@ node_modules
 settings.json
 *.log
 .expo/
+package-lock.json
+/build
