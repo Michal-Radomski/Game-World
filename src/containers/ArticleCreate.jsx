@@ -1,15 +1,17 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import Container from '@material-ui/core/Container';
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import "./ArticleCreate.css";
 import { addArticle } from '../components/Firebase';
 
-
   const ArticleCreate = () => {
-    // const [isSubmited, setIsSubmited] = useState(false);
-    // const submit = () => setIsSubmited(!isSubmited);
+   
+    const submit = () => {
+      addArticle()
+      alert("Article added to db");
+    }
     
   return (
     <Container id="field">
@@ -19,7 +21,7 @@ import { addArticle } from '../components/Firebase';
        <TextField name="description" id="articleDescription" label="Description" />
        <TextField name="content" id="articleContent" label="Content" multiline rows={6} />
        <TextField name="img" id="articleImg" label="Img" />
-      <Button color="primary" onClick={addArticle}>
+      <Button color="primary" onClick={submit}>
           Create Article
         </Button>
     </form>
