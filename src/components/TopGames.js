@@ -30,8 +30,8 @@ export default function TopGames() {
         <div className={classes.root}>
             <h2>Top games</h2>
             <Grid container className="topGamesContainer" spacing={3}>
-                {topGames.slice(0, 6).map((game) => {
-                    console.log("GGG", game);
+                {topGames.slice(10, 19).map((game) => {
+                    // console.log("GGG", game);
                     return (
                         <Grid item xs>
                             <Button>

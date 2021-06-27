@@ -72,9 +72,15 @@ h2 {
 li {
     padding: 0 10px 10px;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
 }
 
 .content-sidebar span {
     margin-left: 10px;
+}
+
+h3.galleryHeader {
+    width: inherit;
+    color: white;
+    text-align: center;
 }
