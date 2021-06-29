@@ -2,7 +2,10 @@ import "./Footer.css";
 
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button } from "@material-ui/core";
+import {
+    // Typography, Grid,
+    Button,
+} from "@material-ui/core";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
