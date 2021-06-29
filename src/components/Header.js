@@ -9,6 +9,8 @@ import {fade, makeStyles} from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
 import Button from "@material-ui/core/Button";
 import TopBarMenu from "./TopBarMenu";
+import Logo from "../images/G-W-logo.png";
+import {width} from "@material-ui/system";
 // import ModalSignUp from "./ModalSignUp";
 
 const useStyles = makeStyles((theme) => ({
@@ -101,8 +103,9 @@ export default function Header() {
             {/* <MenuIcon /> */}
             <TopBarMenu />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            GAMEWORLD
+          <img src={Logo} height="35px" alt="Game World Logo" />
+          <Typography className={classes.title} variant="h6" noWrap style={{color: "#FDC84B"}}>
+            &#8239;GAMEWORLD
           </Typography>
           <Button className={classes.buttonSingUp} style={{borderRadius: 5}}>
             Sign Up
