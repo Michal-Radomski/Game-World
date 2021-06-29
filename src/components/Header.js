@@ -6,10 +6,10 @@ import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import {fade, makeStyles} from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
-import Button from "@material-ui/core/Button";
 import TopBarMenu from "./TopBarMenu";
 import Logo from "../images/G-W-logo.png";
-// import ModalSignUp from "./ModalSignUp";
+import ModalSignUp from "./ModalSignUp";
+import ModalLogIn from "./ModalLogIn";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,30 +64,6 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  buttonSingUp: {
-    backgroundColor: "darkViolet",
-    color: "#fff",
-    marginRight: 10,
-    paddingLeft: 15,
-    paddingRight: 15,
-    border: "1px solid darkblue",
-    "&:hover": {
-      backgroundColor: "#fff",
-      color: "darkViolet",
-    },
-  },
-  buttonLogIn: {
-    backgroundColor: "#1e88e5",
-    color: "#fff",
-    marginRight: 10,
-    paddingLeft: 15,
-    paddingRight: 15,
-    border: "1px solid darkblue",
-    "&:hover": {
-      backgroundColor: "#fff",
-      color: "#1e88e5",
-    },
-  },
 }));
 
 export default function Header() {
@@ -104,12 +80,8 @@ export default function Header() {
           <Typography className={classes.title} variant="h6" noWrap style={{color: "#FDC84B"}}>
             &#8239;GAMEWORLD
           </Typography>
-          <Button className={classes.buttonSingUp} style={{borderRadius: 5}}>
-            Sign Up
-          </Button>
-          <Button className={classes.buttonLogIn} style={{borderRadius: 5}}>
-            Log In
-          </Button>
+          <ModalSignUp />
+          <ModalLogIn />
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
