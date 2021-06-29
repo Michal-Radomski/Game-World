@@ -6,6 +6,7 @@ import TopGames from "./components/TopGames";
 import ArticleCreate from "./containers/ArticleCreate";
 import { Sidebar } from "./components/Sidebar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Gallery from "./containers/Gallery";
 
 // import {addGame} from "./components/Firebase"
 
@@ -26,6 +27,9 @@ function App() {
                     </Route>
                     <Route path="/createArticle">
                         <ArticleCreate />
+                    </Route>
+                    <Route path="/gallery">
+                        <Gallery />
                     </Route>
                 </Switch>
             </Layout>
