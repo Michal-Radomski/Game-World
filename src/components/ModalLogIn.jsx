@@ -1,72 +1,97 @@
 import React from "react";
-import {makeStyles} from "@material-ui/core/styles";
-import {Modal} from "@material-ui/core";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
+import {withStyles} from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import MuiDialogTitle from "@material-ui/core/DialogTitle";
+import MuiDialogContent from "@material-ui/core/DialogContent";
+import MuiDialogActions from "@material-ui/core/DialogActions";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
+import Typography from "@material-ui/core/Typography";
 
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+const styles = (theme) => ({
+  root: {
+    margin: 0,
+    padding: theme.spacing(2),
   },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+  closeButton: {
+    position: "absolute",
+    right: theme.spacing(1),
+    top: theme.spacing(1),
+    color: theme.palette.grey[500],
   },
-  buttonLogIn: {
-    backgroundColor: "#1e88e5",
-    color: "#fff",
-    marginRight: 10,
-    paddingLeft: 15,
-    paddingRight: 15,
-    border: "1px solid darkblue",
-    "&:hover": {
-      backgroundColor: "#fff",
-      color: "#1e88e5",
-    },
+});
+
+const DialogTitle = withStyles(styles)((props) => {
+  const {children, classes, onClose, ...other} = props;
+  return (
+    <MuiDialogTitle disableTypography className={classes.root} {...other}>
+      <Typography variant="h6">{children}</Typography>
+      {onClose ? (
+        <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
+          <CloseIcon />
+        </IconButton>
+      ) : null}
+    </MuiDialogTitle>
+  );
+});
+
+const DialogContent = withStyles((theme) => ({
+  root: {
+    padding: theme.spacing(2),
   },
-}));
+}))(MuiDialogContent);
+
+const DialogActions = withStyles((theme) => ({
+  root: {
+    margin: 0,
+    padding: theme.spacing(1),
+  },
+}))(MuiDialogActions);
 
 export default function ModalLogIn() {
-  const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
-  const handleOpen = () => {
+  const handleClickOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
 
   return (
     <div>
-      <Button className={classes.buttonLogIn} style={{borderRadius: 5}} onClick={handleOpen}>
+      <Button
+        style={{
+          backgroundColor: "#1e88e5",
+          color: "#fff",
+          marginRight: 10,
+          paddingLeft: 15,
+          paddingRight: 15,
+          border: "1px solid darkblue",
+          borderRadius: 5,
+          "&:hover": {
+            backgroundColor: "#fff",
+            color: "#1e88e5",
+          },
+        }}
+        onClick={handleClickOpen}
+      >
         Log In
       </Button>
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-            <h2 id="transition-modal-title">Transition modal</h2>
-            <p id="transition-modal-description">react-transition-group animates me.</p>
-          </div>
-        </Fade>
-      </Modal>
+      <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
+        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+          Log In
+        </DialogTitle>
+        <DialogContent dividers>
+          <Typography gutterBottom>Test Test Test</Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus onClick={handleClose} color="primary">
+            Log In
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 }
