@@ -40,33 +40,20 @@ export function useTopGames() {
 
   return topGames;
 }
-export const getArticlesLength = (event) => {
-  db.collection("articles")
-    .get()
-    .then((querySnapshot) => {
-      console.log(
-        typeof querySnapshot.docs.length + " " + querySnapshot.docs.length
-        // console log zwraca wypisuje typ number i liczbe
-      );
-      return querySnapshot.docs.length;
-    });
-};
 
 export const addArticle = (event) => {
-  console.log(getArticlesLength());
-  // wywolanie metody jest undefined
   const form = document.querySelector("#articleForm");
-  const article_id = getArticlesLength() + 1;
-  const firstname = form.title.value;
-  const lastname = form.description.value;
-  const age = form.content.value;
+  const created = Date.now();
+  const title = form.title.value;
+  const description = form.description.value;
+  const content = form.content.value;
   const img = form.img.value;
 
   const article = {
-    article_id,
-    firstname,
-    lastname,
-    age,
+    created,
+    title,
+    description,
+    content,
     img,
   };
 
