@@ -5,12 +5,10 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import {fade, makeStyles} from "@material-ui/core/styles";
-// import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import Button from "@material-ui/core/Button";
 import TopBarMenu from "./TopBarMenu";
 import Logo from "../images/G-W-logo.png";
-import {width} from "@material-ui/system";
 // import ModalSignUp from "./ModalSignUp";
 
 const useStyles = makeStyles((theme) => ({
@@ -100,7 +98,6 @@ export default function Header() {
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer">
-            {/* <MenuIcon /> */}
             <TopBarMenu />
           </IconButton>
           <img src={Logo} height="35px" alt="Game World Logo" />
