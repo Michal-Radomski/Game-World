@@ -80,13 +80,20 @@ export default function ModalSignUp() {
         Sign Up
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+        <DialogTitle
+          id="customized-dialog-title"
+          onClose={handleClose}
+          style={{backgroundColor: "red", color: "whiteSmoke"}}
+        >
           Create Account
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>Test Test Test</Typography>
         </DialogContent>
         <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Cancel
+          </Button>
           <Button autoFocus onClick={handleClose} color="primary">
             Create Account
           </Button>

@@ -80,13 +80,20 @@ export default function ModalLogIn() {
         Log In
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+        <DialogTitle
+          id="customized-dialog-title"
+          onClose={handleClose}
+          style={{backgroundColor: "green", color: "whiteSmoke"}}
+        >
           Log In
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>Test Test Test</Typography>
         </DialogContent>
         <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Cancel
+          </Button>
           <Button autoFocus onClick={handleClose} color="primary">
             Log In
           </Button>
