@@ -1,3 +1,5 @@
+// Component for Creating an Account
+
 import React from "react";
 import {withStyles} from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -9,6 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import FormSignUp from "./FormSignUp";
+import "./modals.css";
 
 const styles = (theme) => ({
   root: {
@@ -69,22 +72,7 @@ export default function ModalSignUp() {
 
   return (
     <div>
-      <Button
-        style={{
-          backgroundColor: "darkViolet",
-          color: "#fff",
-          marginRight: 10,
-          paddingLeft: 15,
-          paddingRight: 15,
-          border: "1px solid darkblue",
-          borderRadius: 5,
-          "&:hover": {
-            backgroundColor: "#fff",
-            color: "darkViolet",
-          },
-        }}
-        onClick={handleClickOpen}
-      >
+      <Button className="SignUp" onClick={handleClickOpen}>
         Sign Up
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>

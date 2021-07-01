@@ -1,3 +1,5 @@
+// Component for Left-Side Menu
+
 import MenuIcon from "@material-ui/icons/Menu";
 import React from "react";
 // import Button from "@material-ui/core/Button";

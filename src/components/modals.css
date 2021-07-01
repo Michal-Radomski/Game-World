@@ -1,0 +1,15 @@
+/* Component for styling the modals */
+
+button.SignUp {
+  background-color: darkviolet;
+  color: white;
+  margin-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid darkblue;
+  border-radius: 5px;
+}
+button.SignUp:hover {
+  background-color: #fff;
+  color: darkviolet;
+}
