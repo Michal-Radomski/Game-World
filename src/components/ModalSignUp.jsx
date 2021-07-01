@@ -4,21 +4,16 @@ import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
-import MuiDialogActions from "@material-ui/core/DialogActions";
+// import MuiDialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
+import FormSignUp from "./FormSignUp";
 
 const styles = (theme) => ({
   root: {
     margin: 0,
     padding: theme.spacing(2),
-  },
-  closeButton: {
-    position: "absolute",
-    right: theme.spacing(1),
-    top: theme.spacing(1),
-    color: theme.palette.grey[500],
   },
 });
 
@@ -28,7 +23,20 @@ const DialogTitle = withStyles(styles)((props) => {
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
       <Typography variant="h6">{children}</Typography>
       {onClose ? (
-        <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
+        <IconButton
+          aria-label="close"
+          className={classes.closeButton}
+          onClick={onClose}
+          style={{
+            backgroundColor: "darkViolet",
+            color: "whitesmoke",
+            float: "right",
+            position: "absolute",
+            top: "10px",
+            right: "10px",
+            padding: "10px",
+          }}
+        >
           <CloseIcon />
         </IconButton>
       ) : null}
@@ -42,12 +50,12 @@ const DialogContent = withStyles((theme) => ({
   },
 }))(MuiDialogContent);
 
-const DialogActions = withStyles((theme) => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(1),
-  },
-}))(MuiDialogActions);
+// const DialogActions = withStyles((theme) => ({
+//   root: {
+//     margin: 0,
+//     padding: theme.spacing(1),
+//   },
+// }))(MuiDialogActions);
 
 export default function ModalSignUp() {
   const [open, setOpen] = React.useState(false);
@@ -87,17 +95,10 @@ export default function ModalSignUp() {
         >
           Create Account
         </DialogTitle>
-        <DialogContent dividers>
-          <Typography gutterBottom>Test Test Test</Typography>
+        <DialogContent>
+          <FormSignUp />
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
-          <Button autoFocus onClick={handleClose} color="primary">
-            Create Account
-          </Button>
-        </DialogActions>
+        {/* <DialogActions></DialogActions> */}
       </Dialog>
     </div>
   );

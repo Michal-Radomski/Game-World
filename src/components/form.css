@@ -1,0 +1,77 @@
+body {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+form {
+  max-width: 600px;
+  min-width: 450px;
+  margin: 0 auto;
+  height: auto;
+  background-color: whitesmoke;
+}
+p {
+  color: red;
+}
+label {
+  text-align: left;
+  display: block;
+  color: black;
+}
+p span,
+label span {
+  color: red;
+  font-weight: bold;
+}
+p::before:not(p.firstLine) {
+  display: inline;
+  content: "⚠ ";
+}
+p.firstLine {
+  color: black;
+}
+input {
+  width: calc(100% - 30px);
+  display: block;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+}
+input:active,
+input:hover {
+  border: orchid 2px solid;
+  background-color: lightgoldenrodyellow;
+}
+button[type="submit"] {
+  padding: 10px 25px;
+  color: whitesmoke;
+  background-color: rgb(25, 28, 199);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  float: right;
+}
+button[type="reset"] {
+  padding: 10px 25px;
+  margin-top: 30px;
+  color: whitesmoke;
+  background-color: purple;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  width: auto;
+  float: left;
+}
+button:hover {
+  transition: 0.3s all;
+  filter: brightness(85%);
+}
+select {
+  display: inline;
+  color: rgb(25, 28, 199);
+  background-color: yellow;
+  display: block;
+  border-radius: 5px;
+}
