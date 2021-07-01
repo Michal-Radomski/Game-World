@@ -37,7 +37,7 @@ export default function TopGames() {
                             <Button>
                                 <Paper className={(classes.paper, "paperInnerStyle")} key={game.id}>
                                     <h3>{game.name}</h3>
-                                    <img className="topGameImg" src={changeOriginalImageSize(`${game.screenshots[0]}`, "cover_big")} alt=""></img>
+                                    <img className="topGameImg brightness" src={changeOriginalImageSize(`${game.screenshots[0]}`, "cover_big")} alt=""></img>
                                 </Paper>
                             </Button>
                         </Grid>
