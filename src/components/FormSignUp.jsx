@@ -57,6 +57,7 @@ export default function FormSignUp() {
       </label>
       <input
         className="formInput"
+        style={{marginBottom: "20px"}}
         type="password"
         placeholder="confirm password"
         {...register("passwordConfirmation", {
@@ -75,12 +76,10 @@ export default function FormSignUp() {
       <label htmlFor="gender" style={{display: "inline", float: "left"}}>
         Gender:&#160;&#160;
       </label>
-      <select {...register("gender")}>
-        <option value="other" selected>
-          other
-        </option>
-        <option value="female">female</option>
-        <option value="male">male</option>
+      <select {...register("gender")} defaultValue="Other">
+        <option value="other">Other</option>
+        <option value="female">Female</option>
+        <option value="male">Male</option>
       </select>
       <div>
         <button type="reset">Reset</button>

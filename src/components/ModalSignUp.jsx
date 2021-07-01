@@ -83,7 +83,7 @@ export default function ModalSignUp() {
         >
           Create Account
         </DialogTitle>
-        <DialogContent>
+        <DialogContent style={{backgroundColor: "whiteSmoke"}}>
           <FormSignUp />
         </DialogContent>
         {/* <DialogActions></DialogActions> */}
