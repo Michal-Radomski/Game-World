@@ -8,6 +8,10 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
+  // To get rid of erros in the console:
+  // <div>
+  //   <App />
+  // </div>,
   document.getElementById("root")
 );
 
