@@ -9,6 +9,7 @@ import MenuBookIcon from "@material-ui/icons/MenuBook";
 import ImportContactsIcon from "@material-ui/icons/ImportContacts";
 import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
 import WallpaperIcon from "@material-ui/icons/Wallpaper";
+import "./TopBarMenu.css";
 
 export default function TopbarMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -29,22 +30,22 @@ export default function TopbarMenu() {
 
       <MenuIcon aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} />
       <Menu id="simple-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleClose} className="MenuItem">
           {" "}
           <ImportContactsIcon />
           <span>&nbsp;&nbsp;&nbsp;Articles</span>
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleClose} className="MenuItem">
           {" "}
           <MenuBookIcon />
           <span>&nbsp;&nbsp;&nbsp;Create your article</span>
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleClose} className="MenuItem">
           {" "}
           <SportsEsportsIcon />
           <span>&nbsp;&nbsp;&nbsp;Game catalog</span>
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleClose} className="MenuItem">
           {" "}
           <WallpaperIcon />
           <span>&nbsp;&nbsp;&nbsp;Gallery</span>

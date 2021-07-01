@@ -1,0 +1,8 @@
+.MenuItem {
+  color: initial;
+  background-color: initial;
+}
+.MenuItem:hover {
+  color: blue;
+  background-color: lightcyan !important;
+}
