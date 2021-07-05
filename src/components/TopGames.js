@@ -30,12 +30,12 @@ export default function TopGames() {
         <div className={classes.root}>
             <h2>Top games</h2>
             <Grid container className="topGamesContainer" spacing={3}>
-                {topGames.slice(10, 19).map((game) => {
+                {topGames.slice(10, 19).map((game, index) => {
                     // console.log("GGG", game);
                     return (
-                        <Grid item xs>
+                        <Grid item xs key={index}>
                             <Button>
-                                <Paper className={(classes.paper, "paperInnerStyle")} key={game.id}>
+                                <Paper className={(classes.paper, "paperInnerStyle")}>
                                     <h3>{game.name}</h3>
                                     <img className="topGameImg brightness" src={changeOriginalImageSize(`${game.screenshots[0]}`, "cover_big")} alt=""></img>
                                 </Paper>
