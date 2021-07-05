@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useTopGames } from "../components/Firebase";
 import { Button } from "@material-ui/core";
+import moment from "moment";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,26 +18,30 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function GameCatalog() {
+    moment().format("MMMM Do YYYY, h:mm:ss a");
     const classes = useStyles();
     const topGames = useTopGames();
     function changeOriginalImageSize(image, size) {
         const splitImage = image.split("thumb");
         return `https://${splitImage[0]}${size}${splitImage[1]}`;
     }
-    // console.log("IMAGE---", changeOriginalImageSize("images.igdb.com/igdb/image/upload/t_thumb/npe0c8mphnlmp9elxqko.jpg", "cover_big"));
     return (
         <div className={classes.root}>
             <h2>Game catalog</h2>
-            <div className="topGamesContainer-catalog">
-                {topGames.map((game) => {
+            <ul className="topGamesContainer-catalog">
+                {topGames.map((game, index) => {
+                    const unixTimestamp = game.first_release_date;
+                    const milliseconds = unixTimestamp * 1000;
+                    const dateObject = new Date(milliseconds);
+                    const humanDateFormat = dateObject.toLocaleString().slice(0, -10);
                     return (
-                        <div className="container-catalog ">
+                        <li key={index} className="container-catalog">
                             <Button>
                                 <img className="topGameImg-catalog brightness shadow" src={changeOriginalImageSize(`${game.screenshots[0]}`, "cover_big")} alt=""></img>
                                 <div className="content-game">
                                     <div className="game-info first">
                                         <h3>Title: {game.name}</h3>
-                                        <h4>Release date: {game.first_release_date}</h4>
+                                        <h4>Release date: {humanDateFormat}</h4>
                                     </div>
                                     <div className="game-info second">
                                         <h4>Genre: {game.genres[0]}</h4>
@@ -44,10 +49,10 @@ export default function GameCatalog() {
                                     </div>
                                 </div>
                             </Button>
-                        </div>
+                        </li>
                     );
                 })}
-            </div>
+            </ul>
         </div>
     );
 }
