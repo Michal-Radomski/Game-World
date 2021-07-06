@@ -7,13 +7,13 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.about h1 {
+.app h1 {
 
     font-size: 80px;
     text-align: center;
 }
 
-.about a {
+.app a {
 
     font-size: 20px;
     text-decoration: none;
