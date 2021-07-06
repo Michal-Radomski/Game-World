@@ -1,3 +1,5 @@
+// Component for Header
+
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -5,11 +7,11 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import {fade, makeStyles} from "@material-ui/core/styles";
-// import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
-import Button from "@material-ui/core/Button";
 import TopBarMenu from "./TopBarMenu";
-// import ModalSignUp from "./ModalSignUp";
+import Logo from "../images/G-W-logo.png";
+import ModalSignUp from "./ModalSignUp";
+import ModalLogIn from "./ModalLogIn";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,52 +66,23 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  buttonSingUp: {
-    backgroundColor: "darkViolet",
-    color: "#fff",
-    marginRight: 10,
-    paddingLeft: 15,
-    paddingRight: 15,
-    border: "1px solid darkblue",
-    "&:hover": {
-      backgroundColor: "#fff",
-      color: "darkViolet",
-    },
-  },
-  buttonLogIn: {
-    backgroundColor: "#1e88e5",
-    color: "#fff",
-    marginRight: 10,
-    paddingLeft: 15,
-    paddingRight: 15,
-    border: "1px solid darkblue",
-    "&:hover": {
-      backgroundColor: "#fff",
-      color: "#1e88e5",
-    },
-  },
 }));
 
 export default function Header() {
   const classes = useStyles();
-
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer">
-            {/* <MenuIcon /> */}
             <TopBarMenu />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            GAMEWORLD
+          <img src={Logo} height="35px" alt="Game World Logo" />
+          <Typography className={classes.title} variant="h6" noWrap style={{color: "#FDC84B"}}>
+            &#8239;GAMEWORLD
           </Typography>
-          <Button className={classes.buttonSingUp} style={{borderRadius: 5}}>
-            Sign Up
-          </Button>
-          <Button className={classes.buttonLogIn} style={{borderRadius: 5}}>
-            Log In
-          </Button>
+          <ModalSignUp />
+          <ModalLogIn />
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
