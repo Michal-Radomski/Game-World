@@ -8,6 +8,8 @@ import { Sidebar } from "./components/Sidebar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Gallery from "./containers/Gallery";
 import GameCatalog from "./containers/GameCatalog";
+import AboutUs from "./containers/AboutUs";
+import Contact from "./containers/Contact";
 
 // import {addGame} from "./components/Firebase"
 
@@ -34,6 +36,14 @@ function App() {
                     </Route>
                     <Route path="/games">
                         <GameCatalog />
+                    </Route>
+
+                    <Route path="/about-us">
+                        <AboutUs />
+                    </Route>
+
+                    <Route path="/contact">
+                        <Contact />
                     </Route>
                 </Switch>
             </Layout>

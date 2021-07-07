@@ -1,0 +1,50 @@
+.mainContact{
+
+    margin-bottom: 180px;
+}
+
+.Contact {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    background: inherit;
+
+
+}
+
+.Contact label {
+    text-align: center;
+    display: block;
+    color: white;
+}
+
+.Contact h3 {
+    font-size: 20px;
+    color: White;
+    margin-bottom: 30px;
+}
+
+.Contact input,
+.Contact textarea {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+    border-radius: 8px;
+    font-family: 'Roboto',
+        sans-serif;
+}
+
+.Contact button {
+    background: #f1356d;
+    color: #fff;
+    border: 0;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    float: none;
+    font-size: 16px;
+
+}

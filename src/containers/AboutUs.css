@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100&display=swap');
+
+
+
+.aboutuspage {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    background: rgb(238, 174, 202);
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    font-family: 'Roboto', sans-serif;
+}
+
+.about h1 {
+
+    font-size: 80px;
+    
+   
+}
+
+.about h2 {
+
+    font-size: 24px;
+    width:unset;
+    background-color: inherit;
+    color:black;
+    
+  
+
+}
+
+.about p {
+    color: white;
+}
+.about a {
+
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+}
+

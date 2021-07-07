@@ -18,7 +18,7 @@ firebase.initializeApp(firebaseConfig);
 firebase.firestore().settings(settings);
 
 const db = firebase.firestore();
-
+//dodanie danych do bazy 
 export const addGame = (e) => {
   data.forEach((item) => {
     db.collection("games").add(item);

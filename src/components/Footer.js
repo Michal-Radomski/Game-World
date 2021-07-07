@@ -51,26 +51,26 @@ const Footer = () => {
                 <div className="row">
                     {/* Column 1 */}
                     <div className="col">
-                        <h4>Nasz serwis z grami GameWorld !</h4>
+                        <h4>Our GameWorld gaming site!</h4>
                         <ul className="list">
-                            <a href="https://www.gry-online.pl/S021.asp">Nowości</a>
-                            <li>Najlepiej oceniane gry</li>
-                            <li>Klasyka gier</li>
+                            <a href="https://www.gry-online.pl/S021.asp">News</a>
+                            <li>Best Rated Games</li>
+                            <li>Classic games</li>
                         </ul>
                     </div>
 
                     {/* column2 */}
                     <div className="col">
-                        <h4>O serwisie</h4>
+                        <h4>About the site</h4>
                         <ul className="list">
-                            <Button className={classes.btn} variant="outlined" color="default" href="#outlined-buttons">
-                                O nas
+                            <Button className={classes.btn} variant="outlined" color="default" href="/about-us">
+                               About us
                             </Button>
-                            <Button className={classes.btn2} variant="outlined" href="#outlined-buttons">
-                                Kontakt
+                            <Button className={classes.btn2} variant="outlined" href="/contact">
+                                Contact
                             </Button>
-                            <Button className={classes.btn3} variant="outlined" href="#outlined-buttons">
-                                RSS
+                            <Button className={classes.btn3} variant="outlined" href="/createArticle">
+                                Create article
                             </Button>
                         </ul>
                     </div>
