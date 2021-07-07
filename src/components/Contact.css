@@ -2,17 +2,19 @@
     max-width: 400px;
     margin: 0 auto;
     text-align: center;
+    background: inherit;
 
 }
 
 .Contact label {
     text-align: center;
     display: block;
+    color:white;
 }
 
 .Contact h3 {
     font-size: 20px;
-    color: black;
+    color: White;
     margin-bottom: 30px;
 }
 
@@ -36,5 +38,6 @@
     padding: 8px;
     border-radius: 8px;
     cursor: pointer;
+    float: none;
 
 }
