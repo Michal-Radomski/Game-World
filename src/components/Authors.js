@@ -5,7 +5,7 @@ function Authors({ authorsData }) {
         <div>
 
             <h2>
-                Cześć! Jestem {authorsData.name}. Moje stanowisko to {authorsData.description}.
+                Hi! I'm {authorsData.name}. My position is {authorsData.description}.
             </h2>
             <p>{authorsData.info}</p>
             {authorsData.image}

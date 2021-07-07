@@ -22,17 +22,17 @@ export default function Form() {
     return (
         <div className="mainContact">
             <form className="Contact" onSubmit={handleSubmit}>
-                <h3>Formularz kontaktowy</h3>
-                <label>Imię</label>
+                <h3>Contact form</h3>
+                <label>Name</label>
                 <input type="tekst" required placeholder="Imię" value={title} onChange={(e) => setTitle(e.target.value)} />
-                <label>Nazwisko</label>
+                <label>Surname</label>
                 <input type="tekst" required placeholder="Nazwisko" value={surname} onChange={(e) => setSurname(e.target.value)} />
                 <label>E-mail</label>
                 <input type="tekst" required placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <label>Wiadomość</label>
+                <label>Message</label>
                 <textarea type="tekst" required placeholder="Wiadomość" value={tarea} onChange={(e) => setTarea(e.target.value)}>
                 </textarea>
-                <button type="submit">Wyślij</button>
+                <button type="submit">Submit</button>
                 <p>{title}</p>
                 <p>{surname}</p>
                 <p>{email}</p>

@@ -13,7 +13,7 @@ function AboutUs() {
             description: 'JS developer',
             image: <img src={require('../images/facet.jpg').default} height={200} width={300}></img>,
             github: <a href="https://github.com/piotrekzak-source/jfdzr3-projects-game-over">Github!</a>,
-            info: 'Uwielbiam grać w gry komputerowe, szczególnie sportowe. Moją ulubioną grą jest FIFA.',
+            info: 'I love playing computer games, especially sports games. My favorite game is FIFA.',
             id: 1,
 
         },
@@ -23,7 +23,7 @@ function AboutUs() {
             description: 'JS developer',
             image: <img src={require('../images/facet2.jpg').default} height={200} width={300}></img>,
             github: <a href="https://github.com/infoshareacademy/jfdzr3-projects-game-over">Github!</a>,
-            info: 'Bardzo lubię grać w gry strategiczne.',
+            info: 'I really enjoy playing strategy games.',
             id: 2,
 
         },
@@ -33,7 +33,7 @@ function AboutUs() {
             description: 'JS developer',
             image: <img src={require('../images/facet3.jpg').default} height={200} width={300}></img>,
             github: <a href="https://github.com/infoshareacademy/jfdzr3-projects-game-over">Github!</a>,
-            info: 'Bardzo lubię grać w gry RPG.',
+            info: 'I really enjoy playing RPG games.',
             id: 3,
         },
 
@@ -42,7 +42,7 @@ function AboutUs() {
             description: 'Experienced JS developer',
             image: <img src={require('../images/kobieta.jpg').default} height={200} width={300}></img>,
             github: <a href="https://github.com/infoshareacademy/jfdzr3-projects-game-over">Github!</a>,
-            info: 'Moją uluboną grą są Simsy.',
+            info: 'My favorite game is the Sims.',
             id: 4,
 
         },
