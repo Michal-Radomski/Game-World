@@ -1,4 +1,8 @@
-.app {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100&display=swap');
+
+
+
+.aboutuspage {
     text-align: center;
     margin: 20px;
     padding: 20px;
@@ -7,54 +11,30 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.app h1 {
+.about h1 {
 
     font-size: 80px;
-    text-align: center;
+    
+   
 }
 
-.app a {
+.about h2 {
+
+    font-size: 24px;
+    width:unset;
+    background-color: inherit;
+    
+  
+
+}
+
+.about p {
+    color: white;
+}
+.about a {
 
     font-size: 20px;
     text-decoration: none;
     text-align: center;
 }
 
-.Contact {
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.Contact label {
-    text-align: center;
-    display: block;
-}
-
-.Contact h3 {
-    font-size: 20px;
-    color: black;
-    margin-bottom: 30px;
-}
-
-.Contact input,
-.Contact textarea {
-    width: 100%;
-    padding: 6px 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-    display: block;
-    border-radius: 8px;
-    font-family: 'Roboto',
-        sans-serif;
-}
-
-.Contact button {
-    background: #f1356d;
-    color: #fff;
-    border: 0;
-    padding: 8px;
-    border-radius: 8px;
-    cursor: pointer;
-}

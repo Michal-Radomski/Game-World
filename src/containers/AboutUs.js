@@ -1,8 +1,8 @@
 import "./AboutUs.css";
-import AuthorInfo from '../components/AuthorInfo';
+
 import React from 'react'
 import Authors from "../components/Authors";
-import Form from "../components/Form"
+
 
 
 function AboutUs() {
@@ -57,14 +57,11 @@ function AboutUs() {
 
     return (
 
-        <div className="app">
+        <div className="aboutuspage">
 
             <div className="about">
                 <h1>About us</h1>
                 {personlist}
-
-                <Form></Form>
-
 
             </div>
         </div>
