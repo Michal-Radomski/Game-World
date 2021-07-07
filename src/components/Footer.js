@@ -63,10 +63,10 @@ const Footer = () => {
                     <div className="col">
                         <h4>O serwisie</h4>
                         <ul className="list">
-                            <Button className={classes.btn} variant="outlined" color="default" href="#outlined-buttons">
+                            <Button className={classes.btn} variant="outlined" color="default" href="/about-us">
                                 O nas
                             </Button>
-                            <Button className={classes.btn2} variant="outlined" href="#outlined-buttons">
+                            <Button className={classes.btn2} variant="outlined" href="/contact">
                                 Kontakt
                             </Button>
                             <Button className={classes.btn3} variant="outlined" href="#outlined-buttons">
