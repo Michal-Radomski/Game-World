@@ -1,15 +1,21 @@
+.mainContact{
+
+    margin-bottom: 180px;
+}
+
 .Contact {
     max-width: 400px;
     margin: 0 auto;
     text-align: center;
     background: inherit;
 
+
 }
 
 .Contact label {
     text-align: center;
     display: block;
-    color:white;
+    color: white;
 }
 
 .Contact h3 {
@@ -39,5 +45,6 @@
     border-radius: 8px;
     cursor: pointer;
     float: none;
+    font-size: 16px;
 
 }

@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Gallery from "./containers/Gallery";
 import GameCatalog from "./containers/GameCatalog";
 import AboutUs from "./containers/AboutUs";
-import Contact from "./components/Contact";
+import Contact from "./containers/Contact";
 
 // import {addGame} from "./components/Firebase"
 
