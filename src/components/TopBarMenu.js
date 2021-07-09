@@ -9,7 +9,7 @@ import MenuBookIcon from "@material-ui/icons/MenuBook";
 import ImportContactsIcon from "@material-ui/icons/ImportContacts";
 import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
 import WallpaperIcon from "@material-ui/icons/Wallpaper";
-import "./TopBarMenu.css";
+import "../stylings/TopBarMenu.css";
 
 export default function TopbarMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
