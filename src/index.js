@@ -5,13 +5,13 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+//  <React.StrictMode>
+//    <App />
+//  </React.StrictMode>,
   // To get rid of erros in the console:
-  // <div>
-  //   <App />
-  // </div>,
+   <>
+     <App />
+   </>,
   document.getElementById("root")
 );
 
