@@ -10,45 +10,49 @@ import Gallery from "./containers/Gallery";
 import GameCatalog from "./containers/GameCatalog";
 import AboutUs from "./containers/AboutUs";
 import Contact from "./containers/Contact";
+import ArticleCatalog from "./containers/ArticleCatalog";
 
 // import {addGame} from "./components/Firebase"
 
 function App() {
-    // addGame();
-    return (
-        <Router>
-            <Layout>
-                <Switch>
-                    <Route exact path="/">
-                        <div className="carouselContainer">
-                            <Carousel slides={slides} autoplay={true} interval={3000} />
-                        </div>
-                        <div className="side-by-side">
-                            <TopGames />
-                            <Sidebar />
-                        </div>
-                    </Route>
-                    <Route path="/createArticle">
-                        <ArticleCreate />
-                    </Route>
-                    <Route path="/gallery">
-                        <Gallery />
-                    </Route>
-                    <Route path="/games">
-                        <GameCatalog />
-                    </Route>
+  // addGame();
+  return (
+    <Router>
+      <Layout>
+        <Switch>
+          <Route exact path="/">
+            <div className="carouselContainer">
+              <Carousel slides={slides} autoplay={true} interval={3000} />
+            </div>
+            <div className="side-by-side">
+              <TopGames />
+              <Sidebar />
+            </div>
+          </Route>
+          <Route path="/articles">
+            <ArticleCatalog />
+          </Route>
+          <Route path="/createArticle">
+            <ArticleCreate />
+          </Route>
+          <Route path="/gallery">
+            <Gallery />
+          </Route>
+          <Route path="/games">
+            <GameCatalog />
+          </Route>
 
-                    <Route path="/about-us">
-                        <AboutUs />
-                    </Route>
+          <Route path="/about-us">
+            <AboutUs />
+          </Route>
 
-                    <Route path="/contact">
-                        <Contact />
-                    </Route>
-                </Switch>
-            </Layout>
-        </Router>
-    );
+          <Route path="/contact">
+            <Contact />
+          </Route>
+        </Switch>
+      </Layout>
+    </Router>
+  );
 }
 
 export default App;
