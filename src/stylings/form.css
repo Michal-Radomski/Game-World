@@ -38,7 +38,7 @@ input.formInput {
 }
 input.formInput:active,
 input.formInput:hover {
-  border: orchid 2px solid;
+  border: orchid 1px solid;
   background-color: lightgoldenrodyellow;
 }
 button[type="submit"] {
@@ -72,8 +72,9 @@ select {
   display: block;
   border-radius: 5px;
   background-color: lightgray;
+  border: grey 1px solid;
 }
 select:hover {
-  border: orchid 2px solid;
+  border: orchid 1px solid;
   background-color: lightgoldenrodyellow;
 }
