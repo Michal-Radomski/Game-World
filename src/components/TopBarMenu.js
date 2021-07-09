@@ -29,7 +29,14 @@ export default function TopbarMenu() {
       </Button> */}
 
       <MenuIcon aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} />
-      <Menu id="simple-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+        style={{top: 50}}
+      >
         <MenuItem onClick={handleClose} className="MenuItem">
           {" "}
           <ImportContactsIcon />
