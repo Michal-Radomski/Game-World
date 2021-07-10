@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
 export default function TopGames() {
     const classes = useStyles();
     const topGames = useTopGames();
+    console.log("TOP", topGames);
     function changeOriginalImageSize(image, size) {
         const splitImage = image.split("thumb");
         return `https://${splitImage[0]}${size}${splitImage[1]}`;

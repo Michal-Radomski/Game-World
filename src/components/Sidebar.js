@@ -3,6 +3,7 @@ import MenuBookIcon from "@material-ui/icons/MenuBook";
 import ImportContactsIcon from "@material-ui/icons/ImportContacts";
 import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
 import WallpaperIcon from "@material-ui/icons/Wallpaper";
+import { Link } from "react-router-dom";
 
 export function Sidebar() {
     return (
@@ -12,20 +13,28 @@ export function Sidebar() {
                 <div className="content-sidebar" style={{ color: "white" }}>
                     <ul>
                         <li>
-                            <ImportContactsIcon />
-                            <span> Articles</span>
+                            <Link to="/create-article">
+                                <ImportContactsIcon />
+                                <span> Articles</span>
+                            </Link>
                         </li>
                         <li>
-                            <MenuBookIcon />
-                            <span> Create your article</span>
+                            <Link to="/create-article">
+                                <MenuBookIcon />
+                                <span>Create your article</span>
+                            </Link>
                         </li>
                         <li>
-                            <SportsEsportsIcon />
-                            <span> Game catalog</span>
+                            <Link to="/games">
+                                <SportsEsportsIcon />
+                                <span>Game catalog</span>
+                            </Link>
                         </li>
                         <li>
-                            <WallpaperIcon />
-                            <span> Gallery</span>
+                            <Link to="/gallery">
+                                <WallpaperIcon />
+                                <span>Gallery</span>
+                            </Link>
                         </li>
                     </ul>
                 </div>

@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useTopGames } from "../components/Firebase";
 import { Button } from "@material-ui/core";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -35,21 +36,27 @@ export default function GameCatalog() {
                     const dateObject = new Date(milliseconds);
                     const humanDateFormat = dateObject.toLocaleString().slice(0, -10);
                     return (
-                        <li key={index} className="container-catalog">
-                            <Button>
-                                <img className="topGameImg-catalog brightness shadow" src={changeOriginalImageSize(`${game.screenshots[0]}`, "cover_big")} alt=""></img>
-                                <div className="content-game">
-                                    <div className="game-info first">
-                                        <h3>Title: {game.name}</h3>
-                                        <h4>Release date: {humanDateFormat}</h4>
+                        <Link to={`/games/${game.game_id}`}>
+                            {/* <a href="#" onClick={() => onGameSelect(game.game_id)}> */}
+                            <li key={index} className="container-catalog">
+                                {/* TODO remove Button */}
+                                {/* <Button onClick={() => onGameSelect(game.game_id)} type="link" block> */}
+                                <Button>
+                                    <img className="topGameImg-catalog brightness shadow" src={changeOriginalImageSize(`${game.screenshots[0]}`, "cover_big")} alt=""></img>
+                                    <div className="content-game">
+                                        <div className="game-info first">
+                                            <h3>Title: {game.name}</h3>
+                                            <h4>Release date: {humanDateFormat}</h4>
+                                        </div>
+                                        <div className="game-info second">
+                                            <h4>Genre: {game.genres[0]}</h4>
+                                            <h4>Platform: {game.platforms[0]}</h4>
+                                        </div>
                                     </div>
-                                    <div className="game-info second">
-                                        <h4>Genre: {game.genres[0]}</h4>
-                                        <h4>Platform: {game.platforms[0]}</h4>
-                                    </div>
-                                </div>
-                            </Button>
-                        </li>
+                                </Button>
+                            </li>
+                            {/* </a> */}
+                        </Link>
                     );
                 })}
             </ul>
