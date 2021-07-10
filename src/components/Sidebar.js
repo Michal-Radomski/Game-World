@@ -13,7 +13,7 @@ export function Sidebar() {
                 <div className="content-sidebar" style={{ color: "white" }}>
                     <ul>
                         <li>
-                            <Link to="/create-article">
+                            <Link to="/articles">
                                 <ImportContactsIcon />
                                 <span> Articles</span>
                             </Link>

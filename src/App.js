@@ -13,6 +13,7 @@ import AboutUs from "./containers/AboutUs";
 import Contact from "./containers/Contact";
 import Game from "./containers/Game";
 // import { useTopGames } from "./components/Firebase";
+import ArticleCatalog from "./containers/ArticleCatalog";
 
 // import {addGame} from "./components/Firebase"
 
@@ -35,6 +36,9 @@ function App() {
                             <TopGames />
                             <Sidebar />
                         </div>
+                    </Route>
+                    <Route path="/articles">
+                        <ArticleCatalog />
                     </Route>
                     <Route path="/create-article">
                         <ArticleCreate />

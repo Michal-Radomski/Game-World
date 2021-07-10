@@ -18,7 +18,7 @@ firebase.initializeApp(firebaseConfig);
 firebase.firestore().settings(settings);
 
 const db = firebase.firestore();
-//dodanie danych do bazy 
+//dodanie danych do bazy
 export const addGame = (e) => {
   data.forEach((item) => {
     db.collection("games").add(item);
@@ -60,3 +60,22 @@ export const addArticle = (event) => {
   db.collection("articles").add(article);
   form.reset();
 };
+
+export function useTopArticles() {
+  const [topArticles, setTopArticles] = useState([]);
+
+  useEffect(() => {
+    db.collection("articles").onSnapshot((snapshot) => {
+      const articles = [];
+      snapshot.docs.forEach((article) =>
+        articles.push({
+          id: article.index,
+          ...article.data(),
+        })
+      );
+      setTopArticles(articles);
+    });
+  }, []);
+
+  return topArticles;
+}
