@@ -9,7 +9,7 @@ import MenuBookIcon from "@material-ui/icons/MenuBook";
 import ImportContactsIcon from "@material-ui/icons/ImportContacts";
 import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
 import WallpaperIcon from "@material-ui/icons/Wallpaper";
-import "./TopBarMenu.css";
+import "../stylings/TopBarMenu.css";
 
 export default function TopbarMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -29,7 +29,14 @@ export default function TopbarMenu() {
       </Button> */}
 
       <MenuIcon aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} />
-      <Menu id="simple-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+        style={{top: 50}}
+      >
         <MenuItem onClick={handleClose} className="MenuItem">
           {" "}
           <ImportContactsIcon />

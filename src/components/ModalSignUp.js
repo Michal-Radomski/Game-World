@@ -1,4 +1,4 @@
-// Component for Logging In
+// Component for Creating an Account
 
 import React from "react";
 import {withStyles} from "@material-ui/core/styles";
@@ -10,8 +10,8 @@ import MuiDialogContent from "@material-ui/core/DialogContent";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
-import FormLogIn from "./FormLogIn";
-import "./modals.css";
+import FormSignUp from "./FormSignUp";
+import "../stylings/modals.css";
 
 const styles = (theme) => ({
   root: {
@@ -31,7 +31,7 @@ const DialogTitle = withStyles(styles)((props) => {
           className={classes.closeButton}
           onClick={onClose}
           style={{
-            backgroundColor: "#1e88e5",
+            backgroundColor: "darkViolet",
             color: "whitesmoke",
             float: "right",
             position: "absolute",
@@ -60,7 +60,7 @@ const DialogContent = withStyles((theme) => ({
 //   },
 // }))(MuiDialogActions);
 
-export default function ModalLogIn() {
+export default function ModalSignUp() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -72,19 +72,19 @@ export default function ModalLogIn() {
 
   return (
     <div>
-      <Button className="LogIn" onClick={handleClickOpen}>
-        Log In
+      <Button className="SignUp" onClick={handleClickOpen}>
+        Sign Up
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle
           id="customized-dialog-title"
           onClose={handleClose}
-          style={{backgroundColor: "green", color: "whiteSmoke"}}
+          style={{backgroundColor: "red", color: "whiteSmoke"}}
         >
-          Log In
+          Create Account
         </DialogTitle>
         <DialogContent style={{backgroundColor: "whiteSmoke"}}>
-          <FormLogIn />
+          <FormSignUp />
         </DialogContent>
         {/* <DialogActions></DialogActions> */}
       </Dialog>
