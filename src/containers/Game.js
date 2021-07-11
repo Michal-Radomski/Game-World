@@ -1,7 +1,7 @@
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
-export default function Game() {
-    const { game } = useParams();
+export default function Game({ game }) {
+    // const params = useParams("/games/:game_id");
     return (
         <>
             <div>
