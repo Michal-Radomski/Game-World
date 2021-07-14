@@ -1,0 +1,14 @@
+h2 {
+  color: white;
+  background-color: rgb(66 66 206 / 56%);
+  width: fit-content;
+  padding: 2px 15px 5px;
+  border-radius: 5px;
+}
+
+.subhead {
+  margin-left: 50px;
+}
+.grid {
+  margin-bottom: 200px;
+}

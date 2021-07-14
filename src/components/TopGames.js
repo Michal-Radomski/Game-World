@@ -21,17 +21,17 @@ const useStyles = makeStyles((theme) => ({
 export default function TopGames() {
     const classes = useStyles();
     const topGames = useTopGames();
+    // console.log("TOP", topGames);
     function changeOriginalImageSize(image, size) {
         const splitImage = image.split("thumb");
         return `https://${splitImage[0]}${size}${splitImage[1]}`;
     }
-    console.log("IMAGE---", changeOriginalImageSize("images.igdb.com/igdb/image/upload/t_thumb/npe0c8mphnlmp9elxqko.jpg", "cover_big"));
+    // console.log("IMAGE---", changeOriginalImageSize("images.igdb.com/igdb/image/upload/t_thumb/npe0c8mphnlmp9elxqko.jpg", "cover_big"));
     return (
         <div className={classes.root}>
             <h2>Top games</h2>
             <Grid container className="topGamesContainer" spacing={3}>
                 {topGames.slice(10, 19).map((game, index) => {
-                    // console.log("GGG", game);
                     return (
                         <Grid item xs key={index}>
                             <Button>

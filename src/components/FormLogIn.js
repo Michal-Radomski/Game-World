@@ -2,7 +2,7 @@
 
 import {useForm} from "react-hook-form";
 import React from "react";
-import "./form.css";
+import "../stylings/form.css";
 
 export default function FormSignUp() {
   const {
@@ -33,7 +33,7 @@ export default function FormSignUp() {
       <input
         className="formInput"
         type="password"
-        placeholder="min 8 characters, at least 1 letter, at least 1 digit "
+        placeholder="enter the password"
         {...register("password", {
           required: "Password is required!",
           min: 8,

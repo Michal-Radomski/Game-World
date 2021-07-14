@@ -1,4 +1,4 @@
-// Component for Creating an Account
+// Component for Logging In
 
 import React from "react";
 import {withStyles} from "@material-ui/core/styles";
@@ -10,8 +10,8 @@ import MuiDialogContent from "@material-ui/core/DialogContent";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
-import FormSignUp from "./FormSignUp";
-import "./modals.css";
+import FormLogIn from "./FormLogIn";
+import "../stylings/modals.css";
 
 const styles = (theme) => ({
   root: {
@@ -31,7 +31,7 @@ const DialogTitle = withStyles(styles)((props) => {
           className={classes.closeButton}
           onClick={onClose}
           style={{
-            backgroundColor: "darkViolet",
+            backgroundColor: "#1e88e5",
             color: "whitesmoke",
             float: "right",
             position: "absolute",
@@ -60,7 +60,7 @@ const DialogContent = withStyles((theme) => ({
 //   },
 // }))(MuiDialogActions);
 
-export default function ModalSignUp() {
+export default function ModalLogIn() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -72,19 +72,19 @@ export default function ModalSignUp() {
 
   return (
     <div>
-      <Button className="SignUp" onClick={handleClickOpen}>
-        Sign Up
+      <Button className="LogIn" onClick={handleClickOpen}>
+        Log In
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle
           id="customized-dialog-title"
           onClose={handleClose}
-          style={{backgroundColor: "red", color: "whiteSmoke"}}
+          style={{backgroundColor: "green", color: "whiteSmoke"}}
         >
-          Create Account
+          Log In
         </DialogTitle>
         <DialogContent style={{backgroundColor: "whiteSmoke"}}>
-          <FormSignUp />
+          <FormLogIn />
         </DialogContent>
         {/* <DialogActions></DialogActions> */}
       </Dialog>

@@ -60,3 +60,22 @@ export const addArticle = (event) => {
   db.collection("articles").add(article);
   form.reset();
 };
+
+export function useTopArticles() {
+  const [topArticles, setTopArticles] = useState([]);
+
+  useEffect(() => {
+    db.collection("articles").onSnapshot((snapshot) => {
+      const articles = [];
+      snapshot.docs.forEach((article) =>
+        articles.push({
+          id: article.index,
+          ...article.data(),
+        })
+      );
+      setTopArticles(articles);
+    });
+  }, []);
+
+  return topArticles;
+}
