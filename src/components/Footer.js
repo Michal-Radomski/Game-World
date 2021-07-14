@@ -69,7 +69,7 @@ const Footer = () => {
                             <Button className={classes.btn2} variant="outlined" href="/contact">
                                 Contact
                             </Button>
-                            <Button className={classes.btn3} variant="outlined" href="/createArticle">
+                            <Button className={classes.btn3} variant="outlined" href="/create-article">
                                 Create article
                             </Button>
                         </ul>
