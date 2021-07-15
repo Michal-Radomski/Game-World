@@ -2,7 +2,9 @@ import { Button } from "@material-ui/core";
 
 export const slides = [
     <Button>
-        <p className="content">Hellooooooooooo</p>
+        <p style={{ color: "black" }} className="content">
+            Animals in your home
+        </p>
         <img src="https://picsum.photos/800/300/?random" alt="1" />
     </Button>,
 
