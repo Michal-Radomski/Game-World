@@ -10,54 +10,63 @@ import ImportContactsIcon from "@material-ui/icons/ImportContacts";
 import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
 import WallpaperIcon from "@material-ui/icons/Wallpaper";
 import "../stylings/TopBarMenu.css";
+import { Link } from "react-router-dom";
 
 export default function TopbarMenu() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
-  return (
-    <div>
-      {/* <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+    return (
+        <div>
+            {/* <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
         Open Menu
       </Button> */}
 
-      <MenuIcon aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} />
-      <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-        style={{top: 50}}
-      >
-        <MenuItem onClick={handleClose} className="MenuItem">
-          {" "}
-          <ImportContactsIcon />
-          <span>&nbsp;&nbsp;&nbsp;Articles</span>
-        </MenuItem>
-        <MenuItem onClick={handleClose} className="MenuItem">
-          {" "}
-          <MenuBookIcon />
-          <span>&nbsp;&nbsp;&nbsp;Create your article</span>
-        </MenuItem>
-        <MenuItem onClick={handleClose} className="MenuItem">
-          {" "}
-          <SportsEsportsIcon />
-          <span>&nbsp;&nbsp;&nbsp;Game catalog</span>
-        </MenuItem>
-        <MenuItem onClick={handleClose} className="MenuItem">
-          {" "}
-          <WallpaperIcon />
-          <span>&nbsp;&nbsp;&nbsp;Gallery</span>
-        </MenuItem>
-      </Menu>
-    </div>
-  );
+            <MenuIcon
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                onClick={handleClick}
+            />
+            <Menu
+                id="simple-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+                style={{ top: 50 }}
+            >
+                <MenuItem onClick={handleClose} className="MenuItem">
+                    <Link to="/articles" style={{ color: "black" }}>
+                        <ImportContactsIcon />
+                        <span>&nbsp;&nbsp;&nbsp;Articles</span>
+                    </Link>
+                </MenuItem>
+                <MenuItem onClick={handleClose} className="MenuItem">
+                    <Link to="/create-article" style={{ color: "black" }}>
+                        <MenuBookIcon />
+                        <span>&nbsp;&nbsp;&nbsp;Create your article</span>
+                    </Link>
+                </MenuItem>
+                <MenuItem onClick={handleClose} className="MenuItem">
+                    <Link to="/games" style={{ color: "black" }}>
+                        <SportsEsportsIcon />
+                        <span>&nbsp;&nbsp;&nbsp;Game catalog</span>
+                    </Link>
+                </MenuItem>
+                <MenuItem onClick={handleClose} className="MenuItem">
+                    <Link to="/gallery" style={{ color: "black" }}>
+                        <WallpaperIcon />
+                        <span>&nbsp;&nbsp;&nbsp;Gallery</span>
+                    </Link>
+                </MenuItem>
+            </Menu>
+        </div>
+    );
 }

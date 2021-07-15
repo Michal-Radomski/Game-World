@@ -14,6 +14,7 @@ import Contact from "./containers/Contact";
 import Game from "./containers/Game";
 import { useTopGames } from "./components/Firebase";
 import ArticleCatalog from "./containers/ArticleCatalog";
+// import { useParams } from "react-router-dom";
 
 // import {addGame} from "./components/Firebase"
 

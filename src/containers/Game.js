@@ -5,7 +5,6 @@ import { changeOriginalImageSize } from "../components/Helper";
 
 export default function Game({ games }) {
     // const games = useTopGames();
-    // console.log("GGGGG", games);
 
     // console.log("game4", game);
     const params = useParams();
