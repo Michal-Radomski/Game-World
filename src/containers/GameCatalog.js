@@ -36,9 +36,9 @@ export default function GameCatalog() {
                     const dateObject = new Date(milliseconds);
                     const humanDateFormat = dateObject.toLocaleString().slice(0, -10);
                     return (
-                        <Link to={`/games/${game.game_id}`}>
+                        <Link to={`/games/${game.game_id}`} key={index}>
                             {/* <a href="#" onClick={() => onGameSelect(game.game_id)}> */}
-                            <li key={index} className="container-catalog">
+                            <li className="container-catalog">
                                 {/* TODO remove Button */}
                                 {/* <Button onClick={() => onGameSelect(game.game_id)} type="link" block> */}
                                 <Button>

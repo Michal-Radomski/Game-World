@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { useTopGames } from "./Firebase";
 import { Button } from "@material-ui/core";
+import { changeOriginalImageSize } from "../components/Helper";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,12 +22,6 @@ const useStyles = makeStyles((theme) => ({
 export default function TopGames() {
     const classes = useStyles();
     const topGames = useTopGames();
-    // console.log("TOP", topGames);
-    function changeOriginalImageSize(image, size) {
-        const splitImage = image.split("thumb");
-        return `https://${splitImage[0]}${size}${splitImage[1]}`;
-    }
-    // console.log("IMAGE---", changeOriginalImageSize("images.igdb.com/igdb/image/upload/t_thumb/npe0c8mphnlmp9elxqko.jpg", "cover_big"));
     return (
         <div className={classes.root}>
             <h2>Top games</h2>
