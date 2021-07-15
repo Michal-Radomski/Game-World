@@ -1,8 +1,10 @@
 import firebase from "firebase";
-import { data } from "./Data";
-import { useState, useEffect } from "react";
+import "firebase/auth";
+import "firebase/firestore";
+import {data} from "./Data";
+import {useState, useEffect} from "react";
 
-const settings = { timestampsInSnapshots: true };
+const settings = {timestampsInSnapshots: true};
 
 var firebaseConfig = {
   apiKey: "AIzaSyD6K_UBeeC2EwujnsrwxBgwcHW-JN0JeUw",
@@ -18,7 +20,12 @@ firebase.initializeApp(firebaseConfig);
 firebase.firestore().settings(settings);
 
 const db = firebase.firestore();
-//dodanie danych do bazy 
+
+// Eksport do autoryzacji
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+
+//dodanie danych do bazy
 export const addGame = (e) => {
   data.forEach((item) => {
     db.collection("games").add(item);
@@ -31,9 +38,7 @@ export function useTopGames() {
   useEffect(() => {
     db.collection("games").onSnapshot((snapshot) => {
       const games = [];
-      snapshot.docs.forEach((game) =>
-        games.push({ id: game.id, ...game.data() })
-      );
+      snapshot.docs.forEach((game) => games.push({id: game.id, ...game.data()}));
       setTopGames(games);
     });
   }, []);
