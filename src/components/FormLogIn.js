@@ -4,7 +4,7 @@ import {useForm} from "react-hook-form";
 import React from "react";
 import "../stylings/form.css";
 
-export default function FormSignUp() {
+export default function FormLogIn() {
   const {
     register,
     handleSubmit,

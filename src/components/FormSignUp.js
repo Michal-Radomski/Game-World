@@ -19,7 +19,7 @@ export default function FormSignUp() {
       <p className="firstLine">
         Fields marked<span> * </span>are required
       </p>
-      <label htmlFor="name">
+      {/* <label htmlFor="name">
         Name:<span> * </span>
       </label>
       <input
@@ -27,7 +27,7 @@ export default function FormSignUp() {
         type="text"
         placeholder="enter name..."
         {...register("Name", {required: true, maxLength: 80})}
-      />
+      /> */}
       <label htmlFor="email">
         Email:<span> * </span>
       </label>
@@ -73,14 +73,14 @@ export default function FormSignUp() {
         })}
       />
       {errors.passwordConfirmation && <p style={{color: "red"}}>{errors.passwordConfirmation.message}</p>}
-      <label htmlFor="gender" style={{display: "inline", float: "left"}}>
+      {/* <label htmlFor="gender" style={{display: "inline", float: "left"}}>
         Gender:&#160;&#160;
       </label>
       <select {...register("gender")} defaultValue="Other">
         <option value="other">Other</option>
         <option value="female">Female</option>
         <option value="male">Male</option>
-      </select>
+      </select> */}
       <div>
         <button type="reset">Reset</button>
         <button type="submit">Submit</button>
