@@ -20,14 +20,11 @@ firebase.initializeApp(firebaseConfig);
 firebase.firestore().settings(settings);
 
 const db = firebase.firestore();
-<<<<<<< HEAD
 
 // Eksport do autoryzacji
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
-=======
->>>>>>> 069ad55360e0d8ff5c5e8f9a0bf167116226c545
 //dodanie danych do bazy
 export const addGame = (e) => {
   data.forEach((item) => {
