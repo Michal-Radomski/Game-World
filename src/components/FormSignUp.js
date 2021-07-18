@@ -1,17 +1,66 @@
 // Component for creating a form in Create an Account Modal
-
+import firebase from "firebase";
 import {useForm} from "react-hook-form";
 import React from "react";
 import "../stylings/form.css";
 
-export default function FormSignUp() {
+const SignOUt = (userID) => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      console.log(`User ID: ${userID} was logged out`);
+      alert("Auto Log Out, log in please");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export default function FormSignUp(props) {
+  const db = firebase.firestore();
   const {
     register,
     handleSubmit,
     formState: {errors},
     getValues,
   } = useForm();
-  const onSubmit = (data) => console.log("SignUp data:", data);
+  const onSubmit = (data) => {
+    console.log("SignUp data:", data);
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(data.Email, data.password)
+      .then((userCredential) => {
+        // Signed in
+        var user = userCredential.user;
+        console.log(user);
+        const userID = user.uid;
+        props.modalSignUpClose();
+        console.log(userID);
+        // Adding user to the Firestore
+        db.collection("users")
+          .doc(userID)
+          .set({
+            Email: data.Email,
+            Name: data.Name,
+            gender: data.gender,
+          })
+          .then(() => {
+            console.log("Document successfully written!");
+
+            //Auto Log Out
+            SignOUt(userID);
+          })
+          .catch((error) => {
+            console.error("Error writing document: ", error);
+          });
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  };
   console.log(errors);
 
   return (
@@ -19,7 +68,7 @@ export default function FormSignUp() {
       <p className="firstLine">
         Fields marked<span> * </span>are required
       </p>
-      {/* <label htmlFor="name">
+      <label htmlFor="name">
         Name:<span> * </span>
       </label>
       <input
@@ -27,7 +76,7 @@ export default function FormSignUp() {
         type="text"
         placeholder="enter name..."
         {...register("Name", {required: true, maxLength: 80})}
-      /> */}
+      />
       <label htmlFor="email">
         Email:<span> * </span>
       </label>
@@ -37,7 +86,6 @@ export default function FormSignUp() {
         placeholder="name@example.com"
         {...register("Email", {required: true, pattern: /^\S+@\S+$/i})}
       />
-      {/* <input className="formInput" type="password" placeholder="Password" {...register("Password", {required: "Password is required!", min: 8, pattern: /^(?=.*[0-9])(?=.*[A-Za-z]).{8,32}$/i})}/> */}
       <label htmlFor="password">
         Password:<span> * </span>
       </label>
@@ -73,14 +121,14 @@ export default function FormSignUp() {
         })}
       />
       {errors.passwordConfirmation && <p style={{color: "red"}}>{errors.passwordConfirmation.message}</p>}
-      {/* <label htmlFor="gender" style={{display: "inline", float: "left"}}>
+      <label htmlFor="gender" style={{display: "inline", float: "left"}}>
         Gender:&#160;&#160;
       </label>
       <select {...register("gender")} defaultValue="Other">
         <option value="other">Other</option>
         <option value="female">Female</option>
         <option value="male">Male</option>
-      </select> */}
+      </select>
       <div>
         <button type="reset">Reset</button>
         <button type="submit">Submit</button>

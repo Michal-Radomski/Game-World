@@ -84,7 +84,7 @@ export default function ModalLogIn() {
           Log In
         </DialogTitle>
         <DialogContent style={{backgroundColor: "whiteSmoke"}}>
-          <FormLogIn />
+          <FormLogIn modalLogInClose={handleClose} />
         </DialogContent>
         {/* <DialogActions></DialogActions> */}
       </Dialog>

@@ -3,14 +3,33 @@
 import {useForm} from "react-hook-form";
 import React from "react";
 import "../stylings/form.css";
+import firebase from "firebase";
 
-export default function FormLogIn() {
+export default function FormLogIn(props) {
   const {
     register,
     handleSubmit,
     formState: {errors},
   } = useForm();
-  const onSubmit = (data) => console.log("LogIn data:", data);
+  const onSubmit = (data) => {
+    console.log("LogIn data:", data);
+
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(data.Email, data.password)
+      .then((userCredential) => {
+        // Signed in
+        var user = userCredential.user;
+        console.log(user);
+        props.modalLogInClose();
+        // ...
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  };
   console.log(errors);
 
   return (
