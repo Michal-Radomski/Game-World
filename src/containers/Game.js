@@ -1,6 +1,9 @@
 import { useParams } from "react-router-dom";
 import "../App.css";
-import { changeOriginalImageSize } from "../components/Helper";
+import {
+    changeOriginalImageSize,
+    changeUnixTimeToDate,
+} from "../components/Helper";
 
 export default function Game({ games }) {
     const params = useParams();
@@ -12,36 +15,58 @@ export default function Game({ games }) {
 
     return (
         <>
-            <div className="blur-effect">
+            <div>
                 <div className="game-page">
                     <h1 style={{ color: "white" }}>{game.name}</h1>
-                    <p>Created at:{game.created_at}</p>
-                    <p>First release date: {game.first_release_date}</p>
-                    <p>Genres:</p>
-                    {game.genres.map((genre) => {
-                        return (
-                            <span style={{ margin: "0 10px", color: "white" }}>
-                                {genre}
+
+                    <div className="game-data">
+                        <p>
+                            <span className="game-header">Created at: </span>
+                            {changeUnixTimeToDate(game.created_at)}
+                        </p>
+                        <p>
+                            <span className="game-header">
+                                First release date:{" "}
                             </span>
-                        );
-                    })}
-                    <p>Platforms:</p>
-                    {game.platforms.map((platform) => {
-                        return (
-                            <span style={{ margin: "0 10px", color: "white" }}>
-                                {platform}
-                            </span>
-                        );
-                    })}
-                    <p>Description: {game.summary}</p>
-                    <div style={{ display: "inline-flex" }}>
+                            {changeUnixTimeToDate(game.first_release_date)}
+                        </p>
+                        <p>
+                            <span className="game-header">Genres:</span>
+                            {game.genres.map((genre) => {
+                                return (
+                                    <span className="game-header-span">
+                                        {genre}
+                                    </span>
+                                );
+                            })}
+                        </p>
+                        <p>
+                            <span className="game-header">Platforms:</span>
+                            {game.platforms.map((platform) => {
+                                return (
+                                    <span className="game-header-span">
+                                        {platform}
+                                    </span>
+                                );
+                            })}
+                        </p>
+                        <hr style={{ margin: "40px 0" }} />
+                        <p className="game-description">
+                            <p className="game-header">Description: </p>
+                            {game.summary}
+                        </p>
+                    </div>
+                    <div>
                         {game.screenshots.map((image) => {
                             return (
-                                <div>
+                                <div style={{ margin: "25px" }}>
                                     <img
+                                        style={{
+                                            boxShadow: "0 0 10px #28283f",
+                                        }}
                                         src={changeOriginalImageSize(
                                             `${image}`,
-                                            "cover_big"
+                                            "screenshot_med"
                                         )}
                                         alt=""
                                     />
@@ -49,19 +74,16 @@ export default function Game({ games }) {
                             );
                         })}
                     </div>
-                    <a
-                        href={game.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        style={{
-                            backgroundColor: "darkred",
-                            borderRadius: "5px",
-                            padding: "20px",
-                            marginBottom: "50px",
-                        }}
-                    >
-                        Read more about {game.name}
-                    </a>
+                    <div>
+                        <a
+                            className="btn-read-more"
+                            href={game.url}
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            Read more about {game.name}
+                        </a>
+                    </div>
                 </div>
             </div>
         </>

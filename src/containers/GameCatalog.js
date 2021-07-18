@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
-import moment from "moment";
 import { Link } from "react-router-dom";
+import { changeUnixTimeToDate } from "../components/Helper";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,23 +18,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function GameCatalog({ topGames }) {
-    moment().format("MMMM Do YYYY, h:mm:ss a");
     const classes = useStyles();
     function changeOriginalImageSize(image, size) {
         const splitImage = image.split("thumb");
         return `https://${splitImage[0]}${size}${splitImage[1]}`;
     }
+
     return (
         <div className={classes.root}>
             <h2>Game catalog</h2>
             <ul className="topGamesContainer-catalog">
                 {topGames.map((game, index) => {
-                    const unixTimestamp = game.first_release_date;
-                    const milliseconds = unixTimestamp * 1000;
-                    const dateObject = new Date(milliseconds);
-                    const humanDateFormat = dateObject
-                        .toLocaleString()
-                        .slice(0, -10);
+                    const humanDateFormat = changeUnixTimeToDate(
+                        game.first_release_date
+                    );
                     return (
                         <Link to={`/games/${game.game_id}`} key={index}>
                             {/* <a href="#" onClick={() => onGameSelect(game.game_id)}> */}
