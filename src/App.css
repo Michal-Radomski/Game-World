@@ -143,3 +143,32 @@ h3.galleryHeader {
     border-style: ridge;
 }
 
+.game-page {
+    position: relative;
+    margin-top: 50px;
+    text-align: center;
+    z-index: 1;
+}
+
+.blur-effect {
+    position: relative;
+    width: 50vw;
+    left: 25%;
+    background: inherit;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.blur-effect::after {
+    content: "";
+    width: 80vw;
+    height: 100%;
+    background: inherit;
+    position: absolute;
+    left: -25px;
+    right: 0;
+    top: -25px;
+    bottom: 0;
+    box-shadow: inset 0 0 0 100em rgb(255 255 255 / 5%);
+    filter: blur(10px);
+}
