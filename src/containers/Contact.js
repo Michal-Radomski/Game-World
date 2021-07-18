@@ -49,10 +49,7 @@ export default function Form() {
                 <textarea type="tekst" required placeholder="Message" value={tarea} onChange={(e) => setTarea(e.target.value)}>
                 </textarea>
                 <button type="submit">Submit</button>
-                <p>{title}</p>
-                <p>{surname}</p>
-                <p>{email}</p>
-                <p>{tarea}</p>
+               
             </form>
 
 
