@@ -6,7 +6,6 @@ import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
-// import MuiDialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
@@ -53,13 +52,6 @@ const DialogContent = withStyles((theme) => ({
   },
 }))(MuiDialogContent);
 
-// const DialogActions = withStyles((theme) => ({
-//   root: {
-//     margin: 0,
-//     padding: theme.spacing(1),
-//   },
-// }))(MuiDialogActions);
-
 export default function ModalLogIn() {
   const [open, setOpen] = React.useState(false);
 
@@ -84,9 +76,8 @@ export default function ModalLogIn() {
           Log In
         </DialogTitle>
         <DialogContent style={{backgroundColor: "whiteSmoke"}}>
-          <FormLogIn />
+          <FormLogIn modalLogInClose={handleClose} />
         </DialogContent>
-        {/* <DialogActions></DialogActions> */}
       </Dialog>
     </div>
   );
