@@ -144,31 +144,43 @@ h3.galleryHeader {
 }
 
 .game-page {
-    position: relative;
     margin-top: 50px;
     text-align: center;
-    z-index: 1;
+    min-height: 100vh;
 }
 
-.blur-effect {
-    position: relative;
-    width: 50vw;
-    left: 25%;
-    background: inherit;
-    border-radius: 2px;
-    overflow: hidden;
+.game-data {
+    text-align: start;
+    color: white;
+    /* margin-left: 70px; */
+    width: 60vw;
+    margin: 30px auto;
+    background-color: black;
+    border-radius: 5px;
+    padding: 20px;
+}
+.game-header {
+    color: white;
+    font-weight: 600;
 }
 
-.blur-effect::after {
-    content: "";
-    width: 80vw;
-    height: 100%;
-    background: inherit;
-    position: absolute;
-    left: -25px;
-    right: 0;
-    top: -25px;
-    bottom: 0;
-    box-shadow: inset 0 0 0 100em rgb(255 255 255 / 5%);
-    filter: blur(10px);
+.game-header-span {
+    margin: 0 10px;
+    color: white;
+    background-color: #1d1d1d;
+    padding: 6px;
+    border-radius: 3px;
+}
+
+.game-description {
+    line-height: 1.7;
+    word-spacing: 5px;
+}
+
+.btn-read-more {
+    display: inline-flex;
+    background-color: darkred;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 50px;
 }
