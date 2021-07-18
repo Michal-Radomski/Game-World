@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-// import { useTopGames } from "../components/Firebase";
 import { Button } from "@material-ui/core";
 import moment from "moment";
 import { Link } from "react-router-dom";
@@ -21,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
 export default function GameCatalog({ topGames }) {
     moment().format("MMMM Do YYYY, h:mm:ss a");
     const classes = useStyles();
-    // const topGames = useTopGames();
     function changeOriginalImageSize(image, size) {
         const splitImage = image.split("thumb");
         return `https://${splitImage[0]}${size}${splitImage[1]}`;
