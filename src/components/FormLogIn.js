@@ -12,17 +12,18 @@ export default function FormLogIn(props) {
     formState: {errors},
   } = useForm();
   const onSubmit = (data) => {
-    console.log("LogIn data:", data);
-
+    console.log(15, "LogIn data:", data);
+    // Logging In to the Firestore DB
     firebase
       .auth()
       .signInWithEmailAndPassword(data.Email, data.password)
       .then((userCredential) => {
         // Signed in
-        var user = userCredential.user;
+        let user = userCredential.user;
+        const userID = user.uid;
         console.log(user);
         props.modalLogInClose();
-        // ...
+        console.log(`User ID: ${userID} was logged in`);
       })
       .catch((error) => {
         var errorCode = error.code;

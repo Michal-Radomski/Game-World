@@ -4,13 +4,14 @@ import {useForm} from "react-hook-form";
 import React from "react";
 import "../stylings/form.css";
 
+// Log Out function
 const SignOUt = (userID) => {
   firebase
     .auth()
     .signOut()
     .then(() => {
       console.log(`User ID: ${userID} was logged out`);
-      alert("Auto Log Out, log in please");
+      alert("You will be automatically logget out \n Please login in a moment ...");
     })
     .catch((error) => {
       console.log(error);
@@ -27,17 +28,19 @@ export default function FormSignUp(props) {
   } = useForm();
   const onSubmit = (data) => {
     console.log("SignUp data:", data);
+    // Create account with email and password
     firebase
       .auth()
       .createUserWithEmailAndPassword(data.Email, data.password)
       .then((userCredential) => {
         // Signed in
-        var user = userCredential.user;
-        console.log(user);
+        let user = userCredential.user;
+        console.log(38, user);
         const userID = user.uid;
         props.modalSignUpClose();
-        console.log(userID);
-        // Adding user to the Firestore
+        console.log(`userID: ${userID}`);
+
+        // Adding the user to the Firestore DB
         db.collection("users")
           .doc(userID)
           .set({
@@ -46,9 +49,9 @@ export default function FormSignUp(props) {
             gender: data.gender,
           })
           .then(() => {
-            console.log("Document successfully written!");
+            console.log("Document successfully added to the DB");
 
-            //Auto Log Out
+            //Auto Log Out function (above)
             SignOUt(userID);
           })
           .catch((error) => {
@@ -56,8 +59,8 @@ export default function FormSignUp(props) {
           });
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        let errorCode = error.code;
+        let errorMessage = error.message;
         console.log(errorCode, errorMessage);
       });
   };
