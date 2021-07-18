@@ -4,14 +4,50 @@ import {
     changeOriginalImageSize,
     changeUnixTimeToDate,
 } from "../components/Helper";
+import { useState } from "react";
+import Modal from "@material-ui/core/Modal";
+import { makeStyles } from "@material-ui/core/styles";
+
+function getModalStyle() {
+    const top = 50;
+    const left = 50;
+
+    return {
+        top: `${top}%`,
+        left: `${left}%`,
+        transform: `translate(-${top}%, -${left}%)`,
+    };
+}
+
+const useModalStyles = makeStyles((theme) => ({
+    paper: {
+        position: "absolute",
+        backgroundColor: "black",
+        border: "2px solid #000",
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+    },
+}));
 
 export default function Game({ games }) {
     const params = useParams();
     const game = games.find((game) => game.game_id === parseInt(params.id));
 
+    const modalClasses = useModalStyles();
+    const [modalStyle] = useState(getModalStyle);
+    const [open, setOpen] = useState(null);
+
     if (game === undefined) {
         return games.length === 0 ? <p>Loading...</p> : <p>Game not found</p>;
     }
+
+    const handleOpen = (img) => () => {
+        setOpen(img);
+    };
+
+    const handleClose = () => {
+        setOpen(null);
+    };
 
     return (
         <>
@@ -61,8 +97,10 @@ export default function Game({ games }) {
                             return (
                                 <div style={{ margin: "25px" }}>
                                     <img
+                                        onClick={handleOpen(image)}
                                         style={{
                                             boxShadow: "0 0 10px #28283f",
+                                            cursor: "pointer",
                                         }}
                                         src={changeOriginalImageSize(
                                             `${image}`,
@@ -86,6 +124,17 @@ export default function Game({ games }) {
                     </div>
                 </div>
             </div>
+            <Modal open={!!open} onClose={handleClose}>
+                <div style={modalStyle} className={modalClasses.paper}>
+                    <img
+                        src={changeOriginalImageSize(
+                            open || "",
+                            "screenshot_big"
+                        )}
+                        alt=""
+                    />
+                </div>
+            </Modal>
         </>
     );
 }
