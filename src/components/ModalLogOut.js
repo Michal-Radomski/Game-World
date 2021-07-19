@@ -1,13 +1,69 @@
 // Component for Logging Out
 
 import React from "react";
+import {withStyles} from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
+import MuiDialogTitle from "@material-ui/core/DialogTitle";
+import MuiDialogContent from "@material-ui/core/DialogContent";
+import MuiDialogActions from "@material-ui/core/DialogActions";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
+import Typography from "@material-ui/core/Typography";
 import "../stylings/modals.css";
+
+const styles = (theme) => ({
+  root: {
+    margin: 0,
+    padding: theme.spacing(2),
+  },
+  closeButton: {
+    position: "absolute",
+    right: theme.spacing(1),
+    top: theme.spacing(1),
+    color: theme.palette.grey[500],
+  },
+});
+
+const DialogTitle = withStyles(styles)((props) => {
+  const {children, classes, onClose, ...other} = props;
+  return (
+    <MuiDialogTitle disableTypography className={classes.root} {...other}>
+      <Typography variant="h6">{children}</Typography>
+      {onClose ? (
+        <IconButton
+          aria-label="close"
+          className={classes.closeButton}
+          onClick={onClose}
+          style={{
+            backgroundColor: "#9500ae",
+            color: "whitesmoke",
+            float: "right",
+            position: "absolute",
+            top: "10px",
+            right: "10px",
+            padding: "10px",
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+      ) : null}
+    </MuiDialogTitle>
+  );
+});
+
+const DialogContent = withStyles((theme) => ({
+  root: {
+    padding: theme.spacing(2),
+  },
+}))(MuiDialogContent);
+
+const DialogActions = withStyles((theme) => ({
+  root: {
+    margin: 0,
+    padding: theme.spacing(1),
+  },
+}))(MuiDialogActions);
 
 export default function LogOutModal() {
   const [open, setOpen] = React.useState(false);
@@ -15,7 +71,6 @@ export default function LogOutModal() {
   const handleClickOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
@@ -25,25 +80,23 @@ export default function LogOutModal() {
       <Button className="LogOut" onClick={handleClickOpen}>
         Log Out
       </Button>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">Log Out</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps
-            are running.
-          </DialogContentText>
+      <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
+        <DialogTitle
+          id="customized-dialog-title"
+          onClose={handleClose}
+          style={{backgroundColor: "blue", color: "whiteSmoke"}}
+        >
+          Logging Out
+        </DialogTitle>
+        <DialogContent style={{backgroundColor: "whiteSmoke"}}>
+          <Typography style={{color: "black"}}>Do you really want to Log Out?</Typography>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Disagree
+          <Button autoFocus onClick={handleClose} color="primary">
+            Yes
           </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
-            Agree
+          <Button autoFocus onClick={handleClose} color="primary">
+            No
           </Button>
         </DialogActions>
       </Dialog>
