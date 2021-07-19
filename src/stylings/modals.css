@@ -27,3 +27,17 @@ button.LogIn:hover {
   background-color: #fff;
   color: #1e88e5;
 }
+
+button.LogOut {
+  background-color: #9500ae;
+  color: white;
+  margin-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid #2c387e;
+  border-radius: 5px;
+}
+button.LogOut:hover {
+  background-color: #fff;
+  color: #dd33fa;
+}

@@ -5,6 +5,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import "../stylings/modals.css";
 
 export default function LogOutModal() {
   const [open, setOpen] = React.useState(false);
@@ -19,8 +20,9 @@ export default function LogOutModal() {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Open alert dialog
+      {/* <Button variant="outlined" color="primary" onClick={handleClickOpen}> */}
+      <Button className="LogOut" onClick={handleClickOpen}>
+        Log Out
       </Button>
       <Dialog
         open={open}
