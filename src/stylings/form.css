@@ -44,7 +44,7 @@ input.formInput:hover {
 button[type="submit"] {
   padding: 10px 25px;
   color: whitesmoke;
-  background-color: rgb(25, 28, 199);
+  background-color: var(--secondary);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -55,7 +55,7 @@ button[type="submit"] {
 button[type="reset"] {
   padding: 10px 25px;
   color: whitesmoke;
-  background-color: purple;
+  background-color: var(--secondary-light);
   border: none;
   border-radius: 5px;
   cursor: pointer;
