@@ -14,6 +14,7 @@ import Contact from "./containers/Contact";
 import Game from "./containers/Game";
 import { useTopGames } from "./components/Firebase";
 import ArticleCatalog from "./containers/ArticleCatalog";
+import SearchPage from "./containers/SearchPage";
 // import {addGame} from "./components/Firebase"
 
 function App() {
@@ -66,6 +67,9 @@ function App() {
 
                 <Route path="/contact">
                     <Contact />
+                </Route>
+                <Route exact path="/search/">
+                    <SearchPage games={games}/>
                 </Route>
             </Switch>
         </Layout>
