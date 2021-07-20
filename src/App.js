@@ -40,7 +40,7 @@ function App() {
                         />
                     </div>
                     <div className="side-by-side">
-                        <TopGames />
+                        <TopGames topGames={games} />
                         <Sidebar />
                     </div>
                 </Route>
