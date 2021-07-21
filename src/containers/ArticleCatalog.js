@@ -108,13 +108,13 @@ const ArticleCatalog = ({ articles, onArticleSelect }) => {
           {itemData.map((tile, index) => (
             <GridListTile key={index}>
               <Link to={`/articles/${tile.id}`}>
-                <a href="#" onClick={() => onArticleSelect(tile.id)}>
-                  <img src={tile.img} alt={tile.title} className="image" />
-                  <GridListTileBar
-                    title={tile.title}
-                    subtitle={<span> {tile.description}</span>}
-                  />
-                </a>
+                {/* <a href="#" onClick={() => onArticleSelect(tile.id)}> */}
+                <img src={tile.img} alt={tile.title} className="image" />
+                <GridListTileBar
+                  title={tile.title}
+                  subtitle={<span> {tile.description}</span>}
+                />
+                {/* </a> */}
               </Link>
             </GridListTile>
           ))}

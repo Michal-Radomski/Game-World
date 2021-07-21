@@ -41,6 +41,21 @@ export function useTopGames() {
   return topGames;
 }
 
+function getNextId() {
+  const articles = [];
+  db.collection("articles").onSnapshot((snapshot) => {
+    snapshot.docs.forEach((article) =>
+      articles.push({
+        id: article.id,
+        ...article.data(),
+      })
+    );
+    const nextId = Math.max(...articles.map((article) => article.id)) + 1;
+    console.log(nextId);
+    return nextId;
+  });
+}
+
 export const addArticle = (event) => {
   const form = document.querySelector("#articleForm");
   const created = Date.now();
@@ -48,6 +63,12 @@ export const addArticle = (event) => {
   const description = form.description.value;
   const content = form.content.value;
   const img = form.img.value;
+  let id = getNextId();
+
+  // getNextId().then((val) => {
+  //   console.log(val);
+  //   id = val;
+  // });
 
   const article = {
     created,
@@ -55,6 +76,7 @@ export const addArticle = (event) => {
     description,
     content,
     img,
+    id,
   };
 
   db.collection("articles").add(article);
