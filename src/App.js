@@ -48,7 +48,7 @@ function App() {
     const selectedArticleId = route?.params.id;
     const selectedArticle =
       selectedArticleId &&
-      articles.find((article) => article.id === parseInt(selectedArticleId));
+      articles.find((article) => article.id === selectedArticleId);
     setSelectedArticle(selectedArticle);
   }, [route, articles]);
 

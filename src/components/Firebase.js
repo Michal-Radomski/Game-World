@@ -41,20 +41,20 @@ export function useTopGames() {
   return topGames;
 }
 
-function getNextId() {
-  const articles = [];
-  db.collection("articles").onSnapshot((snapshot) => {
-    snapshot.docs.forEach((article) =>
-      articles.push({
-        id: article.id,
-        ...article.data(),
-      })
-    );
-    const nextId = Math.max(...articles.map((article) => article.id)) + 1;
-    console.log(nextId);
-    return nextId;
-  });
-}
+// function getNextId() {
+//   const articles = [];
+//   db.collection("articles").onSnapshot((snapshot) => {
+//     snapshot.docs.forEach((article) =>
+//       articles.push({
+//         id: article.id,
+//         ...article.data(),
+//       })
+//     );
+//     const nextId = Math.max(...articles.map((article) => article.id)) + 1;
+//     console.log(articles);
+//     return nextId;
+//   });
+// }
 
 export const addArticle = (event) => {
   const form = document.querySelector("#articleForm");
@@ -63,7 +63,6 @@ export const addArticle = (event) => {
   const description = form.description.value;
   const content = form.content.value;
   const img = form.img.value;
-  let id = getNextId();
 
   // getNextId().then((val) => {
   //   console.log(val);
@@ -76,7 +75,6 @@ export const addArticle = (event) => {
     description,
     content,
     img,
-    id,
   };
 
   db.collection("articles").add(article);
@@ -91,7 +89,7 @@ export function useTopArticles() {
       const articles = [];
       snapshot.docs.forEach((article) =>
         articles.push({
-          id: article.index,
+          id: article.id,
           ...article.data(),
         })
       );
