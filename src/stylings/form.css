@@ -41,6 +41,10 @@ input.formInput:hover {
   border: orchid 1px solid;
   background-color: lightgoldenrodyellow;
 }
+.form-btns {
+  display: flex;
+  justify-content: space-evenly;
+}
 button[type="submit"] {
   padding: 10px 25px;
   color: whitesmoke;
@@ -49,7 +53,7 @@ button[type="submit"] {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  float: right;
+  /* float: right; */
   margin-top: 20px;
 }
 button[type="reset"] {
@@ -60,7 +64,7 @@ button[type="reset"] {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  float: left;
+  /* float: left; */
   margin-top: 20px;
 }
 button:hover {
@@ -69,7 +73,7 @@ button:hover {
 }
 select {
   display: inline;
-  display: block;
+  /* display: block; */
   border-radius: 5px;
   background-color: lightgray;
   border: grey 1px solid;

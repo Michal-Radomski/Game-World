@@ -51,7 +51,8 @@ body {
     width: fit-content;
     position: absolute;
     padding: 1px;
-    background-color: var(--primary);
+    /* background-color: var(--primary); */
+    background-color: #a8a8a8;
     border-radius: 5px;
     left: 0;
 }
@@ -75,7 +76,7 @@ body {
 
 .topGamesContainer-catalog {
     padding: 5px;
-    background-color: var(--primary-opacity);
+    /* background-color: var(--primary-opacity); */
     border-radius: 7px;
     text-align: center;
 }
@@ -92,6 +93,13 @@ h2 {
     background-color: black;
     padding: 15px;
     color: white;
+}
+
+.paperInnerStyleGallery {
+    background-color: black;
+    padding: 15px;
+    color: white;
+    display: inline;
 }
 
 .side-by-side {
@@ -144,7 +152,8 @@ h3.galleryHeader {
 .content-game {
     display: flex;
     flex-direction: inherit;
-    background-color: #000000ad;
+    /* background-color: #000000d9; */
+    background-color: black;
     padding: 40px 0 40px 80px;
     border-radius: 10px;
     margin-left: 11vw;
@@ -202,4 +211,8 @@ h3.galleryHeader {
 
 .MuiAppBar-colorPrimary{
     background-color: var(--primary) !important;
+}
+
+.search-page {
+    overflow: hidden;
 }
