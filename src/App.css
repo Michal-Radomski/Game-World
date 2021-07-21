@@ -143,3 +143,44 @@ h3.galleryHeader {
     border-style: ridge;
 }
 
+.game-page {
+    margin-top: 50px;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.game-data {
+    text-align: start;
+    color: white;
+    /* margin-left: 70px; */
+    width: 60vw;
+    margin: 30px auto;
+    background-color: black;
+    border-radius: 5px;
+    padding: 20px;
+}
+.game-header {
+    color: white;
+    font-weight: 600;
+}
+
+.game-header-span {
+    margin: 0 10px;
+    color: white;
+    background-color: #1d1d1d;
+    padding: 6px;
+    border-radius: 3px;
+}
+
+.game-description {
+    line-height: 1.7;
+    word-spacing: 5px;
+}
+
+.btn-read-more {
+    display: inline-flex;
+    background-color: darkred;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 50px;
+}

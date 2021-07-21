@@ -6,11 +6,6 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
-  //  <React.StrictMode>
-  //    <App />
-  //  </React.StrictMode>,
-  // To get rid of erros in the console:
-
   <BrowserRouter>
     <App />
   </BrowserRouter>,

@@ -12,7 +12,6 @@ import {
   useHistory,
   useRouteMatch,
 } from "react-router-dom";
-// import { useRouteMatch } from "react-router-dom";
 import Gallery from "./containers/Gallery";
 import GameCatalog from "./containers/GameCatalog";
 import AboutUs from "./containers/AboutUs";
@@ -28,20 +27,9 @@ import { useLocation } from "react-router-dom";
 // import {addGame} from "./components/Firebase"
 
 function App() {
-  // addGame();
   const { push } = useHistory();
   const articles = useTopArticles();
-  const games = useTopGames();
-
-  // const selectedGameId = useRouteMatch("/games/:game_id")?.params.game_id;
-  // const selectedGame =
-  //     selectedGameId && games.find((game) => game.game_id === selectedGameId);
-  // console.log("game", selectedGame);
-
   const route = useRouteMatch("/articles/:id");
-  const location = useLocation();
-  console.log(location);
-
   const [selectedArticle, setSelectedArticle] = useState(null);
 
   useEffect(() => {
@@ -52,6 +40,17 @@ function App() {
     setSelectedArticle(selectedArticle);
   }, [route, articles]);
 
+  // addGame();
+  const games = useTopGames();
+  const selectedGameId = useRouteMatch("/games/:id")?.params.id;
+  const selectedGame = games.find((game) => game.game_id === selectedGameId);
+  console.log("selectedGame", selectedGame);
+  console.log("All games", games);
+  console.log("selectedGameId", selectedGameId);
+  console.log(
+    "game3",
+    games.find((game) => game.game_id === 10)
+  );
   return (
     <Layout>
       <Switch>
@@ -60,7 +59,7 @@ function App() {
             <Carousel slides={slides} autoplay={true} interval={3000} />
           </div>
           <div className="side-by-side">
-            <TopGames />
+            <TopGames topGames={games} />
             <Sidebar />
           </div>
         </Route>
@@ -80,12 +79,10 @@ function App() {
           <Gallery />
         </Route>
         <Route exact path="/games">
-          {/* <GameCatalog onGameSelect={(game_id) => history.push(`/games/${game_id}`)} /> */}
           <GameCatalog topGames={games} />
         </Route>
-        <Route path="/games/:game_id">
-          <Game />
-          {/* <Game game={selectedGame} /> */}
+        <Route exact path="/games/:id">
+          <Game games={games} />
         </Route>
 
         <Route path="/about-us">

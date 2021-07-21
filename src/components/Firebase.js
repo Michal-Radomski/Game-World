@@ -1,4 +1,6 @@
 import firebase from "firebase";
+import "firebase/auth";
+import "firebase/firestore";
 import { data } from "./Data";
 import { useState, useEffect } from "react";
 
@@ -18,6 +20,11 @@ firebase.initializeApp(firebaseConfig);
 firebase.firestore().settings(settings);
 
 const db = firebase.firestore();
+
+// Eksport do autoryzacji
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+
 //dodanie danych do bazy
 export const addGame = (e) => {
   data.forEach((item) => {
@@ -63,11 +70,6 @@ export const addArticle = (event) => {
   const description = form.description.value;
   const content = form.content.value;
   const img = form.img.value;
-
-  // getNextId().then((val) => {
-  //   console.log(val);
-  //   id = val;
-  // });
 
   const article = {
     created,
