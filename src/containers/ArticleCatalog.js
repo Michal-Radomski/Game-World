@@ -5,11 +5,12 @@ import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import IconButton from "@material-ui/core/IconButton";
 import InfoIcon from "@material-ui/icons/Info";
-import { useTopArticles } from "../components/Firebase";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import { Link } from "react-router-dom";
+import { Button } from "@material-ui/core";
 import "./ArticleCatalog.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -36,10 +37,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ArticleCatalog = () => {
+const ArticleCatalog = ({ articles, onArticleSelect }) => {
   const classes = useStyles();
-  const itemData = useTopArticles();
-  console.log("AAAAAA", useTopArticles())
+  const itemData = articles;
   const [state, setState] = React.useState({
     sort: "",
   });
@@ -107,19 +107,15 @@ const ArticleCatalog = () => {
           </FormControl>
           {itemData.map((tile, index) => (
             <GridListTile key={index}>
-              <img src={tile.img} alt={tile.title} />
-              <GridListTileBar
-                title={tile.title}
-                subtitle={<span> {tile.description}</span>}
-                actionIcon={
-                  <IconButton
-                    aria-label={`info about ${tile.title}`}
-                    className={classes.icon}
-                  >
-                    <InfoIcon />
-                  </IconButton>
-                }
-              />
+              <Link to={`/articles/${tile.id}`}>
+                {/* <a href="#" onClick={() => onArticleSelect(tile.id)}> */}
+                <img src={tile.img} alt={tile.title} className="image" />
+                <GridListTileBar
+                  title={tile.title}
+                  subtitle={<span> {tile.description}</span>}
+                />
+                {/* </a> */}
+              </Link>
             </GridListTile>
           ))}
         </GridList>
