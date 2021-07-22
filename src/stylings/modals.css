@@ -29,7 +29,7 @@ button.LogIn:hover {
 }
 
 button.LogOut {
-  background-color: #9500ae;
+  background-color: var(--secondary);
   color: white;
   margin-right: 10px;
   padding-left: 15px;
@@ -38,6 +38,6 @@ button.LogOut {
   border-radius: 5px;
 }
 button.LogOut:hover {
-  background-color: #fff;
-  color: #dd33fa;
+  background-color: var(--secondary-light);
+  color: white;
 }
