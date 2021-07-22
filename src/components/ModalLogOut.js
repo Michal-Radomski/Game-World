@@ -36,7 +36,7 @@ const DialogTitle = withStyles(styles)((props) => {
           className={classes.closeButton}
           onClick={onClose}
           style={{
-            backgroundColor: "#9500ae",
+            backgroundColor: "var(--secondary)",
             color: "whitesmoke",
             float: "right",
             position: "absolute",
@@ -84,19 +84,19 @@ export default function LogOutModal() {
         <DialogTitle
           id="customized-dialog-title"
           onClose={handleClose}
-          style={{backgroundColor: "blue", color: "whiteSmoke"}}
+          style={{backgroundColor: "var(--primary)", color: "whiteSmoke"}}
         >
           Logging Out
         </DialogTitle>
-        <DialogContent style={{backgroundColor: "whiteSmoke"}}>
-          <Typography style={{color: "black"}}>Do you really want to Log Out?</Typography>
+        <DialogContent style={{backgroundColor: "whiteSmoke", padding: "16px"}}>
+          <Typography style={{color: "black", margin: "16px"}}>Do you really want to Log Out?</Typography>
         </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose} color="primary">
-            Yes
-          </Button>
-          <Button autoFocus onClick={handleClose} color="primary">
+        <DialogActions style={{backgroundColor: "whiteSmoke", display: "flex", justifyContent: "space-between"}}>
+          <Button autoFocus onClick={handleClose} className="LogOutNo">
             No
+          </Button>
+          <Button autoFocus onClick={handleClose} className="LogOutYes">
+            Yes
           </Button>
         </DialogActions>
       </Dialog>
