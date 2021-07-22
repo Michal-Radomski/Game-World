@@ -13,7 +13,11 @@ import Logo from "../images/G-W-logo.png";
 import ModalSignUp from "./ModalSignUp";
 import ModalLogIn from "./ModalLogIn";
 import {Link} from "react-router-dom";
+<<<<<<< HEAD
 import LogOutModal from "./ModalLogOut";
+=======
+import {useState} from "react";
+>>>>>>> master
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -72,6 +76,23 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header() {
   const classes = useStyles();
+<<<<<<< HEAD
+=======
+  const [value, setValue] = useState("");
+  console.log("Value", value);
+  const makeSearchSlug = (value) => {
+    if (!value || value.length === 0) return "#";
+    return `/search/?query=${encodeURIComponent(value)}`;
+  };
+  const handleKeyDown = (e) => {
+    if (e.key !== "Enter") {
+      return;
+    } else {
+      const slug = makeSearchSlug(value);
+      window.location = slug;
+    }
+  };
+>>>>>>> master
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -83,10 +104,18 @@ export default function Header() {
             <img src={Logo} height="35px" alt="Game World Logo" />
           </Link>
 
+<<<<<<< HEAD
           <Typography className={classes.title} variant="h6" noWrap style={{color: "#FDC84B"}}>
             &#8239;GAMEWORLD
           </Typography>
           <LogOutModal />
+=======
+          <Typography className={classes.title} variant="h6" noWrap>
+            <Link to="/" style={{color: "#FDC84B"}}>
+              &#8239;GAMEWORLD
+            </Link>
+          </Typography>
+>>>>>>> master
           <ModalSignUp />
           <ModalLogIn />
           <div className={classes.search}>
@@ -99,6 +128,12 @@ export default function Header() {
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
+<<<<<<< HEAD
+=======
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              onKeyDown={handleKeyDown}
+>>>>>>> master
               inputProps={{"aria-label": "search"}}
             />
           </div>
