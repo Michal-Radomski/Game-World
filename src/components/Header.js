@@ -13,7 +13,6 @@ import Logo from "../images/G-W-logo.png";
 import ModalSignUp from "./ModalSignUp";
 import ModalLogIn from "./ModalLogIn";
 import {Link} from "react-router-dom";
-import LogOutModal from "./ModalLogOut";
 import {useState} from "react";
 
 const useStyles = makeStyles((theme) => ({
@@ -97,12 +96,12 @@ export default function Header() {
           <Link to="/">
             <img src={Logo} height="35px" alt="Game World Logo" />
           </Link>
+
           <Typography className={classes.title} variant="h6" noWrap>
             <Link to="/" style={{color: "#FDC84B"}}>
               &#8239;GAMEWORLD
             </Link>
           </Typography>
-          <LogOutModal />
           <ModalSignUp />
           <ModalLogIn />
           <div className={classes.search}>
