@@ -5,6 +5,6 @@
   background-color: initial;
 }
 .MenuItem:hover {
-  color: blue;
-  background-color: lightcyan !important;
+  color: initial;
+  background-color: #dd33fa !important;
 }
