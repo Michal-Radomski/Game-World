@@ -13,6 +13,7 @@ import Logo from "../images/G-W-logo.png";
 import ModalSignUp from "./ModalSignUp";
 import ModalLogIn from "./ModalLogIn";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -71,6 +72,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header() {
     const classes = useStyles();
+    const [value, setValue] = useState("");
+    console.log("Value", value);
+    const makeSearchSlug = (value) => {
+        if (!value || value.length === 0) return "#";
+        return `/search/?query=${encodeURIComponent(value)}`
+    }
+    const handleKeyDown = (e) => {
+        if(e.key !== "Enter"){
+            return;
+        } else {
+            const slug = makeSearchSlug(value);
+            window.location = slug;
+        }
+    }
     return (
         <div className={classes.root}>
             <AppBar position="static">
@@ -97,6 +112,9 @@ export default function Header() {
                                 root: classes.inputRoot,
                                 input: classes.inputInput,
                             }}
+                            value={value}
+                            onChange={(e) => setValue(e.target.value)}
+                            onKeyDown={handleKeyDown}
                             inputProps={{ "aria-label": "search" }}
                         />
                     </div>
