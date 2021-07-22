@@ -95,10 +95,7 @@ h2 {
     color: white;
 }
 
-.paperInnerStyleGallery {
-    background-color: black;
-    padding: 15px;
-    color: white;
+.MuiGrid-grid-xs-true {
     display: inline;
 }
 

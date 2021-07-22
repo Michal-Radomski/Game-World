@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 const ArticleCatalog = () => {
   const classes = useStyles();
   const itemData = useTopArticles();
+  console.log("AAAAAA", useTopArticles())
   const [state, setState] = React.useState({
     sort: "",
   });

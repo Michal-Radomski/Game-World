@@ -6,7 +6,6 @@ import TopGames from "./components/TopGames";
 import ArticleCreate from "./containers/ArticleCreate";
 import { Sidebar } from "./components/Sidebar";
 import { BrowserRouter as Switch, Route } from "react-router-dom";
-import { useRouteMatch } from "react-router-dom";
 import Gallery from "./containers/Gallery";
 import GameCatalog from "./containers/GameCatalog";
 import AboutUs from "./containers/AboutUs";
@@ -20,15 +19,6 @@ import SearchPage from "./containers/SearchPage";
 function App() {
     // addGame();
     const games = useTopGames();
-    const selectedGameId = useRouteMatch("/games/:id")?.params.id;
-    const selectedGame = games.find((game) => game.game_id === selectedGameId);
-    console.log("selectedGame", selectedGame);
-    console.log("All games", games);
-    console.log("selectedGameId", selectedGameId);
-    console.log(
-        "game3",
-        games.find((game) => game.game_id === 10)
-    );
     return (
         <Layout>
             <Switch>

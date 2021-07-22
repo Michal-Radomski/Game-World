@@ -24,17 +24,17 @@ export default function SearchPage({games}){
     const searchQuery = searchPath.slice(7);
     // console.log("Search qqq ", searchQuery);
     const phrase = decodeURIComponent(searchQuery);    
-    console.log("Decode ", phrase);
+    // console.log("Decode ", phrase);
     const phraseTable = phrase.toLowerCase().split(" ");
-    console.log("Table ", phraseTable);
+    // console.log("Table ", phraseTable);
 
     const gamesResult = () => {
         let resultGameTable = [];
         phraseTable.forEach(phrase => {
             const results = games.filter(game => game.name.toLowerCase().includes(phrase));
             resultGameTable = [...resultGameTable, ...results]
-            console.log("ress1", results);
-            console.log("ress2", resultGameTable);
+            // console.log("ress1", results);
+            // console.log("ress2", resultGameTable);
         })
         return resultGameTable;
     }
@@ -42,48 +42,51 @@ export default function SearchPage({games}){
     return(
     <>
         <h2>Results for: <span style={{color: "yellow"}}>{phrase}</span></h2>
-        <div className={(classes.root, "search-page")} >
+        <div className={(classes.root, "search-page")}>
             {console.log("len", gamesResult().length)}
-        {gamesResult().length > 0 && <h3 style={{color: "white", marginLeft: "5vw", fontSize: "23px"}}>Games:</h3>}
-        {gamesResult().map((game, index)=>{
-            const humanDateFormat = changeUnixTimeToDate(
-                game.first_release_date
-            );
-            return (
-                <Link to={`/games/${game.game_id}`} key={index}>
-                    {/* <a href="#" onClick={() => onGameSelect(game.game_id)}> */}
-                    <li className="container-catalog">
-                        {/* TODO remove Button */}
-                        {/* <Button onClick={() => onGameSelect(game.game_id)} type="link" block> */}
-                        <Button>
-                            <img
-                                className="topGameImg-catalog brightness shadow"
-                                src={changeOriginalImageSize(
-                                    `${game.screenshots[0]}`,
-                                    "cover_big"
-                                )}
-                                alt=""
-                            ></img>
-                            <div className="content-game">
-                                <div className="game-info first">
-                                    <h3>Title: {game.name}</h3>
-                                    <h4>
-                                        Release date: {humanDateFormat}
-                                    </h4>
-                                </div>
-                                <div className="game-info second">
-                                    <h4>Genre: {game.genres[0]}</h4>
-                                    <h4>
-                                        Platform: {game.platforms[0]}
-                                    </h4>
-                                </div>
-                            </div>
-                        </Button>
-                    </li>
-                    {/* </a> */}
-                </Link>
-            );
-        })}
+            {gamesResult().length > 0 && <h3 style={{color: "white", marginLeft: "5vw", fontSize: "23px"}}>Games:</h3>}
+            {gamesResult().length === 0 && <h3 style={{color: "white", marginLeft: "5vw", fontSize: "23px"}}>No games found :(</h3>}
+            <ul className="topGamesContainer-catalog">
+                {gamesResult().map((game, index)=>{
+                    const humanDateFormat = changeUnixTimeToDate(
+                        game.first_release_date
+                    );
+                    return (
+                        <Link to={`/games/${game.game_id}`} key={index}>
+                            {/* <a href="#" onClick={() => onGameSelect(game.game_id)}> */}
+                            <li className="container-catalog">
+                                {/* TODO remove Button */}
+                                {/* <Button onClick={() => onGameSelect(game.game_id)} type="link" block> */}
+                                <Button>
+                                    <img
+                                        className="topGameImg-catalog brightness shadow"
+                                        src={changeOriginalImageSize(
+                                            `${game.screenshots[0]}`,
+                                            "cover_big"
+                                        )}
+                                        alt=""
+                                    ></img>
+                                    <div className="content-game">
+                                        <div className="game-info first">
+                                            <h3>Title: {game.name}</h3>
+                                            <h4>
+                                                Release date: {humanDateFormat}
+                                            </h4>
+                                        </div>
+                                        <div className="game-info second">
+                                            <h4>Genre: {game.genres[0]}</h4>
+                                            <h4>
+                                                Platform: {game.platforms[0]}
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </Button>
+                            </li>
+                            {/* </a> */}
+                        </Link>
+                    );
+                })}
+            </ul>
         </div>
     </>
 

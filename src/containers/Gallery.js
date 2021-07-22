@@ -71,7 +71,7 @@ export default function Gallery() {
                                 <h3 className="galleryHeader">{game.name}</h3>
                                 <Grid item xs>
                                     <Button onClick={handleOpen(game.screenshots[0])}>
-                                        <Paper className={(classes.paper, "paperInnerStyleGallery")}>
+                                        <Paper className={(classes.paper, "paperInnerStyle")}>
                                             <img className="topGameImg" src={changeOriginalImageSize(`${game.screenshots[0]}`, "cover_big")} alt=""></img>
                                         </Paper>
                                     </Button>
@@ -79,7 +79,7 @@ export default function Gallery() {
                                 {game.screenshots[1] && (
                                     <Grid item xs>
                                         <Button onClick={handleOpen(game.screenshots[1])}>
-                                            <Paper className={(classes.paper, "paperInnerStyleGallery")}>
+                                            <Paper className={(classes.paper, "paperInnerStyle")}>
                                                 <img className="topGameImg" src={changeOriginalImageSize(`${game.screenshots[1]}`, "cover_big")} alt=""></img>
                                                 {/* {console.log("nomodal", changeOriginalImageSize(`${game.screenshots[1]}`, "cover_big"))} */}
                                             </Paper>
@@ -89,7 +89,7 @@ export default function Gallery() {
                                 {game.screenshots[2] && (
                                     <Grid item xs>
                                         <Button onClick={handleOpen(game.screenshots[2])}>
-                                            <Paper className={(classes.paper, "paperInnerStyleGallery")}>
+                                            <Paper className={(classes.paper, "paperInnerStyle")}>
                                                 <img className="topGameImg" src={changeOriginalImageSize(`${game.screenshots[2]}`, "cover_big")} alt=""></img>
                                             </Paper>
                                         </Button>
