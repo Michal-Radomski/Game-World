@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SearchPage({games}){
+export default function SearchPage({games, articles}){
     const classes = useStyles();
     const searchPath = window.location.search;
     // console.log("Search... ", searchPath)
@@ -33,12 +33,22 @@ export default function SearchPage({games}){
         phraseTable.forEach(phrase => {
             const results = games.filter(game => game.name.toLowerCase().includes(phrase));
             resultGameTable = [...resultGameTable, ...results]
-            // console.log("ress1", results);
-            // console.log("ress2", resultGameTable);
         })
         return resultGameTable;
     }
+    const articlesResult = () => {
+        let resultArticleTable = [];
+        phraseTable.forEach(phrase => {
+            const results = articles.filter(article => article.title.toLowerCase().includes(phrase));
+            resultArticleTable = [...resultArticleTable, ...results]
+        })
+        return resultArticleTable;
+    }
 
+    const convertDate = (date) => {
+        return new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(date);
+    }
+    console.log("ART", articles);
     return(
     <>
         <h2>Results for: <span style={{color: "yellow"}}>{phrase}</span></h2>
@@ -85,6 +95,38 @@ export default function SearchPage({games}){
                             {/* </a> */}
                         </Link>
                     );
+                })}
+            </ul>
+            {articlesResult().length > 0 && <h3 style={{color: "white", marginLeft: "5vw", fontSize: "23px"}}>Articles:</h3>}
+            {articlesResult().length === 0 && <h3 style={{color: "white", marginLeft: "5vw", fontSize: "23px"}}>No articles found :(</h3>}
+            <ul className="topGamesContainer-catalog">
+                {articlesResult().map((article, index) => {
+                    const humanDateFormat = changeUnixTimeToDate(
+                        article.created
+                    );
+                    return (
+                        <Link to={`/articles/${article.id}`} key={index}>
+                            <li className="container-catalog">
+                                {/* TODO remove Button */}
+                                {/* <Button onClick={() => onGameSelect(game.game_id)} type="link" block> */}
+                                <Button>
+                                    <img src={article.img} alt={article.title} 
+                                    className="topGameImg-catalog brightness shadow"
+                                    style={{width: "270px"}}
+                                    />
+                                    <div className="content-game">
+                                        <div className="game-info first">
+                                            <h3>Title: {article.title}</h3>
+                                            <h4>
+                                                Created at: {convertDate(article.created)}
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </Button>
+                            </li>
+                            {/* </a> */}
+                        </Link>
+                    )
                 })}
             </ul>
         </div>
