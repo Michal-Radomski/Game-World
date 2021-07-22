@@ -133,8 +133,8 @@ export default function FormSignUp(props) {
         <option value="male">Male</option>
       </select>
       <div className="form-btns">
+        <button type="submit">Sign Up</button>
         <button type="reset">Reset</button>
-        <button type="submit">Submit</button>
       </div>
     </form>
   );

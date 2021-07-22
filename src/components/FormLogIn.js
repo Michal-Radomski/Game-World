@@ -62,8 +62,8 @@ export default function FormLogIn(props) {
       />
       {errors.password && <p style={{color: "red"}}>{errors.password.message}</p>}
       <div className="form-btns">
+        <button type="submit">Log In</button>
         <button type="reset">Reset</button>
-        <button type="submit">Submit</button>
       </div>
     </form>
   );

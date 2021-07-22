@@ -73,7 +73,7 @@ export default function ModalLogIn() {
           onClose={handleClose}
           style={{backgroundColor: "var(--primary)", color: "whiteSmoke"}}
         >
-          Log In
+          Logging In
         </DialogTitle>
         <DialogContent style={{backgroundColor: "whiteSmoke"}}>
           <FormLogIn modalLogInClose={handleClose} />

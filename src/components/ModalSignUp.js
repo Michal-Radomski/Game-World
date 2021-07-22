@@ -73,7 +73,7 @@ export default function ModalSignUp() {
           onClose={handleClose}
           style={{backgroundColor: "var(--primary)", color: "whiteSmoke"}}
         >
-          Create Account
+          Creating Account
         </DialogTitle>
         <DialogContent style={{backgroundColor: "whiteSmoke"}}>
           <FormSignUp modalSignUpClose={handleClose} />
