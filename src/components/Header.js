@@ -14,6 +14,7 @@ import ModalSignUp from "./ModalSignUp";
 import ModalLogIn from "./ModalLogIn";
 import {Link} from "react-router-dom";
 import {useState} from "react";
+import LogOutModal from "./ModalLogOut";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -102,6 +103,7 @@ export default function Header() {
               &#8239;GAMEWORLD
             </Link>
           </Typography>
+          <LogOutModal />
           <ModalSignUp />
           <ModalLogIn />
           <div className={classes.search}>
