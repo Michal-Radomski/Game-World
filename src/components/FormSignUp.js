@@ -5,7 +5,7 @@ import React from "react";
 import "../stylings/form.css";
 
 // Log Out function
-const SignOUt = (userID) => {
+const SignOut = (userID) => {
   firebase
     .auth()
     .signOut()
@@ -52,7 +52,7 @@ export default function FormSignUp(props) {
             console.log("Document successfully added to the DB");
 
             //Auto Log Out function (above)
-            SignOUt(userID);
+            SignOut(userID);
           })
           .catch((error) => {
             console.error("Error writing document: ", error);

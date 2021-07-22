@@ -11,6 +11,21 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import "../stylings/modals.css";
+import firebase from "firebase";
+
+// Log Out function
+const SignOut = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      console.log("User was logged out");
+      alert("You have been logged out");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
 const styles = (theme) => ({
   root: {
@@ -75,6 +90,11 @@ export default function LogOutModal() {
     setOpen(false);
   };
 
+  function LogOutCloseModal() {
+    SignOut();
+    handleClose();
+  }
+
   return (
     <div>
       <Button className="LogOut" onClick={handleClickOpen}>
@@ -92,11 +112,11 @@ export default function LogOutModal() {
           <Typography style={{color: "black", margin: "16px"}}>Do you really want to Log Out?</Typography>
         </DialogContent>
         <DialogActions style={{backgroundColor: "whiteSmoke", display: "flex", justifyContent: "space-between"}}>
+          <Button autoFocus onClick={() => LogOutCloseModal()} className="LogOutYes">
+            Yes
+          </Button>
           <Button autoFocus onClick={handleClose} className="LogOutNo">
             No
-          </Button>
-          <Button autoFocus onClick={handleClose} className="LogOutYes">
-            Yes
           </Button>
         </DialogActions>
       </Dialog>

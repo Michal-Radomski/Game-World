@@ -51,7 +51,7 @@ button.LogOutYes {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  float: right;
+  float: left;
   margin-top: 20px;
 }
 button.LogOutNo {
@@ -62,7 +62,7 @@ button.LogOutNo {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  float: left;
+  float: right;
   margin-top: 20px;
 }
 button.LogOutYes:hover,
