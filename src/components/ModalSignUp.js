@@ -30,7 +30,7 @@ const DialogTitle = withStyles(styles)((props) => {
           className={classes.closeButton}
           onClick={onClose}
           style={{
-            backgroundColor: "darkViolet",
+            backgroundColor: "#9500ae",
             color: "whitesmoke",
             float: "right",
             position: "absolute",
@@ -71,7 +71,7 @@ export default function ModalSignUp() {
         <DialogTitle
           id="customized-dialog-title"
           onClose={handleClose}
-          style={{backgroundColor: "red", color: "whiteSmoke"}}
+          style={{backgroundColor: "#2c387e", color: "whiteSmoke"}}
         >
           Create Account
         </DialogTitle>

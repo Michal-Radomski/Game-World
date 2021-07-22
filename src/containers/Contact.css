@@ -38,7 +38,7 @@
 }
 
 .Contact button {
-    background: #f1356d;
+    background: var(--secondary);
     color: #fff;
     border: 0;
     padding: 8px;
@@ -47,4 +47,8 @@
     float: none;
     font-size: 16px;
 
+}
+
+.Contact button:hover {
+    background: var(--secondary-light);
 }

@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { changeUnixTimeToDate } from "../components/Helper";
+import { changeOriginalImageSize } from "../components/Helper";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -19,10 +20,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function GameCatalog({ topGames }) {
     const classes = useStyles();
-    function changeOriginalImageSize(image, size) {
-        const splitImage = image.split("thumb");
-        return `https://${splitImage[0]}${size}${splitImage[1]}`;
-    }
+    // function changeOriginalImageSize(image, size) {
+    //     const splitImage = image.split("thumb");
+    //     return `https://${splitImage[0]}${size}${splitImage[1]}`;
+    // }
 
     return (
         <div className={classes.root}>
