@@ -15,6 +15,7 @@ import ModalLogIn from "./ModalLogIn";
 import {Link} from "react-router-dom";
 import {useState} from "react";
 import LogOutModal from "./ModalLogOut";
+import CurrentUser from "./CurrentUser";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -98,11 +99,13 @@ export default function Header() {
             <img src={Logo} height="35px" alt="Game World Logo" />
           </Link>
 
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography className={classes.title} variant="h6" noWrap style={{display: "flex", flexDirection: "row"}}>
             <Link to="/" style={{color: "#FDC84B"}}>
               &#8239;GAMEWORLD
             </Link>
+            <CurrentUser />
           </Typography>
+
           <LogOutModal />
           <ModalSignUp />
           <ModalLogIn />
