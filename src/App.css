@@ -21,9 +21,16 @@ body {
 }
 
 .content {
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.476);
-    padding: 10px;
+    position: relative;
+    /* background-color: rgba(255, 255, 255, 0.476); */
+    background-color: black;
+    /* padding: 10px; */
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 4px;
 }
 
 .react-3d-carousel {
