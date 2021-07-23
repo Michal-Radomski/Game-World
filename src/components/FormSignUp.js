@@ -1,4 +1,5 @@
 // Component for creating a form in Create an Account Modal
+
 import firebase from "firebase";
 import {useForm} from "react-hook-form";
 import React from "react";
