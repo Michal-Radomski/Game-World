@@ -5,17 +5,15 @@ import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 
 const DivUser = styled.div`
-  background-color: initial;
-  color: var(--secondary-light);
+  color: var(--secondary);
   margin-left: auto;
   margin-right: auto;
 `;
 
-// const SpanUser = styled.span`
-//   font-weight: bold;
-//   font-style: italic;
-//   color: red;
-// `;
+const SpanUser = styled.span`
+  font-weight: 900;
+  color: var(--secondary-light);
+`;
 
 export default function CurrentUser() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -32,10 +30,14 @@ export default function CurrentUser() {
     }
   }, []);
 
-  return (
-    <DivUser>
-      {currentUser ? `You are logged in as:  <span> ${currentUser} </span>   ` : "No user is currently logged in."}
-      {/* Currnt user: <SpanUser> {currentUser}</SpanUser> */}
-    </DivUser>
-  );
+  // Previous verion
+  // return <DivUser>{currentUser ? `You are logged in as: ${currentUser}` : "No user is currently logged in"}</DivUser>;
+
+  if (currentUser) {
+    return (
+      <DivUser>
+        You are logged in as: <SpanUser>{currentUser}</SpanUser>
+      </DivUser>
+    );
+  } else return <DivUser style={{color: "var(--primary-light)"}}>No user is currently logged in.</DivUser>;
 }
