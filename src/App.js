@@ -41,24 +41,16 @@ function App() {
         setSelectedArticle(selectedArticle);
       }, [route, articles]);
 
-    const [list, setList] = useState([]);
-    // const list = [];
+        const list = articles.map((article) => {
+        return (
+            <Link to={`/articles/${article.id}`}>
+                <img src={article.img} alt="1" style={{width: "800px", height: "300px"}} />
+                <p className="content">
+                    {article.title}
+                </p>
+            </Link>
+        )})
 
-    useEffect(() => {
-        articles.map((article) => {
-        // console.log("--- article:", article); // wyświetlają się artykuły
-        list.push(<Link to={`/articles/${article.id}`}>
-            <img src={article.img} alt="1" style={{width: "800px", height: "300px"}} />
-            <p className="content">
-                {article.title}
-            </p>
-        </Link>)
-        // setList(list)
-        return list;
-        })
-    }, [ list, []]);
-
-    // console.log("art", articles);
     return (
         <Layout>
             <Switch>

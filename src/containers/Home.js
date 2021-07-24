@@ -7,11 +7,11 @@ export default function Home({list, games}){
     return(
     <>
         <div className="carouselContainer">
-            <Carousel
+            {list.length > 0 && <Carousel
                 slides={list}
                 autoplay={true}
                 interval={3000}
-            />
+            />}
         </div>
         <div className="side-by-side">
             <TopGames topGames={games} />
