@@ -1,12 +1,8 @@
 import "./App.css";
 import Layout from "./components/Layout";
-// import { Carousel } from "3d-react-carousal";
-// import TopGames from "./components/TopGames";
 import ArticleCreate from "./containers/ArticleCreate";
 import Home from "./containers/Home";
-// import { Sidebar } from "./components/Sidebar";
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   useHistory,
@@ -44,7 +40,7 @@ function App() {
         const list = articles.map((article) => {
         return (
             <Link to={`/articles/${article.id}`}>
-                <img src={article.img} alt="1" style={{width: "800px", height: "300px"}} />
+                <img src={article.img} alt={article.title} style={{width: "800px", height: "300px"}} />
                 <p className="content">
                     {article.title}
                 </p>
@@ -85,6 +81,9 @@ function App() {
                 </Route>
                 <Route path="/contact">
                     <Contact />
+                </Route>
+                <Route path="/about-us">
+                    <AboutUs />
                 </Route>
                 <Route exact path="/search/">
                     <SearchPage games={games} articles={articles}/>
