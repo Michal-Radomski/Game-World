@@ -1,4 +1,4 @@
-// Component for Logging In
+// Component for Logging Out
 
 import React from "react";
 import {withStyles} from "@material-ui/core/styles";
@@ -6,16 +6,37 @@ import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
+import MuiDialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
-import FormLogIn from "./FormLogIn";
 import "../stylings/modals.css";
+import firebase from "firebase";
+
+// Log Out function
+const SignOut = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      console.log("User was logged out");
+      alert("You have been logged out");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
 const styles = (theme) => ({
   root: {
     margin: 0,
     padding: theme.spacing(2),
+  },
+  closeButton: {
+    position: "absolute",
+    right: theme.spacing(1),
+    top: theme.spacing(1),
+    color: theme.palette.grey[500],
   },
 });
 
@@ -52,7 +73,14 @@ const DialogContent = withStyles((theme) => ({
   },
 }))(MuiDialogContent);
 
-export default function ModalLogIn() {
+const DialogActions = withStyles((theme) => ({
+  root: {
+    margin: 0,
+    padding: theme.spacing(1),
+  },
+}))(MuiDialogActions);
+
+export default function LogOutModal() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -62,10 +90,15 @@ export default function ModalLogIn() {
     setOpen(false);
   };
 
+  function LogOutCloseModal() {
+    SignOut();
+    handleClose();
+  }
+
   return (
     <div>
-      <Button className="LogIn" onClick={handleClickOpen}>
-        Log In
+      <Button className="LogOut" onClick={handleClickOpen}>
+        Log Out
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle
@@ -73,11 +106,19 @@ export default function ModalLogIn() {
           onClose={handleClose}
           style={{backgroundColor: "var(--primary)", color: "whiteSmoke"}}
         >
-          Logging In
+          Logging Out
         </DialogTitle>
-        <DialogContent style={{backgroundColor: "whiteSmoke"}}>
-          <FormLogIn modalLogInClose={handleClose} />
+        <DialogContent style={{backgroundColor: "whiteSmoke", padding: "16px"}}>
+          <Typography style={{color: "black", margin: "16px"}}>Do you really want to Log Out?</Typography>
         </DialogContent>
+        <DialogActions style={{backgroundColor: "whiteSmoke", display: "flex", justifyContent: "space-between"}}>
+          <Button autoFocus onClick={() => LogOutCloseModal()} className="LogOutYes">
+            Yes
+          </Button>
+          <Button autoFocus onClick={handleClose} className="LogOutNo">
+            No
+          </Button>
+        </DialogActions>
       </Dialog>
     </div>
   );

@@ -6,5 +6,5 @@
 }
 .MenuItem:hover {
   color: initial;
-  background-color: #dd33fa !important;
+  background-color: var(--secondary-light) !important;
 }
