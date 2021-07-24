@@ -11,7 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import "../stylings/modals.css";
-import firebase from "firebase";
+// import firebase from "firebase";
 
 const styles = (theme) => ({
   root: {
@@ -85,15 +85,15 @@ export default function UserInfo() {
         <DialogTitle
           id="customized-dialog-title"
           onClose={handleClose}
-          style={{backgroundColor: "var(--primary)", color: "whiteSmoke"}}
+          style={{backgroundColor: "var(--primary-light)", color: "whiteSmoke"}}
         >
           User Profile
         </DialogTitle>
         <DialogContent style={{backgroundColor: "whiteSmoke", padding: "16px"}}>
-          <Typography style={{color: "black", margin: "16px"}}>Do you really want to Log Out?</Typography>
+          <Typography style={{color: "black", margin: "16px"}}>User Info - this component is about You!</Typography>
         </DialogContent>
-        <DialogActions style={{backgroundColor: "whiteSmoke", display: "flex", justifyContent: "space-between"}}>
-          <Button autoFocus onClick={handleClose} className="LogOutNo">
+        <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
+          <Button autoFocus onClick={handleClose} className="UserInfoOk">
             Ok
           </Button>
         </DialogActions>
