@@ -16,6 +16,7 @@ import {Link} from "react-router-dom";
 import {useState} from "react";
 import LogOutModal from "./ModalLogOut";
 import CurrentUser from "./CurrentUser";
+import UserInfo from "./ModalUserInfo";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -105,7 +106,7 @@ export default function Header() {
             </Link>
             <CurrentUser />
           </Typography>
-
+          <UserInfo />
           <LogOutModal />
           <ModalSignUp />
           <ModalLogIn />
