@@ -101,9 +101,6 @@ export default function SearchPage({games, articles}){
             {articlesResult().length === 0 && <h3 style={{color: "white", marginLeft: "5vw", fontSize: "23px"}}>No articles found :(</h3>}
             <ul className="topGamesContainer-catalog">
                 {articlesResult().map((article, index) => {
-                    const humanDateFormat = changeUnixTimeToDate(
-                        article.created
-                    );
                     return (
                         <Link to={`/articles/${article.id}`} key={index}>
                             <li className="container-catalog">

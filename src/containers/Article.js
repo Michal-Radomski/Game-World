@@ -10,7 +10,7 @@ const Article = ({ article }) => {
   return (
     <Grid container direction="column" justify="center" alignItems="center">
       <Grid item xs={6}>
-        <img src={article.img} className="image--main"></img>
+        <img src={article.img} alt={article.title} className="image--main"></img>
         <div class="article--content">
           <p className="title">{article.title}</p>
 
