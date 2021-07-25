@@ -166,6 +166,22 @@ h3.galleryHeader {
     border-style: ridge;
 }
 
+
+.messeges{
+ display: flex;
+ flex-direction: inherit;
+ /* background-color: #000000d9; */
+ background-color: black;
+ padding: 40px 0 40px 80px;
+ border-radius: 10px;
+ margin: 10px 11vw;
+ border-color: var(--secondary);
+ color:var(--primary-light);
+ 
+ border-style: ridge;
+ }
+
+
 .game-page {
     margin-top: 50px;
     text-align: center;
