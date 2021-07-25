@@ -1,24 +1,25 @@
-import {useMessages} from "../components/Firebase";
+import { useMessages } from "../components/Firebase";
 
 function Messages() {
     const messages = useMessages();
     console.log(messages);
     return (
-           
+
 
         <div>
-                 <h2>Messages</h2>
+            <h2 className="messageheader">Messages</h2>
 
-        <p> {
+            <p> {
 
-            messages.map(message => ( 
-                <div className="messeges">
-            <p> Email: {message.email} <br></br> Surname: {message.surname} <br></br> Name: {message.title} <br></br> Message: {message.tarea}</p>
-            </div>
-            
-            ))}
+                messages.map(message => (
+                    <div className="messeges">
+                        <p className="fields"> Email: {message.email} <br></br> Surname: {message.surname} <br></br> Name: {message.title} <br></br> Message: {message.tarea}</p>
+                        <button>Delete</button>
+                    </div>
 
-        </p>
+                ))}
+
+            </p>
 
         </div>
 

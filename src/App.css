@@ -168,19 +168,28 @@ h3.galleryHeader {
 
 
 .messeges{
- display: flex;
+ display: flexbox;
  flex-direction: inherit;
+ text-align: center;
  /* background-color: #000000d9; */
  background-color: black;
- padding: 40px 0 40px 80px;
+ padding: 40px 0 40px;
  border-radius: 10px;
  margin: 10px 11vw;
  border-color: var(--secondary);
  color:var(--primary-light);
- 
+ Font-size:20px;
  border-style: ridge;
  }
 
+.messageheader{
+    justify-content: center;
+}
+.fields{
+
+    margin:16px;
+    padding:10px;
+}
 
 .game-page {
     margin-top: 50px;
