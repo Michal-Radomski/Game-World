@@ -52,11 +52,13 @@
 .Contact button:hover {
     background: var(--secondary-light);
 } */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100&display=swap');
 * {
     padding: 0;
   
     box-sizing: border-box;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -74,6 +76,7 @@ body {
     padding: 20px 100px;
     margin-top:20px;
     margin-bottom:20px;
+   
 }
 
 .mainContact:after {
@@ -102,13 +105,14 @@ body {
 
 
 .left {
-    background:  #6573c3 no-repeat center;
-    background-size: cover;
+    background: url("../images/G-W-logo.png") no-repeat center;
+    background-size: auto;
     height: 100%;
 }
 
 .right {
     padding: 25px 40px;
+    background-color: #6573c3;
     
 }
 
@@ -121,7 +125,7 @@ body {
 h3 {
     position: relative;
     padding: 0 0 10px;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
     font-size: 30px;
     
 }
@@ -147,10 +151,11 @@ h3:after {
     font-size: 1.1rem;
     margin-bottom: 22px;
     transition: .3s;
+    border-radius: 5px;
 }
 
 .field:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(238, 229, 229, 0.548);
 }
 
 textarea {
@@ -160,7 +165,7 @@ textarea {
 .btn {
     width: 100%;
     padding: 0.5rem 1rem;
-    background-color: #2ecc71;
+    /* background-color: #2ecc71; */
     color: #fff;
     font-size: 1.1rem;
     border: none;
