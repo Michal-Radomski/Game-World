@@ -46,6 +46,24 @@ export function useTopGames() {
   }, []);
 
   return topGames;
+
+
+}
+
+export function useMessages() {
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    db.collection("contacts").onSnapshot((snapshot) => {
+      const contacts = [];
+      snapshot.docs.forEach((contact) =>
+      contacts.push({ title:contact.title,...contact.data() })
+      );
+      setMessages(contacts);
+    });
+  }, []);
+
+  return messages;
 }
 
 // function getNextId() {

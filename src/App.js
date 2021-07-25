@@ -3,11 +3,11 @@ import Layout from "./components/Layout";
 import ArticleCreate from "./containers/ArticleCreate";
 import Home from "./containers/Home";
 import {
-  Switch,
-  Route,
-  useHistory,
-  useRouteMatch,
-  Link,
+    Switch,
+    Route,
+    useHistory,
+    useRouteMatch,
+    Link,
 } from "react-router-dom";
 import Gallery from "./containers/Gallery";
 import GameCatalog from "./containers/GameCatalog";
@@ -20,6 +20,9 @@ import ArticleCatalog from "./containers/ArticleCatalog";
 import SearchPage from "./containers/SearchPage";
 import Article from "./containers/Article";
 import { useEffect, useState } from "react";
+import Messages from "./containers/Messages";
+// import { useParams } from "react-router-dom";
+
 // import {addGame} from "./components/Firebase"
 
 function App() {
@@ -32,28 +35,29 @@ function App() {
     useEffect(() => {
         const selectedArticleId = route?.params.id;
         const selectedArticle =
-          selectedArticleId &&
-          articles.find((article) => article.id === selectedArticleId);
+            selectedArticleId &&
+            articles.find((article) => article.id === selectedArticleId);
         setSelectedArticle(selectedArticle);
-      }, [route, articles]);
+    }, [route, articles]);
 
-        const list = articles.map((article) => {
+    const list = articles.map((article) => {
         return (
             <Link to={`/articles/${article.id}`}>
-                <img src={article.img} alt={article.title} style={{width: "800px", height: "300px"}} />
+                <img src={article.img} alt={article.title} style={{ width: "800px", height: "300px" }} />
                 <p className="content">
                     {article.title}
                 </p>
             </Link>
-        )})
+        )
+    })
 
     return (
         <Layout>
             <Switch>
                 <Route exact path="/">
-                    <Home 
-                        list={list} 
-                        games={games} 
+                    <Home
+                        list={list}
+                        games={games}
                     />
                 </Route>
 
@@ -86,10 +90,14 @@ function App() {
                     <AboutUs />
                 </Route>
                 <Route exact path="/search/">
-                    <SearchPage games={games} articles={articles}/>
+                    <SearchPage games={games} articles={articles} />
+                </Route>
+                <Route path="/messages">
+                    <Messages />
                 </Route>
             </Switch>
         </Layout>
+
     );
 }
 
