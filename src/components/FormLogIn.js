@@ -2,15 +2,35 @@
 
 import {useForm} from "react-hook-form";
 import React from "react";
-import "./form.css";
+import "../stylings/form.css";
+import firebase from "firebase";
 
-export default function FormSignUp() {
+export default function FormLogIn(props) {
   const {
     register,
     handleSubmit,
     formState: {errors},
   } = useForm();
-  const onSubmit = (data) => console.log("LogIn data:", data);
+  const onSubmit = (data) => {
+    console.log(15, "LogIn data:", data);
+    // Logging In to the Firestore DB
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(data.Email, data.password)
+      .then((userCredential) => {
+        // Signed in
+        let user = userCredential.user;
+        const userID = user.uid;
+        console.log(user);
+        props.modalLogInClose();
+        console.log(`User ID: ${userID} was logged in`);
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  };
   console.log(errors);
 
   return (
@@ -33,7 +53,7 @@ export default function FormSignUp() {
       <input
         className="formInput"
         type="password"
-        placeholder="min 8 characters, at least 1 letter, at least 1 digit "
+        placeholder="enter the password"
         {...register("password", {
           required: "Password is required!",
           min: 8,
@@ -41,9 +61,9 @@ export default function FormSignUp() {
         })}
       />
       {errors.password && <p style={{color: "red"}}>{errors.password.message}</p>}
-      <div>
+      <div className="form-btns">
+        <button type="submit">Log In</button>
         <button type="reset">Reset</button>
-        <button type="submit">Submit</button>
       </div>
     </form>
   );

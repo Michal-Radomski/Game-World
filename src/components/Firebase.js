@@ -1,4 +1,6 @@
 import firebase from "firebase";
+import "firebase/auth";
+import "firebase/firestore";
 import { data } from "./Data";
 import { useState, useEffect } from "react";
 
@@ -18,7 +20,12 @@ firebase.initializeApp(firebaseConfig);
 firebase.firestore().settings(settings);
 
 export const db = firebase.firestore();
-//dodanie danych do bazy 
+
+// Eksport do autoryzacji
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+
+//dodanie danych do bazy
 export const addGame = (e) => {
   data.forEach((item) => {
     db.collection("games").add(item);
@@ -41,6 +48,21 @@ export function useTopGames() {
   return topGames;
 }
 
+// function getNextId() {
+//   const articles = [];
+//   db.collection("articles").onSnapshot((snapshot) => {
+//     snapshot.docs.forEach((article) =>
+//       articles.push({
+//         id: article.id,
+//         ...article.data(),
+//       })
+//     );
+//     const nextId = Math.max(...articles.map((article) => article.id)) + 1;
+//     console.log(articles);
+//     return nextId;
+//   });
+// }
+
 export const addArticle = (event) => {
   const form = document.querySelector("#articleForm");
   const created = Date.now();
@@ -60,3 +82,22 @@ export const addArticle = (event) => {
   db.collection("articles").add(article);
   form.reset();
 };
+
+export function useTopArticles() {
+  const [topArticles, setTopArticles] = useState([]);
+
+  useEffect(() => {
+    db.collection("articles").onSnapshot((snapshot) => {
+      const articles = [];
+      snapshot.docs.forEach((article) =>
+        articles.push({
+          id: article.id,
+          ...article.data(),
+        })
+      );
+      setTopArticles(articles);
+    });
+  }, []);
+
+  return topArticles;
+}

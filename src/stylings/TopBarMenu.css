@@ -1,0 +1,10 @@
+/* Style for TopBarMenu (left-side) */
+
+.MenuItem {
+  color: initial;
+  background-color: initial;
+}
+.MenuItem:hover {
+  color: initial;
+  background-color: var(--secondary-light) !important;
+}

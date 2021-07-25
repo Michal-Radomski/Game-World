@@ -12,6 +12,11 @@ import TopBarMenu from "./TopBarMenu";
 import Logo from "../images/G-W-logo.png";
 import ModalSignUp from "./ModalSignUp";
 import ModalLogIn from "./ModalLogIn";
+import {Link} from "react-router-dom";
+import {useState} from "react";
+import LogOutModal from "./ModalLogOut";
+import CurrentUser from "./CurrentUser";
+import UserInfo from "./ModalUserInfo";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -70,17 +75,39 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header() {
   const classes = useStyles();
+  const [value, setValue] = useState("");
+  console.log("Value", value);
+  const makeSearchSlug = (value) => {
+    if (!value || value.length === 0) return "#";
+    return `/search/?query=${encodeURIComponent(value)}`;
+  };
+  const handleKeyDown = (e) => {
+    if (e.key !== "Enter") {
+      return;
+    } else {
+      const slug = makeSearchSlug(value);
+      window.location = slug;
+    }
+  };
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" style={{backgroundColor: "var(--primary)"}}>
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer">
             <TopBarMenu />
           </IconButton>
-          <img src={Logo} height="35px" alt="Game World Logo" />
-          <Typography className={classes.title} variant="h6" noWrap style={{color: "#FDC84B"}}>
-            &#8239;GAMEWORLD
+          <Link to="/">
+            <img src={Logo} height="35px" alt="Game World Logo" />
+          </Link>
+
+          <Typography className={classes.title} variant="h6" noWrap style={{display: "flex", flexDirection: "row"}}>
+            <Link to="/" style={{color: "#FDC84B"}}>
+              &#8239;GAMEWORLD
+            </Link>
+            <CurrentUser />
           </Typography>
+          <UserInfo />
+          <LogOutModal />
           <ModalSignUp />
           <ModalLogIn />
           <div className={classes.search}>
@@ -93,6 +120,9 @@ export default function Header() {
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              onKeyDown={handleKeyDown}
               inputProps={{"aria-label": "search"}}
             />
           </div>

@@ -1,0 +1,100 @@
+/* Component for styling the modals */
+
+button.SignUp {
+  background-color: var(--secondary);
+  color: white;
+  margin-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid darkblue;
+  border-radius: 5px;
+}
+button.SignUp:hover {
+  background-color: var(--secondary-light);
+  color: white;
+}
+
+button.LogIn {
+  background-color: var(--secondary);
+  color: white;
+  margin-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid #00008b;
+  border-radius: 5px;
+}
+button.LogIn:hover {
+  background-color: var(--secondary-light);
+  color: white;
+}
+
+button.LogOut {
+  background-color: var(--secondary);
+  color: white;
+  margin-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid #2c387e;
+  border-radius: 5px;
+}
+button.LogOut:hover {
+  background-color: var(--secondary-light);
+  color: white;
+}
+
+button.UserInfo {
+  background-color: var(--primary-light);
+  color: white;
+  margin-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid #2c387e;
+  border-radius: 5px;
+}
+button.UserInfo:hover {
+  background-color: var(--secondary-light);
+  color: white;
+}
+
+/* Buttons for LogOut Modal */
+button.LogOutYes {
+  padding: 10px 25px;
+  color: whitesmoke;
+  background-color: var(--secondary) !important;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  float: left;
+  margin-top: 20px;
+}
+button.LogOutNo {
+  padding: 10px 25px;
+  color: whitesmoke;
+  background-color: var(--secondary-light) !important;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  float: right;
+  margin-top: 20px;
+}
+button.LogOutYes:hover,
+button.LogOutNo:hover,
+button.UserInfoOk:hover {
+  transition: 0.3s all;
+  filter: brightness(85%);
+}
+
+/* Button for UserInfo Modal */
+button.UserInfoOk {
+  padding: 10px 25px;
+  color: whitesmoke;
+  background-color: var(--primary-light) !important;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  float: right;
+  margin-top: 20px;
+}
