@@ -44,12 +44,13 @@ function AboutUs() {
     ];
 
     const personlist = authorsData.map((authorsData) => <Authors key={authorsData.id} authorsData={authorsData} />);
-
+    
     return (
         <div className="aboutuspage">
             <div className="about">
                 <h1>About us</h1>
-                {personlist}
+                    {personlist}
+                
             </div>
         </div>
     );

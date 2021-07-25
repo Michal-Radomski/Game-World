@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import "../containers/Contact.css";
-import {db} from "../components/Firebase";
+import { db } from "../components/Firebase";
 
 
 export default function Form() {
@@ -16,17 +16,17 @@ export default function Form() {
         e.preventDefault();
 
         db.collection('contacts').add({
-            title:title,
-            surname:surname,
-            email:email,
-            tarea:tarea
+            title: title,
+            surname: surname,
+            email: email,
+            tarea: tarea
         })
-        .then(()=>{
-            alert('Message has been submitted to firebase');
-        })
-        .catch((error)=>{
-            alert(error.message);
-        })
+            .then(() => {
+                alert('Message has been submitted to firebase');
+            })
+            .catch((error) => {
+                alert(error.message);
+            })
 
         setTitle('');
         setSurname('');
@@ -37,22 +37,25 @@ export default function Form() {
 
     return (
         <div className="mainContact">
-            <form className="Contact" onSubmit={handleSubmit}>
-                <h3>Contact form</h3>
-                <label>Name</label>
-                <input type="tekst" required placeholder="Name" value={title} onChange={(e) => setTitle(e.target.value)} />
-                <label>Surname</label>
-                <input type="tekst" required placeholder="Surname" value={surname} onChange={(e) => setSurname(e.target.value)} />
-                <label>E-mail</label>
-                <input type="tekst" required placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <label>Message</label>
-                <textarea type="tekst" required placeholder="Message" value={tarea} onChange={(e) => setTarea(e.target.value)}>
-                </textarea>
-                <button type="submit">Submit</button>
-               
-            </form>
+            <div className="contact-box">
+                <div className="left"></div>
+                <div className="right">
+                    <form className="Contact" onSubmit={handleSubmit}>
+                        <h3>Contact form</h3>
+                        
+                        <input type="tekst" className="field" required placeholder="Name" value={title} onChange={(e) => setTitle(e.target.value)} />
+                        
+                        <input type="tekst" className="field" required placeholder="Surname" value={surname} onChange={(e) => setSurname(e.target.value)} />
+                       
+                        <input type="tekst" className="field" required placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        
+                        <textarea type="tekst" className="field" required placeholder="Message" value={tarea} onChange={(e) => setTarea(e.target.value)}>
+                        </textarea>
+                        <button className="btn" type="submit">Submit</button>
 
-
+                    </form>
+                </div>
+            </div>
 
         </div>
     )
