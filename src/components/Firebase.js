@@ -49,7 +49,7 @@ export function useTopGames() {
 
 
 }
-
+//dodanie danych z firebase do podstrony messeages
 export function useMessages() {
   const [messages, setMessages] = useState([]);
 
@@ -65,6 +65,24 @@ export function useMessages() {
 
   return messages;
 }
+
+// function removeContact(contact){
+//   db.collection("contacts").docs(contact).delete()
+ 
+
+// }
+// export default removeContact;
+
+
+
+
+
+
+
+
+
+
+
 
 // function getNextId() {
 //   const articles = [];
