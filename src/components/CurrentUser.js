@@ -4,6 +4,13 @@ import firebase from "firebase";
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 
+import ModalSignUp from "./ModalSignUp";
+import ModalLogIn from "./ModalLogIn";
+
+import LogOutModal from "./ModalLogOut";
+
+import UserProfileModal from "./ModalUserProfile";
+
 const DivUser = styled.div`
   color: var(--secondary);
   margin-left: auto;
@@ -17,27 +24,41 @@ const SpanUser = styled.span`
 
 export default function CurrentUser() {
   const [currentUser, setCurrentUser] = useState(null);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     if (firebase) {
       firebase.auth().onAuthStateChanged((authUser) => {
         if (authUser) {
           setCurrentUser(authUser.email);
+          // setIsLoggedIn(true);
         } else {
           setCurrentUser(null);
+          // setIsLoggedIn(false);
         }
       });
     }
   }, []);
 
-  // Previous verion
+  // Previous version
   // return <DivUser>{currentUser ? `You are logged in as: ${currentUser}` : "No user is currently logged in"}</DivUser>;
 
   if (currentUser) {
     return (
-      <DivUser>
-        You are logged in as: <SpanUser>{currentUser}</SpanUser>
-      </DivUser>
+      <>
+        <DivUser>
+          You are logged in as: <SpanUser>{currentUser}</SpanUser>
+        </DivUser>
+        <UserProfileModal />
+        <LogOutModal />
+      </>
     );
-  } else return <DivUser style={{color: "var(--primary-light)"}}>No user is currently logged in.</DivUser>;
+  } else
+    return (
+      <>
+        <DivUser style={{color: "var(--primary-light)"}}>No user is currently logged in.</DivUser>
+        <ModalLogIn />
+        <ModalSignUp />
+      </>
+    );
 }
