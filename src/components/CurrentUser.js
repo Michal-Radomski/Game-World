@@ -24,15 +24,13 @@ export default function CurrentUser() {
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
-    if (firebase) {
-      firebase.auth().onAuthStateChanged((authUser) => {
-        if (authUser) {
-          setCurrentUser(authUser.email);
-        } else {
-          setCurrentUser(null);
-        }
-      });
-    }
+    return firebase.auth().onAuthStateChanged((authUser) => {
+      if (authUser) {
+        setCurrentUser(authUser.email);
+      } else {
+        setCurrentUser(null);
+      }
+    });
   }, []);
 
   // Previous version
