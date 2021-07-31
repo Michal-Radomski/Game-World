@@ -106,10 +106,13 @@ export default function Header() {
             </Link>
             <CurrentUser />
           </Typography>
+
+          {/* Previously all modals were imported here */}
           {/* <UserProfileModal />
           <LogOutModal />
           <ModalSignUp />
           <ModalLogIn /> */}
+
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />

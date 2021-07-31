@@ -3,12 +3,10 @@
 import firebase from "firebase";
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
-
+// Previously all modals were imported directly to the Header
 import ModalSignUp from "./ModalSignUp";
 import ModalLogIn from "./ModalLogIn";
-
 import LogOutModal from "./ModalLogOut";
-
 import UserProfileModal from "./ModalUserProfile";
 
 const DivUser = styled.div`
@@ -24,17 +22,14 @@ const SpanUser = styled.span`
 
 export default function CurrentUser() {
   const [currentUser, setCurrentUser] = useState(null);
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     if (firebase) {
       firebase.auth().onAuthStateChanged((authUser) => {
         if (authUser) {
           setCurrentUser(authUser.email);
-          // setIsLoggedIn(true);
         } else {
           setCurrentUser(null);
-          // setIsLoggedIn(false);
         }
       });
     }
