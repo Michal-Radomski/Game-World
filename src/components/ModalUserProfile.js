@@ -66,7 +66,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function UserInfo() {
+export default function UserProfileModal() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {

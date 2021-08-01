@@ -10,13 +10,13 @@ import {fade, makeStyles} from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
 import TopBarMenu from "./TopBarMenu";
 import Logo from "../images/G-W-logo.png";
-import ModalSignUp from "./ModalSignUp";
-import ModalLogIn from "./ModalLogIn";
+// import ModalSignUp from "./ModalSignUp";
+// import ModalLogIn from "./ModalLogIn";
 import {Link} from "react-router-dom";
 import {useState} from "react";
-import LogOutModal from "./ModalLogOut";
+// import LogOutModal from "./ModalLogOut";
 import CurrentUser from "./CurrentUser";
-import UserInfo from "./ModalUserInfo";
+// import UserProfileModal from "./ModalUserProfile";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -106,10 +106,13 @@ export default function Header() {
             </Link>
             <CurrentUser />
           </Typography>
-          <UserInfo />
+
+          {/* Previously all modals were imported here */}
+          {/* <UserProfileModal />
           <LogOutModal />
           <ModalSignUp />
-          <ModalLogIn />
+          <ModalLogIn /> */}
+
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
