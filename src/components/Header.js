@@ -10,13 +10,13 @@ import {fade, makeStyles} from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
 import TopBarMenu from "./TopBarMenu";
 import Logo from "../images/G-W-logo.png";
-// import ModalSignUp from "./ModalSignUp";
-// import ModalLogIn from "./ModalLogIn";
 import {Link} from "react-router-dom";
 import {useState} from "react";
-// import LogOutModal from "./ModalLogOut";
+//* import ModalSignUp from "./ModalSignUp";
+//* import ModalLogIn from "./ModalLogIn";
+//* import LogOutModal from "./ModalLogOut";
+//* import UserProfileModal from "./ModalUserProfile";
 import CurrentUser from "./CurrentUser";
-// import UserProfileModal from "./ModalUserProfile";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -107,7 +107,7 @@ export default function Header() {
             <CurrentUser />
           </Typography>
 
-          {/* Previously all modals were imported here */}
+          {/* Previously all modals were imported here!!! */}
           {/* <UserProfileModal />
           <LogOutModal />
           <ModalSignUp />
