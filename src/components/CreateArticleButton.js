@@ -3,6 +3,7 @@
 import React from "react";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
+import MenuBookIcon from "@material-ui/icons/MenuBook";
 
 const ButtonCreateArticle = styled.button`
   background-color: var(--primary);
@@ -12,7 +13,6 @@ const ButtonCreateArticle = styled.button`
   padding-right: 15px;
   border: 1px solid white !important;
   border-radius: 5px;
-  text-decoration: none;
   font-size: 0.875rem;
   min-width: 64px;
   box-sizing: border-box !important;
@@ -39,14 +39,18 @@ const ButtonCreateArticle = styled.button`
     color: white !important;
     transition: 0.3s all;
     border: 1px solid var(--secondary) !important;
-    /* filter: brightness(85%); */
+    filter: brightness(100%) !important;
   }
 `;
 
 export default function CreateArticleButton() {
   return (
     <ButtonCreateArticle>
-      <Link to="/create-article">Create Article</Link>
+      <Link to="/create-article">
+        {" "}
+        <MenuBookIcon style={{float: "left"}} />
+        &nbsp;&nbsp;&nbsp;Create Article
+      </Link>
     </ButtonCreateArticle>
   );
 }
