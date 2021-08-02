@@ -3,7 +3,6 @@
 import firebase from "firebase";
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
-//* Previously all modals were imported directly to the Header
 import ModalSignUp from "./ModalSignUp";
 import ModalLogIn from "./ModalLogIn";
 import LogOutModal from "./ModalLogOut";

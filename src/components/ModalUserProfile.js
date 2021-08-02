@@ -66,8 +66,8 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-// let user = firebase.auth().currentUser;
-// console.log(user);
+//* let user = firebase.auth().currentUser;
+//* console.log(user);
 
 export default function UserProfileModal() {
   const [open, setOpen] = React.useState(false);
@@ -94,6 +94,9 @@ export default function UserProfileModal() {
         </DialogTitle>
         <DialogContent style={{backgroundColor: "whiteSmoke", padding: "16px"}}>
           {/* <Typography style={{color: "black", margin: "16px"}}>User Info - this is your email: {user.email}</Typography> */}
+          <Typography style={{color: "black", margin: "16px"}}>
+            User Info - this is your email: here will be your email.
+          </Typography>
         </DialogContent>
         <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
           <Button autoFocus onClick={handleClose} className="UserInfoOk">

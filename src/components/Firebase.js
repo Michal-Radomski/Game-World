@@ -17,7 +17,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-console.log(20, firebase.app().name);
+// console.log(20, "firebase.app().name:", firebase.app().name);
 firebase.firestore().settings(settings);
 
 const db = firebase.firestore();

@@ -12,10 +12,6 @@ import TopBarMenu from "./TopBarMenu";
 import Logo from "../images/G-W-logo.png";
 import {Link} from "react-router-dom";
 import {useState} from "react";
-//* import ModalSignUp from "./ModalSignUp";
-//* import ModalLogIn from "./ModalLogIn";
-//* import LogOutModal from "./ModalLogOut";
-//* import UserProfileModal from "./ModalUserProfile";
 import CurrentUser from "./CurrentUser";
 
 const useStyles = makeStyles((theme) => ({
@@ -76,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Header() {
   const classes = useStyles();
   const [value, setValue] = useState("");
-  console.log("Value", value);
+  // console.log(79, "Value of the Search:", value);
   const makeSearchSlug = (value) => {
     if (!value || value.length === 0) return "#";
     return `/search/?query=${encodeURIComponent(value)}`;
@@ -106,13 +102,6 @@ export default function Header() {
             </Link>
             <CurrentUser />
           </Typography>
-
-          {/* Previously all modals were imported here!!! */}
-          {/* <UserProfileModal />
-          <LogOutModal />
-          <ModalSignUp />
-          <ModalLogIn /> */}
-
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
