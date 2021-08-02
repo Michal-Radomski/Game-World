@@ -4,7 +4,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import React from "react";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import MenuBookIcon from "@material-ui/icons/MenuBook";
+// import MenuBookIcon from "@material-ui/icons/MenuBook";
 import ImportContactsIcon from "@material-ui/icons/ImportContacts";
 import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
 import WallpaperIcon from "@material-ui/icons/Wallpaper";
@@ -35,25 +35,19 @@ export default function TopbarMenu() {
       >
         <MenuItem onClick={handleClose} className="MenuItem">
           <Link to="/articles" style={{color: "black"}}>
-            <ImportContactsIcon />
+            <ImportContactsIcon style={{float: "left"}} />
             <span>&nbsp;&nbsp;&nbsp;Articles</span>
           </Link>
         </MenuItem>
         <MenuItem onClick={handleClose} className="MenuItem">
-          <Link to="/create-article" style={{color: "black"}}>
-            <MenuBookIcon />
-            <span>&nbsp;&nbsp;&nbsp;Create your article</span>
-          </Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose} className="MenuItem">
           <Link to="/games" style={{color: "black"}}>
-            <SportsEsportsIcon />
+            <SportsEsportsIcon style={{float: "left"}} />
             <span>&nbsp;&nbsp;&nbsp;Game catalog</span>
           </Link>
         </MenuItem>
         <MenuItem onClick={handleClose} className="MenuItem">
           <Link to="/gallery" style={{color: "black"}}>
-            <WallpaperIcon />
+            <WallpaperIcon style={{float: "left"}} />
             <span>&nbsp;&nbsp;&nbsp;Gallery</span>
           </Link>
         </MenuItem>

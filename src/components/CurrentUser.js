@@ -3,11 +3,12 @@
 import firebase from "firebase";
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
-// Previously all modals were imported directly to the Header
+//* Previously all modals were imported directly to the Header
 import ModalSignUp from "./ModalSignUp";
 import ModalLogIn from "./ModalLogIn";
 import LogOutModal from "./ModalLogOut";
 import UserProfileModal from "./ModalUserProfile";
+import CreateArticleButton from "./CreateArticleButton";
 
 const DivUser = styled.div`
   color: var(--secondary);
@@ -42,6 +43,7 @@ export default function CurrentUser() {
         <DivUser>
           You are logged in as: <SpanUser>{currentUser}</SpanUser>
         </DivUser>
+        <CreateArticleButton />
         <UserProfileModal />
         <LogOutModal />
       </>

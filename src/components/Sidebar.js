@@ -1,44 +1,39 @@
 import StickyBox from "react-sticky-box";
-import MenuBookIcon from "@material-ui/icons/MenuBook";
+// import MenuBookIcon from "@material-ui/icons/MenuBook";
 import ImportContactsIcon from "@material-ui/icons/ImportContacts";
 import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
 import WallpaperIcon from "@material-ui/icons/Wallpaper";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
+import "../stylings/TopBarMenu.css";
 
 export function Sidebar() {
-    return (
-        <>
-            <StickyBox>
-                <h2 className="sidebarHeader">Menu</h2>
-                <div className="content-sidebar" style={{ color: "white" }}>
-                    <ul>
-                        <li>
-                            <Link to="/articles">
-                                <ImportContactsIcon />
-                                <span> Articles</span>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/create-article">
-                                <MenuBookIcon />
-                                <span>Create your article</span>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/games">
-                                <SportsEsportsIcon />
-                                <span>Game catalog</span>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/gallery">
-                                <WallpaperIcon />
-                                <span>Gallery</span>
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-            </StickyBox>
-        </>
-    );
+  return (
+    <>
+      <StickyBox>
+        <h2 className="sidebarHeader">Menu</h2>
+        <div className="content-sidebar" style={{color: "white"}}>
+          <ul>
+            <li className="MenuItem2">
+              <Link to="/articles">
+                <ImportContactsIcon style={{float: "left"}} />
+                <span>&nbsp;&nbsp;&nbsp;Articles</span>
+              </Link>
+            </li>
+            <li className="MenuItem2">
+              <Link to="/games">
+                <SportsEsportsIcon style={{float: "left"}} />
+                <span>&nbsp;&nbsp;&nbsp;Game catalog</span>
+              </Link>
+            </li>
+            <li className="MenuItem2">
+              <Link to="/gallery">
+                <WallpaperIcon style={{float: "left"}} />
+                <span>&nbsp;&nbsp;&nbsp;Gallery</span>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </StickyBox>
+    </>
+  );
 }
