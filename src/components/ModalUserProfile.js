@@ -11,7 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import "../stylings/modals.css";
-// import firebase from "firebase";
+import {auth} from "./Firebase";
 
 const styles = (theme) => ({
   root: {
@@ -66,8 +66,8 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-//* let user = firebase.auth().currentUser;
-//* console.log(user);
+let user = auth.currentUser;
+console.log(70, "user", user);
 
 export default function UserProfileModal() {
   const [open, setOpen] = React.useState(false);
