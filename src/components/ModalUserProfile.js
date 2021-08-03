@@ -1,6 +1,6 @@
 // Component for User Info
 
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {withStyles} from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -78,10 +78,18 @@ export default function UserProfileModal() {
 
   //* Getting data from firestore
   const userLoggedIn = firebase.auth().currentUser;
-  if (userLoggedIn !== null) {
-    // const email = userLoggedIn.email;
-    const uid = userLoggedIn.uid;
-    // console.log("userLoggedIn.email:", email, "userLoggedIn.uid:", uid);
+
+  // const email = userLoggedIn.email;
+  const uid = userLoggedIn.uid;
+  // console.log("userLoggedIn.email:", email, "userLoggedIn.uid:", uid);
+
+  const [userInfo, setUserInfo] = useState({
+    Email: "",
+    gender: "male",
+    Name: "",
+  });
+
+  useEffect(() => {
     firebase
       .firestore()
       .collection("users")
@@ -89,11 +97,12 @@ export default function UserProfileModal() {
       .get()
       .then((doc) => {
         console.log("User's data", doc.data());
+        setUserInfo(doc.data());
       })
       .catch((error) => {
         console.log("Error getting document:", error);
       });
-  }
+  }, {});
 
   return (
     <div>
@@ -109,9 +118,9 @@ export default function UserProfileModal() {
           User Profile
         </DialogTitle>
         <DialogContent style={{backgroundColor: "whiteSmoke", padding: "16px"}}>
-          <Typography style={{color: "black", margin: "16px"}}>Your name is: </Typography>
+          <Typography style={{color: "black", margin: "16px"}}>Your name is: {userInfo.Name}</Typography>
           <Typography style={{color: "black", margin: "16px"}}>Your email address is: {userLoggedIn.email}</Typography>
-          <Typography style={{color: "black", margin: "16px"}}>Your gender is: </Typography>
+          <Typography style={{color: "black", margin: "16px"}}>Your gender is: {userInfo.gender}</Typography>
         </DialogContent>
         <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
           <Button autoFocus onClick={handleClose} className="UserInfoOk">
