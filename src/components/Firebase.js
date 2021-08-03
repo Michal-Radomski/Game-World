@@ -1,10 +1,10 @@
 import firebase from "firebase";
 import "firebase/auth";
 import "firebase/firestore";
-import { data } from "./Data";
-import { useState, useEffect } from "react";
+import {data} from "./Data";
+import {useState, useEffect} from "react";
 
-const settings = { timestampsInSnapshots: true };
+const settings = {timestampsInSnapshots: true};
 
 var firebaseConfig = {
   apiKey: "AIzaSyD6K_UBeeC2EwujnsrwxBgwcHW-JN0JeUw",
@@ -17,6 +17,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+// console.log(20, "firebase.app().name:", firebase.app().name);
 firebase.firestore().settings(settings);
 
 const db = firebase.firestore();
