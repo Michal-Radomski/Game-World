@@ -126,9 +126,9 @@ export default function UserProfileModal() {
           User Profile
         </DialogTitle>
         <DialogContent style={{backgroundColor: "whiteSmoke", padding: "16px"}}>
-          <Typography style={{color: "black", margin: "16px"}}>
-            User Info - this is your email: {userLoggedIn.email}
-          </Typography>
+          <Typography style={{color: "black", margin: "16px"}}>Your name is: </Typography>
+          <Typography style={{color: "black", margin: "16px"}}>Your email address is: {userLoggedIn.email}</Typography>
+          <Typography style={{color: "black", margin: "16px"}}>Your gender is: </Typography>
         </DialogContent>
         <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
           <Button autoFocus onClick={handleClose} className="UserInfoOk">
