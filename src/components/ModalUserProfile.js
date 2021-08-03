@@ -11,7 +11,6 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import "../stylings/modals.css";
-import {auth} from "./Firebase";
 import firebase from "firebase";
 
 const styles = (theme) => ({
@@ -67,20 +66,13 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-// Getting data from firestore
+//* Getting data from firestore - method2
 // firebase.auth().onAuthStateChanged(function (token) {
 //   if (token) {
 //     console.log("Token email:", token.email);
 //     console.log("Token uid:", token.uid);
 //   }
 // });
-
-const user = firebase.auth().currentUser;
-if (user !== null) {
-  const email = user.email;
-  const uid = user.uid;
-  console.log(85, email, uid);
-}
 
 //* User Get Token - unnecessary for now
 // firebase.auth().onAuthStateChanged(function (user) {
@@ -101,6 +93,14 @@ export default function UserProfileModal() {
     setOpen(false);
   };
 
+  //* Getting data from firestore - method1
+  const userLoggedIn = firebase.auth().currentUser;
+  if (userLoggedIn !== null) {
+    const email = userLoggedIn.email;
+    const uid = userLoggedIn.uid;
+    console.log("userLoggedIn.email:", email, "userLoggedIn.uid:", uid);
+  }
+
   return (
     <div>
       <Button className="UserInfo" onClick={handleClickOpen}>
@@ -115,9 +115,8 @@ export default function UserProfileModal() {
           User Profile
         </DialogTitle>
         <DialogContent style={{backgroundColor: "whiteSmoke", padding: "16px"}}>
-          <Typography style={{color: "black", margin: "16px"}}>User Info - this is your email: {user.email}</Typography>
           <Typography style={{color: "black", margin: "16px"}}>
-            User Info - this is your email: here will be your email.
+            User Info - this is your email: {userLoggedIn.email}
           </Typography>
         </DialogContent>
         <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
