@@ -98,3 +98,10 @@ button.UserInfoOk {
   float: right;
   margin-top: 20px;
 }
+
+/* Class for ModalUserProfile -> span */
+span.UserProfileSpan {
+  color: var(--secondary);
+  font-weight: bold;
+  float: right;
+}

@@ -78,17 +78,16 @@ export default function UserProfileModal() {
 
   //* Getting data from firestore
   const userLoggedIn = firebase.auth().currentUser;
-
   // const email = userLoggedIn.email;
-  const uid = userLoggedIn.uid;
+  const uid = userLoggedIn?.uid;
   // console.log("userLoggedIn.email:", email, "userLoggedIn.uid:", uid);
-
+  // Setting up the state
   const [userInfo, setUserInfo] = useState({
     Email: "",
-    gender: "male",
+    gender: "",
     Name: "",
   });
-
+  // UseEffect + getting the user's data
   useEffect(() => {
     firebase
       .firestore()
@@ -96,7 +95,7 @@ export default function UserProfileModal() {
       .doc(uid)
       .get()
       .then((doc) => {
-        console.log("User's data", doc.data(), uid);
+        console.log("User's data:", doc.data(), "User's uid:", uid);
         setUserInfo(doc.data());
       })
       .catch((error) => {
@@ -107,7 +106,7 @@ export default function UserProfileModal() {
   return (
     <div>
       <Button className="UserInfo" onClick={handleClickOpen}>
-        User Profile
+        User's Profile
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle
@@ -115,12 +114,18 @@ export default function UserProfileModal() {
           onClose={handleClose}
           style={{backgroundColor: "var(--primary-light)", color: "whiteSmoke"}}
         >
-          User Profile
+          User's Profile
         </DialogTitle>
         <DialogContent style={{backgroundColor: "whiteSmoke", padding: "16px"}}>
-          <Typography style={{color: "black", margin: "16px"}}>Your name is: {userInfo.Name}</Typography>
-          <Typography style={{color: "black", margin: "16px"}}>Your email address is: {userLoggedIn.email}</Typography>
-          <Typography style={{color: "black", margin: "16px"}}>Your gender is: {userInfo.gender}</Typography>
+          <Typography style={{color: "black", margin: "16px"}}>
+            You are logged as: &nbsp;<span className="UserProfileSpan">{userInfo.Name}</span>
+          </Typography>
+          <Typography style={{color: "black", margin: "16px"}}>
+            To contact you, we'll send an e-mail to: &nbsp;<span className="UserProfileSpan">{userInfo.Email}</span>
+          </Typography>
+          <Typography style={{color: "black", margin: "16px"}}>
+            You have set your gender as: &nbsp;<span className="UserProfileSpan">{userInfo.gender}</span>
+          </Typography>
         </DialogContent>
         <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
           <Button autoFocus onClick={handleClose} className="UserInfoOk">
