@@ -66,23 +66,6 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-//* Getting data from firestore - method2
-// firebase.auth().onAuthStateChanged(function (token) {
-//   if (token) {
-//     console.log("Token email:", token.email);
-//     console.log("Token uid:", token.uid);
-//   }
-// });
-
-//* User Get Token - unnecessary for now
-// firebase.auth().onAuthStateChanged(function (user) {
-//   if (user) {
-//     user.getIdToken().then(function (data) {
-//       console.log(91, data);
-//     });
-//   }
-// });
-
 export default function UserProfileModal() {
   const [open, setOpen] = React.useState(false);
 
@@ -93,7 +76,7 @@ export default function UserProfileModal() {
     setOpen(false);
   };
 
-  //* Getting data from firestore - method1
+  //* Getting data from firestore
   const userLoggedIn = firebase.auth().currentUser;
   if (userLoggedIn !== null) {
     // const email = userLoggedIn.email;
