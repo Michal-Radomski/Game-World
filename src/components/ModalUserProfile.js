@@ -96,9 +96,20 @@ export default function UserProfileModal() {
   //* Getting data from firestore - method1
   const userLoggedIn = firebase.auth().currentUser;
   if (userLoggedIn !== null) {
-    const email = userLoggedIn.email;
+    // const email = userLoggedIn.email;
     const uid = userLoggedIn.uid;
-    console.log("userLoggedIn.email:", email, "userLoggedIn.uid:", uid);
+    // console.log("userLoggedIn.email:", email, "userLoggedIn.uid:", uid);
+    firebase
+      .firestore()
+      .collection("users")
+      .doc(uid)
+      .get()
+      .then((doc) => {
+        console.log("User's data", doc.data());
+      })
+      .catch((error) => {
+        console.log("Error getting document:", error);
+      });
   }
 
   return (
