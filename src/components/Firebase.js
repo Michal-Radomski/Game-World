@@ -7,13 +7,12 @@ import { useState, useEffect } from "react";
 const settings = { timestampsInSnapshots: true };
 
 var firebaseConfig = {
-  apiKey: "AIzaSyD6K_UBeeC2EwujnsrwxBgwcHW-JN0JeUw",
-  authDomain: "gameworld-a20b3.firebaseapp.com",
-  projectId: "gameworld-a20b3",
-  storageBucket: "gameworld-a20b3.appspot.com",
-  messagingSenderId: "124412031906",
-  appId: "1:124412031906:web:368c522047cb5751bbb8fb",
-  measurementId: "G-NN47R5618M",
+  apiKey: "AIzaSyDLVa5E-IMjWUHp0CodL6m95jnbzO8lkoc",
+  authDomain: "gameworld1-85b63.firebaseapp.com",
+  projectId: "gameworld1-85b63",
+  storageBucket: "gameworld1-85b63.appspot.com",
+  messagingSenderId: "776679957220",
+  appId: "1:776679957220:web:4d4879a95ad023dd2042f1",
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -48,20 +47,28 @@ export function useTopGames() {
   return topGames;
 }
 
-// function getNextId() {
-//   const articles = [];
-//   db.collection("articles").onSnapshot((snapshot) => {
-//     snapshot.docs.forEach((article) =>
-//       articles.push({
-//         id: article.id,
-//         ...article.data(),
-//       })
-//     );
-//     const nextId = Math.max(...articles.map((article) => article.id)) + 1;
-//     console.log(articles);
-//     return nextId;
-//   });
-// }
+export function addComment(article) {
+  const form = document.querySelector("#comment__form");
+  const comment = form.comment__content.value;
+  const today = new Date();
+  const date = today.toISOString().split("T")[0];
+  let author = "";
+  if (auth.currentUser !== null) {
+    author = auth.currentUser.email;
+  }
+  // article.comments.push({ comment, date, author });
+  console.log(author, comment, date);
+  db.collection("articles")
+    .doc(article.id)
+    .update({
+      comments: firebase.firestore.FieldValue.arrayUnion({
+        content: comment,
+        author: author,
+        date: date,
+      }),
+    });
+  form.reset();
+}
 
 export const addArticle = (event) => {
   const form = document.querySelector("#articleForm");
@@ -70,6 +77,7 @@ export const addArticle = (event) => {
   const description = form.description.value;
   const content = form.content.value;
   const img = form.img.value;
+  const comments = [];
 
   const article = {
     created,
@@ -77,6 +85,7 @@ export const addArticle = (event) => {
     description,
     content,
     img,
+    comments,
   };
 
   db.collection("articles").add(article);
@@ -85,9 +94,9 @@ export const addArticle = (event) => {
 
 export function useTopArticles() {
   const [topArticles, setTopArticles] = useState([]);
-
   useEffect(() => {
-    db.collection("articles").onSnapshot((snapshot) => {
+    let isMounted = true;
+    const unsubscribe = db.collection("articles").onSnapshot((snapshot) => {
       const articles = [];
       snapshot.docs.forEach((article) =>
         articles.push({
@@ -95,9 +104,14 @@ export function useTopArticles() {
           ...article.data(),
         })
       );
-      setTopArticles(articles);
+      if (isMounted) {
+        setTopArticles(articles);
+      }
     });
+    return () => {
+      isMounted = false;
+      unsubscribe();
+    };
   }, []);
-
   return topArticles;
 }
