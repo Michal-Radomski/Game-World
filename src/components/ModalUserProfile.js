@@ -96,13 +96,13 @@ export default function UserProfileModal() {
       .doc(uid)
       .get()
       .then((doc) => {
-        console.log("User's data", doc.data());
+        console.log("User's data", doc.data(), uid);
         setUserInfo(doc.data());
       })
       .catch((error) => {
         console.log("Error getting document:", error);
       });
-  }, {});
+  }, [uid]);
 
   return (
     <div>
