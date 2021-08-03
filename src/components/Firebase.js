@@ -25,10 +25,12 @@ const db = firebase.firestore();
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
-//dodanie danych do bazy
+//dodanie gier do bazy
 export const addGame = (e) => {
   data.forEach((item) => {
-    db.collection("games").add(item);
+    db.collection("games")
+    .doc().set(item, { merge: true });
+    // .add(item);
   });
 };
 
@@ -36,32 +38,21 @@ export function useTopGames() {
   const [topGames, setTopGames] = useState([]);
 
   useEffect(() => {
-    db.collection("games").onSnapshot((snapshot) => {
+    let isMounted = true; 
+    const unsubscribe = db.collection("games").onSnapshot((snapshot) => {
       const games = [];
       snapshot.docs.forEach((game) =>
         games.push({ id: game.id, ...game.data() })
       );
+      if (isMounted) {
       setTopGames(games);
+      }
     });
+    return () => {isMounted = false; unsubscribe();};
   }, []);
 
   return topGames;
 }
-
-// function getNextId() {
-//   const articles = [];
-//   db.collection("articles").onSnapshot((snapshot) => {
-//     snapshot.docs.forEach((article) =>
-//       articles.push({
-//         id: article.id,
-//         ...article.data(),
-//       })
-//     );
-//     const nextId = Math.max(...articles.map((article) => article.id)) + 1;
-//     console.log(articles);
-//     return nextId;
-//   });
-// }
 
 export const addArticle = (event) => {
   const form = document.querySelector("#articleForm");
@@ -85,19 +76,21 @@ export const addArticle = (event) => {
 
 export function useTopArticles() {
   const [topArticles, setTopArticles] = useState([]);
-
   useEffect(() => {
-    db.collection("articles").onSnapshot((snapshot) => {
+    let isMounted = true;
+    const unsubscribe = db.collection("articles").onSnapshot((snapshot) => {
       const articles = [];
-      snapshot.docs.forEach((article) =>
+        snapshot.docs.forEach((article) =>
         articles.push({
           id: article.id,
           ...article.data(),
         })
       );
-      setTopArticles(articles);
+      if (isMounted) {
+        setTopArticles(articles);
+      }
     });
+    return () => { isMounted = false; unsubscribe(); };
   }, []);
-
   return topArticles;
 }

@@ -11,6 +11,10 @@ body {
     background-color: black;
 }
 
+div#root {
+    overflow-x: hidden;
+}
+
 .App {
     text-align: center;
 }
@@ -75,7 +79,7 @@ body {
 .topGamesContainer {
     padding: 5px;
     background-color: var(--primary-opacity);
-    /* background-color: var(--primary) 42%; */
+    justify-content: center;
     
     border-radius: 7px;
     max-width: 1100px;
@@ -164,6 +168,7 @@ h3.galleryHeader {
     border-color: var(--secondary);
     border-width: 1px;
     border-style: ridge;
+    min-width: 780px;
 }
 
 .game-page {
@@ -219,4 +224,77 @@ h3.galleryHeader {
 
 .search-page {
     overflow: hidden;
+}
+
+@media screen and (max-width: 1300px) {
+    .sticky-box{
+        display: none;
+    }
+    .active {
+        width: 100vw;
+        margin: 0;
+        position: absolute;
+        left: 0;
+        top: 100px;
+    }
+
+    .active a {
+        /* height: 280px; */
+        width: 400px !important;
+    }
+    
+    .slider-left, .slider-right{
+        display: none !important;
+    }
+    .mobile-hide {
+        display: none;
+    }
+    .makeStyles-inputInput-7 {
+        width: 100vw !important;
+    }
+    .slider-single-content img {
+        object-fit: cover;
+    }
+
+    .container-catalog {
+        width: auto;
+        border-color: var(--secondary);
+        border-width: 1px;
+        border-style: ridge;
+        border-radius: 10px;
+        background-color: black;
+        margin: 5px;
+    }
+    .topGameImg-catalog {
+        position: relative;
+    }
+    .content-game {
+        display: block;
+        min-width: auto;
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+    .MuiButton-label {
+        display: block !important;
+    }
+    .game-info {
+        padding: 0 10px;
+        margin: 0;
+    }
+}
+@media screen and (min-width: 1301px) {
+    .desktop-hide {
+        display: none;
+    }
+    .slider-single-content img {
+        object-fit: contain;
+        background: rgb(0,0,0);
+        background: linear-gradient(90deg, 
+        rgba(0,0,0,0.05) 0%, 
+        rgba(0,0,0,1) 20%, 
+        rgba(0,0,0,1) 50% ,
+        rgba(0,0,0,1) 80%, 
+        rgba(0,0,0,0.05) 100%);
+    }
 }

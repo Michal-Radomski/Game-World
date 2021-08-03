@@ -26,7 +26,7 @@ export default function TopGames({ topGames }) {
             <Grid container className="topGamesContainer" spacing={3}>
                 {topGames.slice(10, 19).map((game, index) => {
                     return (
-                        <Grid item xs key={index}>
+                        <Grid item xs key={index} style={{display: "flex", textAlign: "center", justifyContent: "center"}}>
                             <Link to={`/games/${game.game_id}`}>
                                 <Paper
                                     className={

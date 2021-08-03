@@ -50,7 +50,7 @@ export default function GameCatalog({ topGames }) {
                                     ></img>
                                     <div className="content-game">
                                         <div className="game-info first">
-                                            <h3>Title: {game.name}</h3>
+                                            <h3>{game.name}</h3>
                                             <h4>
                                                 Release date: {humanDateFormat}
                                             </h4>

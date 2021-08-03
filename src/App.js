@@ -56,7 +56,6 @@ function App() {
                         games={games} 
                     />
                 </Route>
-
                 <Route exact path="/articles">
                     <ArticleCatalog
                         articles={articles}

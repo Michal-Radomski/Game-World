@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export function Sidebar() {
     return (
         <>
-            <StickyBox>
+            <StickyBox className="sticky-box">
                 <h2 className="sidebarHeader">Menu</h2>
                 <div className="content-sidebar" style={{ color: "white" }}>
                     <ul>

@@ -31,7 +31,7 @@ const useModalStyles = makeStyles((theme) => ({
 
 export default function Game({ games }) {
     const params = useParams();
-    const game = games.find((game) => game.game_id === parseInt(params.id));
+    const game = games.find((game, index) => game.game_id === parseInt(params.id));
 
     const modalClasses = useModalStyles();
     const [modalStyle] = useState(getModalStyle);
@@ -51,22 +51,22 @@ export default function Game({ games }) {
 
     return (
         <>
-            <div>
+            <div key={game.game_id}>
                 <div className="game-page">
                     <h1 style={{ color: "white" }}>{game.name}</h1>
 
                     <div className="game-data">
-                        <p>
+                        <div>
                             <span className="game-header">Created at: </span>
                             {changeUnixTimeToDate(game.created_at)}
-                        </p>
-                        <p>
+                        </div>
+                        <div>
                             <span className="game-header">
                                 First release date:{" "}
                             </span>
                             {changeUnixTimeToDate(game.first_release_date)}
-                        </p>
-                        <p>
+                        </div>
+                        <div>
                             <span className="game-header">Genres:</span>
                             {game.genres.map((genre) => {
                                 return (
@@ -75,8 +75,8 @@ export default function Game({ games }) {
                                     </span>
                                 );
                             })}
-                        </p>
-                        <p>
+                        </div>
+                        <div>
                             <span className="game-header">Platforms:</span>
                             {game.platforms.map((platform) => {
                                 return (
@@ -85,12 +85,12 @@ export default function Game({ games }) {
                                     </span>
                                 );
                             })}
-                        </p>
+                        </div>
                         <hr style={{ margin: "40px 0" }} />
-                        <p className="game-description">
+                        <div className="game-description">
                             <p className="game-header">Description: </p>
                             {game.summary}
-                        </p>
+                        </div>
                     </div>
                     <div>
                         {game.screenshots.map((image) => {
