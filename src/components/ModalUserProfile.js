@@ -12,6 +12,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import "../stylings/modals.css";
 import {auth} from "./Firebase";
+import firebase from "firebase";
 
 const styles = (theme) => ({
   root: {
@@ -66,8 +67,29 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-let user = auth.currentUser;
-console.log(70, "user", user);
+// Getting data from firestore
+// firebase.auth().onAuthStateChanged(function (token) {
+//   if (token) {
+//     console.log("Token email:", token.email);
+//     console.log("Token uid:", token.uid);
+//   }
+// });
+
+const user = firebase.auth().currentUser;
+if (user !== null) {
+  const email = user.email;
+  const uid = user.uid;
+  console.log(85, email, uid);
+}
+
+//* User Get Token - unnecessary for now
+// firebase.auth().onAuthStateChanged(function (user) {
+//   if (user) {
+//     user.getIdToken().then(function (data) {
+//       console.log(91, data);
+//     });
+//   }
+// });
 
 export default function UserProfileModal() {
   const [open, setOpen] = React.useState(false);
@@ -93,7 +115,7 @@ export default function UserProfileModal() {
           User Profile
         </DialogTitle>
         <DialogContent style={{backgroundColor: "whiteSmoke", padding: "16px"}}>
-          {/* <Typography style={{color: "black", margin: "16px"}}>User Info - this is your email: {user.email}</Typography> */}
+          <Typography style={{color: "black", margin: "16px"}}>User Info - this is your email: {user.email}</Typography>
           <Typography style={{color: "black", margin: "16px"}}>
             User Info - this is your email: here will be your email.
           </Typography>
