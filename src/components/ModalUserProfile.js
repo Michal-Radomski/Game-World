@@ -126,6 +126,13 @@ export default function UserProfileModal() {
           <Typography style={{color: "black", margin: "16px"}}>
             You have set your gender as: &nbsp;<span className="UserProfileSpan">{userInfo.gender}</span>
           </Typography>
+          <Typography style={{color: "gray", margin: "24px 16px 5px 16px"}}>For Geeks only:</Typography>
+          <Typography style={{color: "gray", margin: "5px 16px 16px 16px"}}>
+            Your account's ID is: &nbsp;
+            <span className="UserProfileSpan" style={{color: "var(--primary-light)"}}>
+              {uid}
+            </span>
+          </Typography>
         </DialogContent>
         <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
           <Button autoFocus onClick={handleClose} className="UserInfoOk">
