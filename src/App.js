@@ -2,37 +2,43 @@ import "./App.css";
 import Layout from "./components/Layout";
 import ArticleCreate from "./containers/ArticleCreate";
 import Home from "./containers/Home";
-import {Switch, Route, useHistory, useRouteMatch, Link} from "react-router-dom";
+import { Switch, Route, useRouteMatch, Link } from "react-router-dom";
 import Gallery from "./containers/Gallery";
 import GameCatalog from "./containers/GameCatalog";
 import AboutUs from "./containers/AboutUs";
 import Contact from "./containers/Contact";
 import Game from "./containers/Game";
-import {useTopGames} from "./components/Firebase";
-import {useTopArticles} from "./components/Firebase";
+import { useTopGames } from "./components/Firebase";
+import { useTopArticles } from "./components/Firebase";
 import ArticleCatalog from "./containers/ArticleCatalog";
 import SearchPage from "./containers/SearchPage";
 import Article from "./containers/Article";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 // import {addGame} from "./components/Firebase"
 
 function App() {
   // addGame();
+
   const games = useTopGames();
-  const {push} = useHistory();
   const articles = useTopArticles(); // metoda fetch z Firebase.js
-  const route = useRouteMatch("/articles/:id");
+  const articleRoute = useRouteMatch("/articles/:id");
   const [selectedArticle, setSelectedArticle] = useState(null);
   useEffect(() => {
-    const selectedArticleId = route?.params.id;
-    const selectedArticle = selectedArticleId && articles.find((article) => article.id === selectedArticleId);
+    const selectedArticleId = articleRoute?.params.id;
+    const selectedArticle =
+      selectedArticleId &&
+      articles.find((article) => article.id === selectedArticleId);
     setSelectedArticle(selectedArticle);
-  }, [route, articles]);
+  }, [articleRoute, articles]);
 
   const list = articles.map((article) => {
     return (
       <Link to={`/articles/${article.id}`}>
-        <img src={article.img} alt={article.title} style={{width: "800px", height: "300px"}} />
+        <img
+          src={article.img}
+          alt={article.title}
+          style={{ width: "800px", height: "300px" }}
+        />
         <p className="content">{article.title}</p>
       </Link>
     );
@@ -46,7 +52,7 @@ function App() {
         </Route>
 
         <Route exact path="/articles">
-          <ArticleCatalog articles={articles} onArticleSelect={(id) => push(`/articles/${id}`)} />
+          <ArticleCatalog articles={articles} />
         </Route>
         <Route path="/articles/:id">
           <Article article={selectedArticle} />

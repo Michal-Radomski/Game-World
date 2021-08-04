@@ -1,6 +1,7 @@
 import React from "react";
 import "./Article.css";
 import Grid from "@material-ui/core/Grid";
+import Comment from "../components/Comment";
 
 const Article = ({ article }) => {
   if (!article) {
@@ -9,15 +10,18 @@ const Article = ({ article }) => {
 
   return (
     <Grid container direction="column" justify="center" alignItems="center">
-      <Grid item xs={6}>
-        <img src={article.img} alt={article.title} className="image--main"></img>
+      <Grid item xs={6} id="article__container">
+        <img
+          src={article.img}
+          alt={article.title}
+          className="image--main"
+        ></img>
         <div class="article--content">
           <p className="title">{article.title}</p>
-
-          <p className="description">Description: {article.description}</p>
-
           <p className="context">{article.content}</p>
         </div>
+        <h2>Comments</h2>d
+        <Comment article={article} />
       </Grid>
     </Grid>
   );

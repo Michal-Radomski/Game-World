@@ -24,4 +24,27 @@
   margin-bottom: 15px;
 }
 .context {
+  white-space: pre-wrap;
+}
+@media only screen and (max-width: 769px) {
+  #article__container {
+    max-width: 500px;
+    margin-right: 30px;
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 414px) and (max-width: 767px) {
+  #article__container {
+    max-width: 500px;
+    margin-left: 70px;
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 374px) and (max-width: 413px) {
+  #article__container {
+    max-width: 500px;
+    margin-left: 70px;
+    width: 80%;
+  }
 }
