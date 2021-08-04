@@ -16,6 +16,8 @@ export const CommentForm = ({ article }) => {
   auth.onAuthStateChanged((user) => {
     if (!user) {
       setIsLogged(false);
+    } else {
+      setIsLogged(true);
     }
   });
 
