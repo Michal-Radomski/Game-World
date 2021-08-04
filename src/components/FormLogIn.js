@@ -21,7 +21,7 @@ export default function FormLogIn(props) {
         // Signed in
         let user = userCredential.user;
         const userID = user.uid;
-        console.log(user);
+        // console.log(user);
         props.modalLogInClose();
         console.log(`User ID: ${userID} was logged in`);
       })
@@ -31,7 +31,7 @@ export default function FormLogIn(props) {
         console.log(errorCode, errorMessage);
       });
   };
-  console.log(errors);
+  // console.log(errors);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
