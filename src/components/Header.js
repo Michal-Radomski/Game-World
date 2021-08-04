@@ -10,13 +10,9 @@ import {fade, makeStyles} from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
 import TopBarMenu from "./TopBarMenu";
 import Logo from "../images/G-W-logo.png";
-import ModalSignUp from "./ModalSignUp";
-import ModalLogIn from "./ModalLogIn";
 import {Link} from "react-router-dom";
 import {useState} from "react";
-import LogOutModal from "./ModalLogOut";
 import CurrentUser from "./CurrentUser";
-import UserInfo from "./ModalUserInfo";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -76,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Header() {
   const classes = useStyles();
   const [value, setValue] = useState("");
-  console.log("Value", value);
+  // console.log(79, "Value of the Search:", value);
   const makeSearchSlug = (value) => {
     if (!value || value.length === 0) return "#";
     return `/search/?query=${encodeURIComponent(value)}`;
@@ -106,10 +102,6 @@ export default function Header() {
             </Link>
             <CurrentUser />
           </Typography>
-          <UserInfo />
-          <LogOutModal />
-          <ModalSignUp />
-          <ModalLogIn />
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />

@@ -8,3 +8,15 @@
   color: initial;
   background-color: var(--secondary-light) !important;
 }
+
+/* Style for SideBarMenu (right-side) */
+
+.MenuItem2 {
+  color: initial;
+  background-color: initial;
+  padding-top: 10px;
+}
+.MenuItem2:hover {
+  color: initial;
+  background-color: var(--secondary) !important;
+}
