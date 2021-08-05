@@ -9,6 +9,7 @@ const ButtonCreateArticle = styled.button`
   background-color: var(--primary);
   color: white !important;
   margin-right: 10px;
+  margin-left: 10px;
   padding-left: 15px;
   padding-right: 15px;
   border: 1px solid white !important;
@@ -29,6 +30,11 @@ const ButtonCreateArticle = styled.button`
     color: inherit;
     background-color: inherit;
     text-decoration: none;
+    svg {
+      @media only screen and (max-width: 1300px) {
+        display: none;
+      }
+    }
     &:hover {
       color: inherit;
       background-color: inherit;
