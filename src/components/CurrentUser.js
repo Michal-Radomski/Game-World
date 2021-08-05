@@ -13,6 +13,9 @@ const DivUser = styled.div`
   color: var(--secondary);
   margin-left: auto;
   margin-right: auto;
+  @media only screen and (max-width: 1300px) {
+    display: none;
+  }
 `;
 
 const SpanUser = styled.span`

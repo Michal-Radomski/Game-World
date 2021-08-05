@@ -13,6 +13,7 @@ import Logo from "../images/G-W-logo.png";
 import {Link} from "react-router-dom";
 import {useState} from "react";
 import CurrentUser from "./CurrentUser";
+import "../stylings/TopBarMenu.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -97,8 +98,8 @@ export default function Header() {
           </Link>
 
           <Typography className={classes.title} variant="h6" noWrap style={{display: "flex", flexDirection: "row"}}>
-            <Link to="/" style={{color: "#FDC84B"}}>
-              &#8239;GAMEWORLD
+            <Link to="/" style={{color: "#FDC84B"}} className="GameWorldLink">
+              &#8239;GAMEWORLD&#8239;&#8239;
             </Link>
             <CurrentUser />
           </Typography>
@@ -126,22 +127,22 @@ export default function Header() {
           </div>
         </Toolbar>
         <div className="desktop-hide">
-            <div className={classes.search}>
-                <div className={classes.searchIcon}>
-                <SearchIcon />
-                </div>
-                <InputBase
-                placeholder="Search..."
-                classes={{
-                    root: classes.inputRoot,
-                    input: classes.inputInput,
-                }}
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-                onKeyDown={handleKeyDown}
-                inputProps={{"aria-label": "search"}}
-                />
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
             </div>
+            <InputBase
+              placeholder="Search..."
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              onKeyDown={handleKeyDown}
+              inputProps={{"aria-label": "search"}}
+            />
+          </div>
         </div>
       </AppBar>
     </div>
