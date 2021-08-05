@@ -1,0 +1,56 @@
+.comment__form {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 5px;
+}
+.comment__button {
+  color: white;
+}
+
+@media only screen and (max-width: 769px) {
+  /* For mobile phones: */
+
+  .comment__form {
+    width: 340px;
+    height: 100%;
+    min-width: 100px;
+  }
+  .comment__button {
+    color: white;
+    width: 340px;
+  }
+  .comment__content {
+    width: 340px;
+  }
+}
+@media only screen and (min-width: 374px) and (max-width: 413px) {
+  /* For mobile phones: */
+  .comment__form {
+    width: 210px;
+    height: 100%;
+    min-width: 100px;
+  }
+  .comment__button {
+    color: white;
+    width: 210px;
+  }
+  .comment__content {
+    width: 210px;
+  }
+}
+@media only screen and (min-width: 414px) and (max-width: 767px) {
+  /* For mobile phones: */
+  .comment__form {
+    width: 215px;
+    height: 100%;
+    min-width: 100px;
+  }
+  .comment__button {
+    color: white;
+    width: 215px;
+  }
+  .comment__content {
+    width: 215px;
+  }
+}

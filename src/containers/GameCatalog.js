@@ -6,16 +6,16 @@ import { changeUnixTimeToDate } from "../components/Helper";
 import { changeOriginalImageSize } from "../components/Helper";
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-        margin: "30px",
-        width: "90vw",
-    },
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: "center",
-        color: theme.palette.text.secondary,
-    },
+  root: {
+    flexGrow: 1,
+    margin: "30px",
+    width: "90vw",
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  },
 }));
 
 export default function GameCatalog({ topGames }) {

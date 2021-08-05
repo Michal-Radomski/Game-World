@@ -19,3 +19,18 @@ h2 {
   width: 100%;
   min-height: 100%;
 }
+
+@media only screen and (max-width: 376px) {
+  /* For mobile phones: */
+  #root {
+    width: 480px;
+    height: 100%;
+  }
+}
+@media only screen and (max-width: 415px) {
+  /* For mobile phones: */
+  #root {
+    width: 420px;
+    height: 100%;
+  }
+}
