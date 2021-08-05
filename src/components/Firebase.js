@@ -38,10 +38,12 @@ const db = firebase.firestore();
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
-//dodanie danych do bazy
+//dodanie gier do bazy
 export const addGame = (e) => {
   data.forEach((item) => {
-    db.collection("games").add(item);
+    db.collection("games")
+    .doc().set(item, { merge: true });
+    // .add(item);
   });
 };
 
@@ -49,11 +51,17 @@ export function useTopGames() {
   const [topGames, setTopGames] = useState([]);
 
   useEffect(() => {
-    db.collection("games").onSnapshot((snapshot) => {
+    let isMounted = true; 
+    const unsubscribe = db.collection("games").onSnapshot((snapshot) => {
       const games = [];
-      snapshot.docs.forEach((game) => games.push({id: game.id, ...game.data()}));
+      snapshot.docs.forEach((game) =>
+        games.push({ id: game.id, ...game.data() })
+      );
+      if (isMounted) {
       setTopGames(games);
+      }
     });
+    return () => {isMounted = false; unsubscribe();};
   }, []);
 
   return topGames;
@@ -110,7 +118,7 @@ export function useTopArticles() {
     let isMounted = true;
     const unsubscribe = db.collection("articles").onSnapshot((snapshot) => {
       const articles = [];
-      snapshot.docs.forEach((article) =>
+        snapshot.docs.forEach((article) =>
         articles.push({
           id: article.id,
           ...article.data(),

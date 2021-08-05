@@ -18,7 +18,6 @@ import { useEffect, useState } from "react";
 
 function App() {
   // addGame();
-
   const games = useTopGames();
   const articles = useTopArticles(); // metoda fetch z Firebase.js
   const articleRoute = useRouteMatch("/articles/:id");
@@ -50,7 +49,6 @@ function App() {
         <Route exact path="/">
           <Home list={list} games={games} />
         </Route>
-
         <Route exact path="/articles">
           <ArticleCatalog articles={articles} />
         </Route>
