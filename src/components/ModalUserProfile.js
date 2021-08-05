@@ -136,9 +136,8 @@ export default function UserProfileModal() {
             </span>
           </Typography>
           <div style={{borderTop: "2px solid gray ", marginLeft: 20, marginRight: 20}}></div>
-          <Typography style={{margin: "16px"}}>
-            <Spying />
-          </Typography>
+          <Typography style={{color: "gray", margin: "24px 16px 5px 16px"}}>Some spied information for us...</Typography>
+          <Spying />
         </DialogContent>
         <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
           <Button autoFocus onClick={handleClose} className="UserInfoOk">
