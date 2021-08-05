@@ -1,10 +1,10 @@
 import firebase from "firebase";
 import "firebase/auth";
 import "firebase/firestore";
-import {data} from "./Data";
-import {useState, useEffect} from "react";
+import { data } from "./Data";
+import { useState, useEffect } from "react";
 
-const settings = {timestampsInSnapshots: true};
+const settings = { timestampsInSnapshots: true };
 
 //* Original base
 var firebaseConfig = {
@@ -51,12 +51,30 @@ export function useTopGames() {
   useEffect(() => {
     db.collection("games").onSnapshot((snapshot) => {
       const games = [];
-      snapshot.docs.forEach((game) => games.push({id: game.id, ...game.data()}));
+      snapshot.docs.forEach((game) =>
+        games.push({ id: game.id, ...game.data() })
+      );
       setTopGames(games);
     });
   }, []);
 
   return topGames;
+}
+export function rateArticle(article, value) {
+  const currentRating = article.rating;
+  const raters = article.raters.length;
+
+  db.collection("articles")
+    .doc(article.id)
+    .update({
+      raters: firebase.firestore.FieldValue.arrayUnion(auth.currentUser.uid),
+      rating:
+        (currentRating * raters + value) / (raters !== 0 ? raters + 1 : 1),
+    });
+
+  console.log(auth.currentUser.uid);
+  console.log((article.rating + value) / article.raters.length);
+  console.log(article.raters.length);
 }
 
 export function addComment(article) {
