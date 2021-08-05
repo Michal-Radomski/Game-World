@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ArticleCatalog = ({ articles, onArticleSelect }) => {
+const ArticleCatalog = ({ articles }) => {
   const classes = useStyles();
   const itemData = articles;
   const [state, setState] = React.useState({
@@ -105,13 +105,11 @@ const ArticleCatalog = ({ articles, onArticleSelect }) => {
           {itemData.map((tile, index) => (
             <GridListTile key={index}>
               <Link to={`/articles/${tile.id}`}>
-                {/* <a href="#" onClick={() => onArticleSelect(tile.id)}> */}
                 <img src={tile.img} alt={tile.title} className="image" />
                 <GridListTileBar
                   title={tile.title}
                   subtitle={<span> {tile.description}</span>}
                 />
-                {/* </a> */}
               </Link>
             </GridListTile>
           ))}
