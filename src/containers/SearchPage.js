@@ -77,17 +77,30 @@ export default function SearchPage({games, articles}){
                                         alt=""
                                     ></img>
                                     <div className="content-game">
+                                        <div className="content-game1">
                                         <div className="game-info first">
-                                            <h3>Title: {game.name}</h3>
-                                            <h4>
-                                                Release date: {humanDateFormat}
-                                            </h4>
+                                            <div style={{color: "#bbc5ff"}}>{game.name}</div>
+                                            {game.rating && <p>Rating: {Math.round(game.rating * 100) / 100}<span style={{color: "white"}}> / 100</span></p>}
                                         </div>
                                         <div className="game-info second">
-                                            <h4>Genre: {game.genres[0]}</h4>
-                                            <h4>
-                                                Platform: {game.platforms[0]}
-                                            </h4>
+                                            <div>
+                                            Release date: {humanDateFormat}
+                                            </div>
+                                            {game.follows && <p>Follows: {game.follows}</p>}
+                                        </div>
+                                        </div>
+                                        <div className="inline">
+                                        <div className="platform-list">
+                                            {game.platforms.map((platform, index) => {
+                                                return  (index < game.platforms.length - 1) ? <p key={index} style={{color: "white"}}>{platform},&nbsp;</p> : <p key={index} style={{color: "white"}}>{platform}</p>
+                                            })}
+                                        </div>
+                                        <p style={{fontSize: "25px", margin: "auto"}}>&nbsp;&nbsp;&#10172;&nbsp;&nbsp;</p>
+                                        <div className="platform-list">
+                                            {game.genres.map((genre, index) => {
+                                                return  (index < game.genres.length - 1) ? <p key={index} style={{color: "white"}}>{genre},&nbsp;</p> : <p key={index} style={{color: "white"}}>{genre}</p>
+                                            })}
+                                        </div>
                                         </div>
                                     </div>
                                 </Button>

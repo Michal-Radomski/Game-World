@@ -102,10 +102,10 @@ export default function Header() {
             </Link>
             <CurrentUser />
           </Typography>
-          <UserInfo />
+          {/* <UserInfo />
           <LogOutModal />
           <ModalSignUp />
-          <ModalLogIn />
+          <ModalLogIn /> */}
           <div className="mobile-hide">
             <div className={classes.search}>
               <div className={classes.searchIcon}>

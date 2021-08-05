@@ -18,6 +18,7 @@ import {useEffect, useState} from "react";
 
 function App() {
   // addGame();
+  // window.addGame = addGame;
   const games = useTopGames();
   const {push} = useHistory();
   const articles = useTopArticles(); // metoda fetch z Firebase.js

@@ -24,7 +24,7 @@ export default function TopGames({ topGames }) {
         <div className={classes.root}>
             <h2>Top games</h2>
             <Grid container className="topGamesContainer" spacing={3}>
-                {topGames.slice(10, 19).map((game, index) => {
+                {topGames.sort((a, b) => a["rating"] !== undefined && b["rating"] !== undefined ? b["rating"] - a["rating"] : (a["rating"] === undefined ? a["rating"] = "" : b["rating"] = "")).slice(0, 9).map((game, index) => {
                     return (
                         <Grid item xs key={index} style={{display: "flex", textAlign: "center", justifyContent: "center"}}>
                             <Link to={`/games/${game.game_id}`}>

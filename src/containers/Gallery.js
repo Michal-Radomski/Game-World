@@ -67,7 +67,7 @@ export default function Gallery() {
             <div className={classes.root}>
                 
                 <Grid container className="topGamesContainer" spacing={3}>
-                    {topGames.slice(10, 19).map((game) => {
+                    {topGames.map((game) => {
                         return (
                             <div key={game.id}>
                                 <h3 className="galleryHeader">{game.name}</h3>
@@ -104,7 +104,7 @@ export default function Gallery() {
             </div>
             <Modal open={!!open} onClose={handleClose}>
                 <div style={modalStyle} className={modalClasses.paper}>
-                    <img src={changeOriginalImageSize(open || "", "screenshot_big")} alt="" />
+                    <img style={{maxWidth: "95vw"}} src={changeOriginalImageSize(open || "", "screenshot_big")} alt="" />
                 </div>
             </Modal>
         </>
