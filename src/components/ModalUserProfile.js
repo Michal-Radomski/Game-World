@@ -12,6 +12,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import "../stylings/modals.css";
 import firebase from "firebase";
+import Spying from "./Spying";
 
 const styles = (theme) => ({
   root: {
@@ -126,12 +127,17 @@ export default function UserProfileModal() {
           <Typography style={{color: "black", margin: "16px"}}>
             You have set your gender as: &nbsp;<span className="UserProfileSpan">{userInfo.gender}</span>
           </Typography>
+          <div style={{borderTop: "2px solid gray ", marginLeft: 20, marginRight: 20}}></div>
           <Typography style={{color: "gray", margin: "24px 16px 5px 16px"}}>For Geeks only:</Typography>
           <Typography style={{color: "gray", margin: "5px 16px 16px 16px"}}>
             Your account's ID is: &nbsp;
             <span className="UserProfileSpan" style={{color: "var(--primary-light)"}}>
               {uid}
             </span>
+          </Typography>
+          <div style={{borderTop: "2px solid gray ", marginLeft: 20, marginRight: 20}}></div>
+          <Typography style={{margin: "16px"}}>
+            <Spying />
           </Typography>
         </DialogContent>
         <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
