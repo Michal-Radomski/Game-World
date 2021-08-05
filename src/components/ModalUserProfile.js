@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import "../stylings/modals.css";
 import firebase from "firebase";
 import Spying from "./Spying";
+import SpyingMap from "./SpyingMap";
 
 const styles = (theme) => ({
   root: {
@@ -138,6 +139,7 @@ export default function UserProfileModal() {
           <div style={{borderTop: "2px solid gray ", marginLeft: 20, marginRight: 20}}></div>
           <Typography style={{color: "gray", margin: "24px 16px 5px 16px"}}>Some spied information for us...</Typography>
           <Spying />
+          <SpyingMap />
         </DialogContent>
         <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
           <Button autoFocus onClick={handleClose} className="UserInfoOk">
