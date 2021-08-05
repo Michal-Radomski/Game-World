@@ -7,7 +7,7 @@ import { changeOriginalImageSize } from "../components/Helper";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        flexGrow: 1,
+        flexGrow: 0.9,
         margin: "30px",
         width: "65vw",
     },

@@ -8,7 +8,7 @@ import { changeOriginalImageSize } from "../components/Helper";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    margin: "30px",
+    margin: "30px auto",
     width: "90vw",
   },
   paper: {

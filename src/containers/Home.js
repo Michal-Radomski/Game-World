@@ -9,7 +9,7 @@ export default function Home({list, games}){
         <div className="carouselContainer">
             {list.length > 0 && <Carousel
                 slides={list}
-                autoplay={false}
+                autoplay={true}
                 interval={3000}
             />}
         </div>

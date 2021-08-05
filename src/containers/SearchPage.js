@@ -55,7 +55,7 @@ export default function SearchPage({games, articles}){
         <div className={(classes.root, "search-page")}>
             {console.log("len", gamesResult().length)}
             {gamesResult().length > 0 && <h3 style={{color: "white", marginLeft: "5vw", fontSize: "23px"}}>Games:</h3>}
-            {gamesResult().length === 0 && <h3 style={{color: "white", marginLeft: "5vw", fontSize: "23px"}}>No games found :(</h3>}
+            {gamesResult().length === 0 && <h3 style={{color: "white", marginLeft: "5vw", fontSize: "23px"}}>No games found </h3>}
             <ul className="topGamesContainer-catalog">
                 {gamesResult().map((game, index)=>{
                     const humanDateFormat = changeUnixTimeToDate(
@@ -111,7 +111,7 @@ export default function SearchPage({games, articles}){
                 })}
             </ul>
             {articlesResult().length > 0 && <h3 style={{color: "white", marginLeft: "5vw", fontSize: "23px"}}>Articles:</h3>}
-            {articlesResult().length === 0 && <h3 style={{color: "white", marginLeft: "5vw", fontSize: "23px"}}>No articles found :(</h3>}
+            {articlesResult().length === 0 && <h3 style={{color: "white", marginLeft: "5vw", fontSize: "23px"}}>No articles found</h3>}
             <ul className="topGamesContainer-catalog">
                 {articlesResult().map((article, index) => {
                     return (

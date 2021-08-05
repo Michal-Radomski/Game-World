@@ -1,4 +1,4 @@
-import StickyBox from "react-sticky-box";
+// import StickyBox from "react-sticky-box";
 // import MenuBookIcon from "@material-ui/icons/MenuBook";
 import ImportContactsIcon from "@material-ui/icons/ImportContacts";
 import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
@@ -9,8 +9,8 @@ import "../stylings/TopBarMenu.css";
 export function Sidebar() {
   return (
     <>
-      <div className="sidebar">
-        <StickyBox>
+      <div className="sidebar" style={{position: "sticky", top: "0px"}}>
+        {/* <StickyBox> */}
           <h2 className="sidebarHeader">Menu</h2>
           <div className="content-sidebar" style={{color: "white"}}>
             <ul>
@@ -34,7 +34,7 @@ export function Sidebar() {
               </li>
             </ul>
           </div>
-        </StickyBox>
+        {/* </StickyBox> */}
       </div>
     </>
   );

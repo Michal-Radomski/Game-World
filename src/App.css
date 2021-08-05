@@ -106,6 +106,11 @@ h2 {
   background-color: black;
   padding: 15px;
   color: white;
+  width: 268px;
+}
+
+.paperInnerStyle h3 {
+  height: 40px;
 }
 
 .MuiGrid-grid-xs-true {
@@ -392,5 +397,15 @@ h3.galleryHeader {
 @media screen and (max-width: 600px) {
     .game-img img, .game-data {
       width: 88vw;
-  }
+    }
+    .select-games {
+      margin-bottom: 20px;
+      width: 80vw;
+    }
+    .selects {
+        display: block;
+    }
+    .inline {
+      display: block;
+    }
 }
