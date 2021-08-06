@@ -1,6 +1,6 @@
 import { useMessages } from "../components/Firebase";
 // import removeContact from "../components/Firebase";
-
+import "./MessagesStyl.css";
 function Messages() {
     const messages = useMessages();
     console.log(messages);
