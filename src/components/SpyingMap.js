@@ -14,14 +14,9 @@ const SpyingMap = () => {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-
-      const position = [data.latitude, data.longitude];
-      return position;
     });
 
-  // console.log(position)
-
-  const defaultPosition = [48.864716, 2.349];
+  const defaultPosition = [54.35, 18.64];
 
   return (
     <DivMap>
@@ -38,7 +33,7 @@ const SpyingMap = () => {
           attribution='&copy; <a href="http://osm.org/copyright" target="_blank">OpenStreetMap</a> contributors'
         />
         <Marker position={defaultPosition}>
-          <Popup>You are here...</Popup>
+          <Popup open={true}>You are here...</Popup>
           <Tooltip>You are here...</Tooltip>
         </Marker>
       </MapContainer>
