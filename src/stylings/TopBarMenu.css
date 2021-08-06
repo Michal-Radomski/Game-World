@@ -2,11 +2,10 @@
 
 .MenuItem {
   color: initial;
-  background-color: initial;
 }
 .MenuItem:hover {
   color: initial;
-  background-color: var(--secondary-light) !important;
+  background-color: var(--secondary) !important;
 }
 
 /* Style for SideBarMenu (right-side) */

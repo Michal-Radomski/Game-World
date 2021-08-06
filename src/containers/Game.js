@@ -7,6 +7,7 @@ import {
 import { useState } from "react";
 import Modal from "@material-ui/core/Modal";
 import { makeStyles } from "@material-ui/core/styles";
+import YoutubeEmbed from "../components/YoutubeEmbed";
 
 function getModalStyle() {
     const top = 50;
@@ -16,6 +17,7 @@ function getModalStyle() {
         top: `${top}%`,
         left: `${left}%`,
         transform: `translate(-${top}%, -${left}%)`,
+        // maxWidth: "100vw",
     };
 }
 
@@ -30,8 +32,9 @@ const useModalStyles = makeStyles((theme) => ({
 }));
 
 export default function Game({ games }) {
+    window.scrollTo(0, 0);
     const params = useParams();
-    const game = games.find((game) => game.game_id === parseInt(params.id));
+    const game = games.find((game, index) => game.game_id === parseInt(params.id));
 
     const modalClasses = useModalStyles();
     const [modalStyle] = useState(getModalStyle);
@@ -51,51 +54,88 @@ export default function Game({ games }) {
 
     return (
         <>
-            <div>
+            <div key={game.game_id}>
                 <div className="game-page">
                     <h1 style={{ color: "white" }}>{game.name}</h1>
 
                     <div className="game-data">
-                        <p>
+                        <div>
                             <span className="game-header">Created at: </span>
                             {changeUnixTimeToDate(game.created_at)}
-                        </p>
-                        <p>
+                        </div>
+                        <div>
                             <span className="game-header">
                                 First release date:{" "}
                             </span>
                             {changeUnixTimeToDate(game.first_release_date)}
-                        </p>
-                        <p>
+                        </div>
+                        <hr className="hr-visible" style={{ margin: "20px 0" }} />
+                        <div>
                             <span className="game-header">Genres:</span>
-                            {game.genres.map((genre) => {
+                            {game.genres.map((genre, index) => {
                                 return (
-                                    <span className="game-header-span">
+                                    <span key={index} className="game-header-span">
                                         {genre}
                                     </span>
                                 );
                             })}
-                        </p>
-                        <p>
+                        </div>
+                        <hr className="hr-visible" style={{ margin: "20px 0" }} />
+                        <div>
                             <span className="game-header">Platforms:</span>
-                            {game.platforms.map((platform) => {
+                            {game.platforms.map((platform, index) => {
                                 return (
-                                    <span className="game-header-span">
+                                    <span key={index} className="game-header-span">
                                         {platform}
                                     </span>
                                 );
                             })}
-                        </p>
+                        </div>
+                        {game.game_engines && <div>
+                            {/* game_engines */}
+                            <span className="game-header">Game engines:</span>
+                            {game.game_engines.map((engines, index) => {
+                                return (
+                                    <span key={index} className="game-header-span">
+                                        {engines}
+                                    </span>
+                                );
+                            })}
+                        </div>}
+                        {(game.follows || game.rating) && <hr style={{ margin: "20px 0" }} />}
+                        {game.rating && <div>
+                            <span className="game-header">
+                                IGDB Rating: {" "}
+                            </span>
+                            {Math.round(game.rating * 100) / 100}<span> / 100</span>
+                            </div>}
+                        {game.rating_count && <div>
+                            <span className="game-header">
+                                IGDB Rating count: {" "}
+                            </span>
+                            {game.rating_count}
+                            </div>}
+                        {game.follows && <div>
+                            <span className="game-header">
+                                IGDB Follows: {" "}
+                            </span>
+                            {game.follows}
+                            </div>}
                         <hr style={{ margin: "40px 0" }} />
-                        <p className="game-description">
+                        {game.storyline && <div className="game-description">
+                            <p className="game-header">Storyline: </p>
+                            {game.storyline}
+                        </div>}
+                        <div className="game-description">
                             <p className="game-header">Description: </p>
                             {game.summary}
-                        </p>
+                        </div>
                     </div>
-                    <div>
-                        {game.screenshots.map((image) => {
+                    
+                    <div className="game-img">
+                        {game.screenshots.map((image, index) => {
                             return (
-                                <div style={{ margin: "25px" }}>
+                                <div key={index} style={{ margin: "25px" }}>
                                     <img
                                         onClick={handleOpen(image)}
                                         style={{
@@ -112,6 +152,13 @@ export default function Game({ games }) {
                             );
                         })}
                     </div>
+                    {game.videos && <div style={{margin: "50px 0"}}>
+                        { game.videos.map((video, index) => {
+                            return <YoutubeEmbed embedId={video} key={index}/>
+                        })
+
+                        }
+                    </div>}
                     <div>
                         <a
                             className="btn-read-more"
@@ -126,7 +173,7 @@ export default function Game({ games }) {
             </div>
             <Modal open={!!open} onClose={handleClose}>
                 <div style={modalStyle} className={modalClasses.paper}>
-                    <img
+                    <img style={{maxWidth: "95vw"}}
                         src={changeOriginalImageSize(
                             open || "",
                             "screenshot_big"
