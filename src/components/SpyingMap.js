@@ -1,6 +1,5 @@
 import React from "react";
 import {MapContainer, Marker, Popup, TileLayer, Tooltip} from "react-leaflet";
-import {LatLngExpression} from "leaflet";
 import styled from "styled-components";
 
 const DivMap = styled.div`
@@ -11,7 +10,7 @@ const DivMap = styled.div`
 
 const SpyingMap = () => {
   const [userInfo, setUserInfo] = React.useState(null);
-  // UseEffect + getting the user's data
+  // UseEffect + fetching the user's data
   React.useEffect(() => {
     fetch("https://ipwhois.app/json/?objects=ip,country,city,latitude,longitude")
       .then((response) => response.json())
@@ -20,19 +19,21 @@ const SpyingMap = () => {
         setUserInfo(data);
       });
   }, []);
-  console.log(userInfo);
+
+  console.log(23, userInfo);
   if (userInfo === null) {
     return <p>Loading...</p>;
   }
-  // const defaultPosition = [54.35, 18.64];
+
   const defaultPosition = [userInfo.latitude, userInfo.longitude];
-  console.log(defaultPosition);
+  console.log(29, defaultPosition);
+
   return (
     <DivMap>
       <MapContainer
         style={{width: "auto", height: "100%"}}
         center={defaultPosition}
-        zoom={13}
+        zoom={12}
         scrollWheelZoom={false}
         dragging={false}
         zoomControl={false}
