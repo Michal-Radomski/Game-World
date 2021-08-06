@@ -10,23 +10,35 @@ const DivMap = styled.div`
 `;
 
 const SpyingMap = () => {
-  fetch("https://ipwhois.app/json/?objects=ip,country,city,latitude,longitude")
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-    });
-
-  const defaultPosition = [54.35, 18.64];
-
+  const [userInfo, setUserInfo] = React.useState({
+    ip: "",
+    country: "",
+    city: "",
+    latitude: "",
+    longitude: "",
+  });
+  // UseEffect + getting the user's data
+  React.useEffect(() => {
+    fetch("https://ipwhois.app/json/?objects=ip,country,city,latitude,longitude")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setUserInfo(data);
+      });
+  }, []);
+  console.log(userInfo);
+  // const defaultPosition = [54.35, 18.64];
+  const defaultPosition = [userInfo.latitude, userInfo.longitude];
+  console.log(defaultPosition);
   return (
     <DivMap>
       <MapContainer
         style={{width: "auto", height: "100%"}}
         center={defaultPosition}
         zoom={13}
-        scrollWheelZoom={false}
-        dragging={false}
-        zoomControl={false}
+        // scrollWheelZoom={false}
+        // dragging={false}
+        // zoomControl={false}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
