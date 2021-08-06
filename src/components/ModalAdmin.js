@@ -12,8 +12,6 @@ import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import "../stylings/modals.css";
 import firebase from "firebase";
-import Spying from "./Spying";
-import SpyingMap from "./SpyingMap";
 
 const styles = (theme) => ({
   root: {
@@ -93,7 +91,7 @@ export default function ModalAdmin() {
           Administration
         </DialogTitle>
         <DialogContent style={{backgroundColor: "whiteSmoke", padding: "16px"}}>
-          <Typography style={{color: "black", margin: "8px 16px"}}>Admin admintration will be here...</Typography>
+          <Typography style={{color: "black", margin: "8px 16px"}}>Admin adminstration will be here...</Typography>
         </DialogContent>
         <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
           <Button autoFocus onClick={handleClose} className="UserInfoOk">

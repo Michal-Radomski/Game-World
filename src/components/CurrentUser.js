@@ -37,9 +37,6 @@ export default function CurrentUser() {
     });
   }, []);
 
-  // Previous version
-  // return <DivUser>{currentUser ? `You are logged in as: ${currentUser}` : "No user is currently logged in"}</DivUser>;
-
   if (currentUser) {
     return (
       <>
