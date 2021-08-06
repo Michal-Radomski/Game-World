@@ -14,11 +14,9 @@ p {
 label {
   text-align: left;
   display: block;
-  color: black;
 }
 p span,
 label span {
-  color: red;
   font-weight: bold;
 }
 p::before:not(p.firstLine) {
