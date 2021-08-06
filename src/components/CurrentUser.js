@@ -8,6 +8,7 @@ import ModalLogIn from "./ModalLogIn";
 import LogOutModal from "./ModalLogOut";
 import UserProfileModal from "./ModalUserProfile";
 import CreateArticleButton from "./CreateArticleButton";
+import ModalAdmin from "./ModalAdmin";
 
 const DivUser = styled.div`
   color: var(--secondary);
@@ -45,6 +46,7 @@ export default function CurrentUser() {
         <DivUser>
           You are logged in as: <SpanUser>{currentUser}</SpanUser>
         </DivUser>
+        <ModalAdmin />
         <CreateArticleButton />
         <UserProfileModal />
         <LogOutModal />
