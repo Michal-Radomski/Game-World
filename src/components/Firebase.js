@@ -32,7 +32,7 @@ firebase.initializeApp(firebaseConfig);
 // console.log(20, "firebase.app().name:", firebase.app().name);
 firebase.firestore().settings(settings);
 
-const db = firebase.firestore();
+export const db = firebase.firestore();
 
 // Eksport do autoryzacji
 export const auth = firebase.auth();
@@ -65,6 +65,24 @@ export function useTopGames() {
   }, []);
 
   return topGames;
+
+
+}
+//dodanie danych z firebase do podstrony messeages
+export function useMessages() {
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    db.collection("contacts").onSnapshot((snapshot) => {
+      const contacts = [];
+      snapshot.docs.forEach((contact) =>
+      contacts.push({ title:contact.title,...contact.data() })
+      );
+      setMessages(contacts);
+    });
+  }, []);
+
+  return messages;
 }
 
 export function addComment(article) {

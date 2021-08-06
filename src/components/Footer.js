@@ -53,9 +53,9 @@ const Footer = () => {
                     <div className="col">
                         <h4>Our GameWorld gaming site!</h4>
                         <ul className="list">
-                            <a href="https://www.gry-online.pl/S021.asp">News</a>
-                            <li>Best Rated Games</li>
-                            <li>Classic games</li>
+                            <li><a href="https://www.gry-online.pl/S021.asp">News</a></li>
+                            <li><a href="https://www.metacritic.com/browse/games/score/metascore/all/all/filtered">Best Rated Games</a></li>
+                            <li><a href="https://playclassic.games/">Classic games</a></li>
                         </ul>
                     </div>
 
@@ -69,8 +69,8 @@ const Footer = () => {
                             <Button className={classes.btn2} variant="outlined" href="/contact">
                                 Contact
                             </Button>
-                            <Button className={classes.btn3} variant="outlined" href="/createArticle">
-                                Create article
+                            <Button className={classes.btn3} variant="outlined" href="/messages">
+                                Messages
                             </Button>
                         </ul>
                     </div>
