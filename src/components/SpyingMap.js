@@ -20,13 +20,13 @@ const SpyingMap = () => {
       });
   }, []);
 
-  console.log(23, userInfo);
+  // console.log(23, "userInfo:", userInfo);
   if (userInfo === null) {
     return <p>Loading...</p>;
   }
 
   const defaultPosition = [userInfo.latitude, userInfo.longitude];
-  console.log(29, defaultPosition);
+  // console.log(29, "defaultPosition:", defaultPosition);
 
   return (
     <DivMap>
@@ -43,7 +43,7 @@ const SpyingMap = () => {
           attribution='&copy; <a href="http://osm.org/copyright" target="_blank">OpenStreetMap</a> contributors'
         />
         <Marker position={defaultPosition}>
-          <Popup open={true}>You are here...</Popup>
+          <Popup>You are here...</Popup>
           <Tooltip>You are here...</Tooltip>
         </Marker>
       </MapContainer>
