@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const SpyingP = styled.p`
   color: var(--primary-light);
+  margin: 8px 16px;
 `;
 const SpyingSpan = styled.span`
   color: var(--secondary);
@@ -11,7 +12,7 @@ const SpyingSpan = styled.span`
 
 const Spying = () => {
   return (
-    <div style={{backgroundColor: "inherit", margin: "16px"}}>
+    <div style={{backgroundColor: "inherit"}}>
       <SpyingP>
         Version of the browser: <SpyingSpan>{navigator.appVersion}</SpyingSpan>
       </SpyingP>

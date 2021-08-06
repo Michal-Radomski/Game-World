@@ -4,8 +4,18 @@ import styled from "styled-components";
 
 const DivMap = styled.div`
   width: auto;
-  height: 250px !important;
-  margin: 16px !important;
+  height: 280px !important;
+  margin: 8px 16px !important;
+`;
+
+const StyledP = styled.p`
+  color: black;
+  text-align: center;
+  margin: 8px auto;
+`;
+const StyledSpan = styled.span`
+  color: var(--secondary);
+  font-weight: bolder;
 `;
 
 const SpyingMap = () => {
@@ -20,7 +30,7 @@ const SpyingMap = () => {
       });
   }, []);
 
-  // console.log(23, "userInfo:", userInfo);
+  console.log(23, "userInfo:", userInfo);
   if (userInfo === null) {
     return <p>Loading...</p>;
   }
@@ -30,8 +40,12 @@ const SpyingMap = () => {
 
   return (
     <DivMap>
+      <StyledP>
+        You are in: <StyledSpan>{userInfo.city}</StyledSpan> / <StyledSpan>{userInfo.country}</StyledSpan>. Your IP address
+        is: <StyledSpan>{userInfo.ip}</StyledSpan>.
+      </StyledP>
       <MapContainer
-        style={{width: "auto", height: "100%"}}
+        style={{width: "auto", height: "87.5%"}}
         center={defaultPosition}
         zoom={12}
         scrollWheelZoom={false}
