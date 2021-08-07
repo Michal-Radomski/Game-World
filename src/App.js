@@ -7,6 +7,7 @@ import Gallery from "./containers/Gallery";
 import GameCatalog from "./containers/GameCatalog";
 import AboutUs from "./containers/AboutUs";
 import Contact from "./containers/Contact";
+import Messages from "./containers/Messages";
 import Game from "./containers/Game";
 import { useTopGames } from "./components/Firebase";
 import { useTopArticles } from "./components/Firebase";
@@ -73,6 +74,9 @@ function App() {
         </Route>
         <Route path="/about-us">
           <AboutUs />
+        </Route>
+        <Route path="/messages">
+          <Messages />
         </Route>
         <Route exact path="/search/">
           <SearchPage games={games} articles={articles} />

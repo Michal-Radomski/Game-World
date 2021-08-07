@@ -11,7 +11,7 @@ import WallpaperIcon from "@material-ui/icons/Wallpaper";
 import "../stylings/TopBarMenu.css";
 import {Link} from "react-router-dom";
 
-export default function TopbarMenu() {
+export default function TopBarMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {

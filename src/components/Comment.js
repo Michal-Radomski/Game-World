@@ -7,7 +7,7 @@ const Comment = ({ article }) => {
   console.log(article);
   if (article.comments == null || article.comments.length === 0) {
     return (
-      <Container className="field">
+      <Container className="field__comment">
         <p className="comment-none">
           There is no single comment for this article. Add one to be first!
         </p>
@@ -17,7 +17,7 @@ const Comment = ({ article }) => {
   }
 
   return (
-    <Container className="field">
+    <Container className="field__comment">
       {article.comments.map((comment, index) => (
         <div className="comment" key={index}>
           <p>{comment.content}</p>

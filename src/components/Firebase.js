@@ -32,7 +32,7 @@ firebase.initializeApp(firebaseConfig);
 // console.log(20, "firebase.app().name:", firebase.app().name);
 firebase.firestore().settings(settings);
 
-const db = firebase.firestore();
+export const db = firebase.firestore();
 
 // Eksport do autoryzacji
 export const auth = firebase.auth();
@@ -65,6 +65,24 @@ export function useTopGames() {
   }, []);
 
   return topGames;
+
+
+}
+//dodanie danych z firebase do podstrony messeages
+export function useMessages() {
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    db.collection("contacts").onSnapshot((snapshot) => {
+      const contacts = [];
+      snapshot.docs.forEach((contact) =>
+      contacts.push({ title:contact.title,...contact.data() })
+      );
+      setMessages(contacts);
+    });
+  }, []);
+
+  return messages;
 }
 export function rateArticle(article, value) {
   const currentRating = article.rating;
@@ -77,10 +95,6 @@ export function rateArticle(article, value) {
       rating:
         (currentRating * raters + value) / (raters !== 0 ? raters + 1 : 1),
     });
-
-  console.log(auth.currentUser.uid);
-  console.log((article.rating + value) / article.raters.length);
-  console.log(article.raters.length);
 }
 
 export function addComment(article) {
@@ -92,8 +106,6 @@ export function addComment(article) {
   if (auth.currentUser !== null) {
     author = auth.currentUser.email;
   }
-  // article.comments.push({ comment, date, author });
-  console.log(author, comment, date);
   db.collection("articles")
     .doc(article.id)
     .update({
@@ -114,6 +126,8 @@ export const addArticle = (event) => {
   const content = form.content.value;
   const img = form.img.value;
   const comments = [];
+  const raters = [];
+  const rating = 0;
 
   const article = {
     created,
@@ -122,6 +136,8 @@ export const addArticle = (event) => {
     content,
     img,
     comments,
+    rating,
+    raters,
   };
 
   db.collection("articles").add(article);

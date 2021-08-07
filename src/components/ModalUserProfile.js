@@ -12,11 +12,14 @@ import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import "../stylings/modals.css";
 import firebase from "firebase";
+import Spying from "./Spying";
+import SpyingMap from "./SpyingMap";
 
 const styles = (theme) => ({
   root: {
     margin: 0,
     padding: theme.spacing(2),
+    minWidth: "550px",
   },
   closeButton: {
     position: "absolute",
@@ -117,22 +120,29 @@ export default function UserProfileModal() {
           User's Profile
         </DialogTitle>
         <DialogContent style={{backgroundColor: "whiteSmoke", padding: "16px"}}>
-          <Typography style={{color: "black", margin: "16px"}}>
+          <Typography style={{color: "black", margin: "8px 16px"}}>
             You are logged as: &nbsp;<span className="UserProfileSpan">{userInfo.Name}</span>
           </Typography>
-          <Typography style={{color: "black", margin: "16px"}}>
+          <Typography style={{color: "black", margin: "8px 16px"}}>
             To contact you, we'll send an e-mail to: &nbsp;<span className="UserProfileSpan">{userInfo.Email}</span>
           </Typography>
-          <Typography style={{color: "black", margin: "16px"}}>
+          <Typography style={{color: "black", margin: "8px 16px"}}>
             You have set your gender as: &nbsp;<span className="UserProfileSpan">{userInfo.gender}</span>
           </Typography>
-          <Typography style={{color: "gray", margin: "24px 16px 5px 16px"}}>For Geeks only:</Typography>
-          <Typography style={{color: "gray", margin: "5px 16px 16px 16px"}}>
+          <div style={{borderTop: "2px solid gray ", marginLeft: 16, marginRight: 16}}></div>
+          <Typography style={{color: "gray", margin: "8px 16px 5px 16px"}}>For Geeks only:</Typography>
+          <Typography style={{color: "gray", margin: "5px 16px 8px 16px"}}>
             Your account's ID is: &nbsp;
             <span className="UserProfileSpan" style={{color: "var(--primary-light)"}}>
               {uid}
             </span>
           </Typography>
+          <div style={{borderTop: "2px solid gray ", marginLeft: 16, marginRight: 16}}></div>
+          <Typography style={{color: "gray", margin: "8px 16px 0px 16px"}}>Some spied information for us...</Typography>
+          <Spying />
+          <div style={{borderTop: "2px solid gray ", marginLeft: 16, marginRight: 16}}></div>
+          <SpyingMap />
+          <div style={{borderTop: "2px solid gray ", marginLeft: 16, marginRight: 16}}></div>
         </DialogContent>
         <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
           <Button autoFocus onClick={handleClose} className="UserInfoOk">

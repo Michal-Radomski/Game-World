@@ -1,4 +1,4 @@
-/* Style for TopBarMenu (left-side) */
+/* Style for TopBarMenu (left-side) + additionally style for Header.js*/
 
 .MenuItem {
   color: initial;
@@ -18,4 +18,19 @@
 .MenuItem2:hover {
   color: initial;
   background-color: var(--secondary) !important;
+}
+
+/* Style for Header.js */
+.GameWorldLink {
+  color: inherit;
+}
+@media only screen and (max-width: 1300px) {
+  .GameWorldLink {
+    color: var(--secondary-light) !important;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .GameWorldLink {
+    display: none !important;
+  }
 }

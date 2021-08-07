@@ -1,0 +1,21 @@
+.messeges{
+   font-family: 'Roboto',
+   sans-serif;
+   text-align:center;
+   justify-content: center;
+
+   display: flex;
+   flex-direction: inherit;
+   /* background-color: #000000d9; */
+   background-color: black;
+   padding: 40px 0 40px;
+   border-radius: 10px;
+   margin: 10px 11vw;
+   border-color: var(--secondary);
+   color: var(--primary-light);
+
+   border-style: ridge;
+
+
+   }
+ 
