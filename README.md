@@ -46,7 +46,7 @@ What you can do using GAMEWORLD app:
 
     <div display="flex">
     <img alt="game page1 photo" src="./src/imagesREADME/game-page1.JPG" width="80%">
-    <img alt="game page2 photo" src="./src/imagesREADME/game-page1.JPG" width="80%">
+    <img alt="game page2 photo" src="./src/imagesREADME/game-page2.JPG" width="80%">
     </div>
 
 5. See the photo gallery:
