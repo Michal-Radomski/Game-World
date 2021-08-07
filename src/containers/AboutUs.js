@@ -9,7 +9,7 @@ function AboutUs() {
         [{
             name: 'Piotr',
             description: 'JS developer',
-            image: <img src={require('../images/facet.jpg').default} height={200} width={300} alt="facet"></img>,
+            image: <img src={require('../images/facet1.jpg').default} height={200} width={300} alt="facet"></img>,
             github: <a href="https://github.com/piotrekzak-source/jfdzr3-projects-game-over">Github!</a>,
             info: "I love playing computer games, especially sports games. My favorite game is FIFA.",
             id: 1,
@@ -18,7 +18,7 @@ function AboutUs() {
         {
             name: 'Michał',
             description: 'JS developer',
-            image: <img src={require('../images/facet2.jpg').default} height={200} width={300} alt="facet"></img>,
+            image: <img src={require('../images/facet21.jpg').default} height={200} width={300} alt="facet"></img>,
             github: <a href="https://github.com/infoshareacademy/jfdzr3-projects-game-over">Github!</a>,
             info: "I really enjoy playing strategy games.",
             id: 2,
@@ -27,7 +27,7 @@ function AboutUs() {
         {
             name: 'Paweł',
             description: 'JS developer',
-            image: <img src={require('../images/facet3.jpg').default} height={200} width={300} alt="facet"></img>,
+            image: <img src={require('../images/facet31.jpg').default} height={200} width={300} alt="facet"></img>,
             github: <a href="https://github.com/infoshareacademy/jfdzr3-projects-game-over">Github!</a>,
             info: "I really enjoy playing RPG games.",
             id: 3,
@@ -36,9 +36,9 @@ function AboutUs() {
         {
             name: 'Paulina',
             description: 'Experienced JS developer',
-            image: <img src={require('../images/kobieta.jpg').default} height={200} width={300} alt="kobieta"></img>,
-            github: <a href="https://github.com/infoshareacademy/jfdzr3-projects-game-over">Github!</a>,
-            info: "My favorite game is the Sims.",
+            image: <img src={require('../images/kobieta1.jpg').default} height={200} width={300} alt="kobieta"></img>,
+            github: <a href="https://github.com/PaulinaMilewska">Github!</a>,
+            info: "My favorite game is the Aloy.",
             id: 4,
         },
     ];

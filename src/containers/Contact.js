@@ -95,7 +95,7 @@ export default function Form() {
                 <div className="left"></div>
                 <div className="right">
                     <form className="Contact" onSubmit={handleSubmit}>
-                        <h3>Contact form</h3>
+                        <h3 className="contact-header">Contact form</h3>
                         
                         <input type="text" className="field" required placeholder="Name" value={title} onChange={(e) => setTitle(e.target.value)} />
                         {Object.keys(titleErr).map((key)=>{
