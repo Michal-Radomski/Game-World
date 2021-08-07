@@ -101,6 +101,12 @@ export default function Header() {
             <Link to="/" style={{color: "#FDC84B"}} className="GameWorldLink">
               &#8239;GAMEWORLD&#8239;&#8239;
             </Link>
+          </Typography>
+          <Typography
+            className={classes.title}
+            variant="h6"
+            style={{display: "flex", flexDirection: "row", justifyContent: "flex-end"}}
+          >
             <CurrentUser />
           </Typography>
           <div className="mobile-hide">

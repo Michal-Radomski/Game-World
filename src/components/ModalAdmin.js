@@ -80,7 +80,7 @@ export default function ModalAdmin() {
   return (
     <div>
       <Button className="Admin" onClick={handleClickOpen}>
-        Admin
+        Admin Only
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle

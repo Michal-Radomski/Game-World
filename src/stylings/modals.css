@@ -3,7 +3,7 @@
 button.SignUp {
   background-color: var(--secondary);
   color: white;
-  margin-right: 5px;
+  /* margin-right: 5px; */
   padding-left: 12px;
   padding-right: 12px;
   border: 1px solid darkblue;
@@ -31,7 +31,7 @@ button.LogIn:hover {
 button.LogOut {
   background-color: var(--secondary);
   color: white;
-  margin-right: 5px;
+  /* margin-right: 5px; */
   padding-left: 12px;
   padding-right: 12px;
   border: 1px solid #2c387e;
