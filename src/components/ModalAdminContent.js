@@ -11,39 +11,29 @@ const SpyingSpan = styled.span`
   float: right;
 `;
 
-// Getting collection of users from firestore DB
-setTimeout(function () {
-  firebase
-    .firestore()
-    .collection("users")
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log("Collection of Users:", doc.id, " => ", doc.data());
-      });
-    });
-}, 500);
-
 const ModalAdminContent = () => {
-  return (
-    <div style={{backgroundColor: "inherit"}}>
-      <SpyingP>
-        Version of the browser: <SpyingSpan>{navigator.appVersion}</SpyingSpan>
-      </SpyingP>
-      <SpyingP>
-        Platform the browser is compiled: <SpyingSpan>{navigator.platform}</SpyingSpan>
-      </SpyingP>
-      <SpyingP>
-        Engine name of the browser: <SpyingSpan>{navigator.product}</SpyingSpan>
-      </SpyingP>
-      <SpyingP>
-        Display resolution: <SpyingSpan>{window.screen.width + " x " + window.screen.height + " pixels"}</SpyingSpan>
-      </SpyingP>
-      <SpyingP>
-        Color depth: <SpyingSpan>{window.screen.colorDepth + " bits/pixel"}</SpyingSpan>
-      </SpyingP>
-    </div>
-  );
+  // Getting collection of users from firestore DB
+  setTimeout(function () {
+    let usersList = [];
+    firebase
+      .firestore()
+      .collection("users")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // console.log("Collection of Users:", doc.id, " => ", doc.data());
+          let userArray = [];
+          userArray.push(doc.id);
+          userArray.push(doc.data().isAdmin);
+          userArray.push(doc.data().Name);
+          usersList.push(userArray);
+        });
+      });
+
+    console.log("usersList:", usersList, usersList.length);
+  }, 500);
+
+  return <div style={{backgroundColor: "inherit"}}></div>;
 };
 
 export default ModalAdminContent;
