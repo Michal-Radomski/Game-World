@@ -65,7 +65,7 @@ export const Score = ({ article }) => {
           name="hover-feedback"
           value={value}
           size="large"
-          precision={1}
+          precision={0.5}
           emptyIcon={
             <StarBorderIcon fontSize="inherit" className={classes.emptyStar} />
           }
@@ -90,7 +90,7 @@ export const Score = ({ article }) => {
           value={value}
           size="large"
           disabled
-          precision={1}
+          precision={0.5}
           emptyIcon={
             <StarBorderIcon fontSize="inherit" className={classes.emptyStar} />
           }
@@ -115,12 +115,11 @@ export const Score = ({ article }) => {
         value={value}
         size="large"
         disabled
-        precision={1}
+        precision={0.5}
         emptyIcon={
           <StarBorderIcon fontSize="inherit" className={classes.emptyStar} />
         }
         onChange={(event, newValue) => {
-          //   setValue(newValue);
           rateArticle(article, newValue);
         }}
         onChangeActive={(event, newHover) => {

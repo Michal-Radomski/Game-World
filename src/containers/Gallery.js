@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         margin: "30px",
-        width: "65vw",
+        // width: "65vw",
+        textAlign: "-webkit-center",
     },
     paper: {
         padding: theme.spacing(2),
@@ -62,10 +63,11 @@ export default function Gallery() {
     };
     return (
         <>
+        <h2>Gallery</h2>
             <div className={classes.root}>
-                <h2>Gallery</h2>
+                
                 <Grid container className="topGamesContainer" spacing={3}>
-                    {topGames.slice(10, 19).map((game) => {
+                    {topGames.map((game) => {
                         return (
                             <div key={game.id}>
                                 <h3 className="galleryHeader">{game.name}</h3>
@@ -102,7 +104,7 @@ export default function Gallery() {
             </div>
             <Modal open={!!open} onClose={handleClose}>
                 <div style={modalStyle} className={modalClasses.paper}>
-                    <img src={changeOriginalImageSize(open || "", "screenshot_big")} alt="" />
+                    <img style={{maxWidth: "95vw"}} src={changeOriginalImageSize(open || "", "screenshot_big")} alt="" />
                 </div>
             </Modal>
         </>

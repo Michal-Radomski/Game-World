@@ -8,9 +8,10 @@ import MenuBookIcon from "@material-ui/icons/MenuBook";
 const ButtonCreateArticle = styled.button`
   background-color: var(--primary);
   color: white !important;
-  margin-right: 10px;
-  padding-left: 15px;
-  padding-right: 15px;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
   border: 1px solid white !important;
   border-radius: 5px;
   font-size: 0.875rem;
@@ -29,6 +30,11 @@ const ButtonCreateArticle = styled.button`
     color: inherit;
     background-color: inherit;
     text-decoration: none;
+    svg {
+      @media only screen and (max-width: 1300px) {
+        display: none;
+      }
+    }
     &:hover {
       color: inherit;
       background-color: inherit;
@@ -49,7 +55,7 @@ export default function CreateArticleButton() {
       <Link to="/create-article">
         {" "}
         <MenuBookIcon style={{float: "left"}} />
-        &nbsp;&nbsp;&nbsp;Create Article
+        &nbsp;Create Article
       </Link>
     </ButtonCreateArticle>
   );

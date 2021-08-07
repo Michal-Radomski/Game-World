@@ -32,16 +32,18 @@ firebase.initializeApp(firebaseConfig);
 // console.log(20, "firebase.app().name:", firebase.app().name);
 firebase.firestore().settings(settings);
 
-const db = firebase.firestore();
+export const db = firebase.firestore();
 
 // Eksport do autoryzacji
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
-//dodanie danych do bazy
+//dodanie gier do bazy
 export const addGame = (e) => {
   data.forEach((item) => {
-    db.collection("games").add(item);
+    db.collection("games")
+    .doc().set(item, { merge: true });
+    // .add(item);
   });
 };
 
@@ -49,16 +51,38 @@ export function useTopGames() {
   const [topGames, setTopGames] = useState([]);
 
   useEffect(() => {
-    db.collection("games").onSnapshot((snapshot) => {
+    let isMounted = true; 
+    const unsubscribe = db.collection("games").onSnapshot((snapshot) => {
       const games = [];
       snapshot.docs.forEach((game) =>
         games.push({ id: game.id, ...game.data() })
       );
+      if (isMounted) {
       setTopGames(games);
+      }
     });
+    return () => {isMounted = false; unsubscribe();};
   }, []);
 
   return topGames;
+
+
+}
+//dodanie danych z firebase do podstrony messeages
+export function useMessages() {
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    db.collection("contacts").onSnapshot((snapshot) => {
+      const contacts = [];
+      snapshot.docs.forEach((contact) =>
+      contacts.push({ title:contact.title,...contact.data() })
+      );
+      setMessages(contacts);
+    });
+  }, []);
+
+  return messages;
 }
 export function rateArticle(article, value) {
   const currentRating = article.rating;
@@ -71,10 +95,6 @@ export function rateArticle(article, value) {
       rating:
         (currentRating * raters + value) / (raters !== 0 ? raters + 1 : 1),
     });
-
-  console.log(auth.currentUser.uid);
-  console.log((article.rating + value) / article.raters.length);
-  console.log(article.raters.length);
 }
 
 export function addComment(article) {
@@ -86,8 +106,6 @@ export function addComment(article) {
   if (auth.currentUser !== null) {
     author = auth.currentUser.email;
   }
-  // article.comments.push({ comment, date, author });
-  console.log(author, comment, date);
   db.collection("articles")
     .doc(article.id)
     .update({
@@ -132,7 +150,7 @@ export function useTopArticles() {
     let isMounted = true;
     const unsubscribe = db.collection("articles").onSnapshot((snapshot) => {
       const articles = [];
-      snapshot.docs.forEach((article) =>
+        snapshot.docs.forEach((article) =>
         articles.push({
           id: article.id,
           ...article.data(),

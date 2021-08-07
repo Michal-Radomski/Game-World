@@ -17,7 +17,7 @@ const Comment = ({ article }) => {
   }
 
   return (
-    <Container className="field">
+    <Container className="field__comment">
       {article.comments.map((comment, index) => (
         <div className="comment" key={index}>
           <p>{comment.content}</p>
