@@ -99,7 +99,7 @@ export default function UserProfileModal() {
       .doc(uid)
       .get()
       .then((doc) => {
-        console.log("User's data:", doc.data(), "User's uid:", uid);
+        // console.log("User's data:", doc.data(), "User's uid:", uid);
         setUserInfo(doc.data());
       })
       .catch((error) => {
