@@ -1,4 +1,4 @@
-.comment {
+.reply {
   margin-bottom: 40px;
   padding: 20px;
   border-width: 1px;
@@ -7,53 +7,49 @@
   white-space: pre-wrap;
 }
 
-.field__comment {
+.field__reply {
   margin-bottom: 50px;
   padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.comment-none {
+.reply-none {
   margin-bottom: 50px;
   padding: 40px;
   text-align: center;
 }
-.details {
+.details--secondary {
   display: flex;
   flex-direction: row;
   font-size: 12px;
 }
-.detail {
+.detail--secondary {
   margin-right: 10px;
 }
-.form--hide {
-  display: none;
-}
-
 @media only screen and (max-width: 769px) {
-  .details {
+  .details--secondary {
     font-size: 10px;
   }
 }
 
 @media only screen and (min-width: 414px) and (max-width: 767px) {
-  .comment {
+  .reply {
     margin-left: 45px;
     width: 170px;
     font-size: 10px;
   }
-  .details {
+  .details--secondary {
     font-size: 5px;
   }
 }
 @media only screen and (min-width: 374px) and (max-width: 413px) {
-  .comment {
+  .reply {
     margin-left: 47px;
     width: 165px;
     font-size: 10px;
   }
-  .details {
+  .details--secondary {
     font-size: 5px;
   }
 }

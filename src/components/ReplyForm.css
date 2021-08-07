@@ -1,0 +1,56 @@
+.reply__form {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.reply__button {
+}
+
+@media only screen and (max-width: 769px) {
+  /* For mobile phones: */
+
+  .reply__form {
+    width: 340px;
+    height: 100%;
+    min-width: 100px;
+  }
+  .reply__button {
+    color: white;
+    width: 340px;
+  }
+  .reply__content {
+    width: 340px;
+  }
+}
+@media only screen and (min-width: 374px) and (max-width: 413px) {
+  /* For mobile phones: */
+  .reply__form {
+    width: 210px;
+    height: 100%;
+    min-width: 100px;
+  }
+  .reply__button {
+    color: white;
+    width: 210px;
+  }
+  .reply__content {
+    width: 210px;
+  }
+}
+@media only screen and (min-width: 414px) and (max-width: 767px) {
+  /* For mobile phones: */
+  .reply__form {
+    width: 215px;
+    height: 100%;
+    min-width: 100px;
+  }
+  .reply__button {
+    color: white;
+    width: 215px;
+  }
+  .reply__content {
+    width: 215px;
+  }
+}

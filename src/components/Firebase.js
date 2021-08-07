@@ -41,8 +41,7 @@ export const firestore = firebase.firestore();
 //dodanie gier do bazy
 export const addGame = (e) => {
   data.forEach((item) => {
-    db.collection("games")
-    .doc().set(item, { merge: true });
+    db.collection("games").doc().set(item, { merge: true });
     // .add(item);
   });
 };
@@ -51,22 +50,23 @@ export function useTopGames() {
   const [topGames, setTopGames] = useState([]);
 
   useEffect(() => {
-    let isMounted = true; 
+    let isMounted = true;
     const unsubscribe = db.collection("games").onSnapshot((snapshot) => {
       const games = [];
       snapshot.docs.forEach((game) =>
         games.push({ id: game.id, ...game.data() })
       );
       if (isMounted) {
-      setTopGames(games);
+        setTopGames(games);
       }
     });
-    return () => {isMounted = false; unsubscribe();};
+    return () => {
+      isMounted = false;
+      unsubscribe();
+    };
   }, []);
 
   return topGames;
-
-
 }
 //dodanie danych z firebase do podstrony messeages
 export function useMessages() {
@@ -76,7 +76,7 @@ export function useMessages() {
     db.collection("contacts").onSnapshot((snapshot) => {
       const contacts = [];
       snapshot.docs.forEach((contact) =>
-      contacts.push({ title:contact.title,...contact.data() })
+        contacts.push({ title: contact.title, ...contact.data() })
       );
       setMessages(contacts);
     });
@@ -117,6 +117,39 @@ export function addComment(article) {
     });
   form.reset();
 }
+export function addReply(article, articleComment) {
+  const form = document.querySelector("#reply__form");
+  const comment = form.reply__content.value;
+  const today = new Date();
+  const date = today.toISOString().split("T")[0];
+  let index = article.comments.indexOf(articleComment);
+  console.log(articleComment, index);
+  let author = "";
+  if (auth.currentUser !== null) {
+    author = auth.currentUser.email;
+  }
+
+  article.comments[index].replies.push({
+    content: comment,
+    author: author,
+    date: date,
+  });
+
+  db.collection("articles").doc(article.id).set(
+    {
+      comments: article.comments,
+      content: article.content,
+      created: article.created,
+      description: article.description,
+      img: article.img,
+      raters: article.raters,
+      rating: article.rating,
+      title: article.title,
+    },
+    { merge: true }
+  );
+  form.reset();
+}
 
 export const addArticle = (event) => {
   const form = document.querySelector("#articleForm");
@@ -150,7 +183,7 @@ export function useTopArticles() {
     let isMounted = true;
     const unsubscribe = db.collection("articles").onSnapshot((snapshot) => {
       const articles = [];
-        snapshot.docs.forEach((article) =>
+      snapshot.docs.forEach((article) =>
         articles.push({
           id: article.id,
           ...article.data(),
