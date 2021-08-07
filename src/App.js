@@ -18,9 +18,6 @@ import { useEffect, useState } from "react";
 
 function App() {
   // addGame();
-  setTimeout(()=>console.log('two'),0);
-  Promise.resolve('three').then(console.log);
-  console.log('one');
   const games = useTopGames();
   const articles = useTopArticles(); // metoda fetch z Firebase.js
   const articleRoute = useRouteMatch("/articles/:id");

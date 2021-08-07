@@ -63,7 +63,7 @@ export default function Gallery() {
     };
     return (
         <>
-        <h2>Gallery</h2>
+        <h2 style={{marginLeft: "13.5vw"}}>Gallery</h2>
             <div className={classes.root}>
                 
                 <Grid container className="topGamesContainer" spacing={3}>

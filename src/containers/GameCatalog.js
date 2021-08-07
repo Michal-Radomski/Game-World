@@ -18,73 +18,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// const sortingTypes = ['first_release_date', 'rating', 'follows'];
-// const filterTypes = ['storyline', 'videos', 'rating'];
-const platformAll = ["Mac",
-"Linux",
-"Atari 5200" ,
-"PC (Microsoft Windows)",
-"Amiga",
-"Dreamcast",
-"PlayStation",
-"PC DOS",
-"PlayStation 3",
-"Xbox 360",
-"iOS",
-"Xbox One",
-"Nintendo Switch",
-"PlayStation 4",
-"Wii",
-"Nintendo Entertainment System (NES)",
-"Nintendo 3DS",
-"Wii U",
-"PlayStation 5",
-"Xbox Series",
-"Sega Saturn",
-"Android",
-"Web browser",
-"Windows Phone",
-"Amazon Fire TV",
-"Nintendo DS",
-"PlayStation 2",
-"Mobile",
-"Nintendo 64",
-"Super Nintendo Entertainment System (SNES)",
-"Super Famicom",
-"Family Computer (FAMICOM)",
-"Xbox",
-"Google Stadia",
-"Commodore C64/128",
-"Game Boy Advance",
-"Amstrad CPC",
-"ZX Spectrum",
-"MSX",
-"Virtual Console (Nintendo)",
-"Family Computer Disk System",
-"Atari 2600",
-"Atari 7800",
-"Atari 8-bit",
-"Intellivision",
-"ColecoVision",
-"Commodore VIC-20",
-"Texas Instruments TI-99",
-"Nintendo DSi",
-"Game & Watch",
-"Game Boy Color",
-"Sega Mega Drive/Genesis",
-"Arcade",
-"Sega Master System",
-"Nintendo GameCube",
-"New Nintendo 3DS",
-"Satellaview",
-"PlayStation Vita",
-"PlayStation Portable",
-"Sega Game Gear",
-"Atari Lynx",
-"Apple II",
-"Game Boy",
-"OnLive Game System",]
-
 const sortGames = (games, type) => {
   const types = {
     first_release_date: "first_release_date",
@@ -116,73 +49,10 @@ const filterByPlatform = (games, platform) => {
     ios: "iOS",
     xone: "Xbox One",
     nSwitch: "Nintendo Switch",
-    all: "Mac" ||
-      "Linux" ||
-      "Atari 5200" ||
-      "PC (Microsoft Windows)" ||
-      "Amiga" ||
-      "Dreamcast" ||
-      "PlayStation" ||
-      "PC DOS" ||
-      "PlayStation 3" ||
-      "Xbox 360" ||
-      "iOS" ||
-      "Xbox One" ||
-      "Nintendo Switch" ||
-      "PlayStation 4" ||
-      "Wii" ||
-      "Nintendo Entertainment System (NES)" ||
-      "Nintendo 3DS" ||
-      "Wii U" ||
-      "PlayStation 5" ||
-      "Xbox Series" ||
-      "Sega Saturn" ||
-      "Android" ||
-      "Web browser" ||
-      "Windows Phone" ||
-      "Amazon Fire TV" ||
-      "Nintendo DS" ||
-      "PlayStation 2" ||
-      "Mobile" ||
-      "Nintendo 64" ||
-      "Super Nintendo Entertainment System (SNES)" ||
-      "Super Famicom" ||
-      "Family Computer (FAMICOM)" ||
-      "Xbox" ||
-      "Google Stadia" ||
-      "Commodore C64/128" ||
-      "Game Boy Advance" ||
-      "Amstrad CPC" ||
-      "ZX Spectrum" ||
-      "MSX" ||
-      "Virtual Console (Nintendo)" ||
-      "Family Computer Disk System" ||
-      "Atari 2600" ||
-      "Atari 7800" ||
-      "Atari 8-bit" ||
-      "Intellivision" ||
-      "ColecoVision" ||
-      "Commodore VIC-20" ||
-      "Texas Instruments TI-99" ||
-      "Nintendo DSi" ||
-      "Game & Watch" ||
-      "Game Boy Color" ||
-      "Sega Mega Drive/Genesis" ||
-      "Arcade" ||
-      "Sega Master System" ||
-      "Nintendo GameCube" ||
-      "New Nintendo 3DS" ||
-      "Satellaview" ||
-      "PlayStation Vita" ||
-      "PlayStation Portable" ||
-      "Sega Game Gear" ||
-      "Atari Lynx" ||
-      "Apple II" ||
-      "Game Boy" ||
-      "OnLive Game System",
+    all: "all",
   };
   const filterProperty = types[platform];
-  const filtered = [...games].filter((val) =>
+  const filtered = filterProperty == "all" ? games : [...games].filter((val) =>
     val.platforms.includes(filterProperty)
   );
   return filtered;
@@ -195,32 +65,11 @@ const filterByGenre = (games, genre) => {
     platform: "Platform",
     shooter: "Shooter",
     adventure: "Adventure",
-    all: "Role-playing (RPG)" ||
-      "Hack and slash/Beat 'em up" ||
-      "Strategy" ||
-      "Indie" ||
-      "Turn-based strategy (TBS)" ||
-      "Tactical" ||
-      "Simulator" ||
-      "Shooter" ||
-      "Adventure" ||
-      "Platform" ||
-      "Racing" ||
-      "Sport" ||
-      "Arcade" ||
-      "Puzzle" ||
-      "MOBA" ||
-      "Real Time Strategy (RTS)" ||
-      "Wii" ||
-      "Card & Board Game" ||
-      "Point-and-click" ||
-      "Visual Novel" ||
-      "Fighting" ||
-      "Music",
+    all: "all",
   };
-  console.log("GGGG", games.follows);
+//   console.log("GGGG", games.follows);
   const filterProperty = types[genre];
-  const filtered = [...games].filter((val) =>
+  const filtered = filterProperty == "all" ? games : [...games].filter((val) =>
     val.genres.includes(filterProperty)
   );
   return filtered;
@@ -233,14 +82,14 @@ const filterByProperty = (games, property) => {
         (value) => value["videos"] !== undefined
     );
   } else {
-    filtered = [...games].filter(
-        (value) => value["name"] !== undefined
-    );
+    filtered = games;
   }
+  console.log("Videos", filtered.length);
   return filtered;
 };
 
 const Checkbox = ({ label, value, onChange }) => {
+    console.log("CHHHH", value)
     return (
       <label>
         <input type="checkbox" checked={value} onChange={onChange} />
@@ -249,21 +98,12 @@ const Checkbox = ({ label, value, onChange }) => {
     );
   };
 
-
-
 export default function GameCatalog({ topGames }) {
-  // const platforms = topGames.map(game => game.platform);
-  // const genres = topGames.map(game => game.genre);
-
   const [sortType, setSortType] = useState("rating");
   const [filterPlatform, setFilterPlatform] = useState('all');
   const [filterGenre, setFilterGenre] = useState('all');
-  const [filterType, setFilterType] = useState("name");
   const [checked, setChecked] = useState(false);
-
   const classes = useStyles();
-
-  window.data0 = topGames;
 
   const data = sortGames(
     filterByPlatform(
@@ -275,7 +115,7 @@ export default function GameCatalog({ topGames }) {
 
   return (
     <div className={classes.root}>
-      <h2>Game catalog</h2>
+      <h2 style={{marginLeft: "5.5vw"}}>Game catalog</h2>
       <ul className="topGamesContainer-catalog">
         <div className="selects">
           <select
