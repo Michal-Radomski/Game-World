@@ -2,7 +2,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Rating from "@material-ui/lab/Rating";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
-import Box from "@material-ui/core/Box";
 import { rateArticle } from "./Firebase";
 import { auth } from "./Firebase";
 import { useState, useEffect } from "react";
@@ -46,15 +45,17 @@ export const Score = ({ article }) => {
     } else {
       setHasCommented(false);
     }
-  }, [article]);
+  }, [article, isLogged]);
 
-  auth.onAuthStateChanged((user) => {
-    if (!user) {
-      setIsLogged(false);
-    } else {
-      setIsLogged(true);
-    }
-  });
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (!user) {
+        setIsLogged(false);
+      } else {
+        setIsLogged(true);
+      }
+    });
+  }, []);
 
   if (isLogged && !hasCommented) {
     return (

@@ -108,6 +108,8 @@ export const addArticle = (event) => {
   const content = form.content.value;
   const img = form.img.value;
   const comments = [];
+  const raters = [];
+  const rating = 0;
 
   const article = {
     created,
@@ -116,6 +118,8 @@ export const addArticle = (event) => {
     content,
     img,
     comments,
+    rating,
+    raters,
   };
 
   db.collection("articles").add(article);
