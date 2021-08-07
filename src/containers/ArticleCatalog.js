@@ -8,6 +8,8 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
+import Rating from "@material-ui/lab/Rating";
+import StarBorderIcon from "@material-ui/icons/StarBorder";
 import "./ArticleCatalog.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -31,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 120,
     backgroundColor: "rgb(66, 66, 206, 56%)",
     borderRadius: 5,
+  },
+  emptyStar: {
+    color: "white",
   },
 }));
 
@@ -61,6 +66,8 @@ const ArticleCatalog = ({ articles }) => {
     });
   } else if (state.sort === 20) {
     itemData.sort((a, b) => b.created - a.created);
+  } else if (state.sort === 30) {
+    itemData.sort((a, b) => b.rating - a.rating);
   }
 
   return (
@@ -100,6 +107,7 @@ const ArticleCatalog = ({ articles }) => {
             >
               <MenuItem value={10}>Alphabetical</MenuItem>
               <MenuItem value={20}>Recent</MenuItem>
+              <MenuItem value={30}>Rating</MenuItem>
             </Select>
           </FormControl>
           {itemData.map((tile, index) => (
@@ -109,6 +117,21 @@ const ArticleCatalog = ({ articles }) => {
                 <GridListTileBar
                   title={tile.title}
                   subtitle={<span> {tile.description}</span>}
+                  actionIcon={
+                    <Rating
+                      name="hover-feedback"
+                      value={tile.rating}
+                      size="small"
+                      disabled
+                      precision={0.5}
+                      emptyIcon={
+                        <StarBorderIcon
+                          fontSize="inherit"
+                          className={classes.emptyStar}
+                        />
+                      }
+                    />
+                  }
                 />
               </Link>
             </GridListTile>
