@@ -97,7 +97,11 @@ export default function Header() {
             <img src={Logo} height="35px" alt="Game World Logo" />
           </Link>
 
-          <Typography className={classes.title} variant="h6" style={{display: "flex", flexDirection: "row"}}>
+          <Typography
+            className={classes.title}
+            variant="h6"
+            style={{display: "flex", flexDirection: "row", maxWidth: "180px"}}
+          >
             <Link to="/" style={{color: "#FDC84B"}} className="GameWorldLink">
               &#8239;GAMEWORLD&#8239;&#8239;
             </Link>

@@ -46,6 +46,7 @@ button.UserInfo {
   background-color: var(--primary-light);
   color: white;
   margin-right: 5px;
+  margin-left: 5px;
   padding-left: 12px;
   padding-right: 12px;
   border: 1px solid #2c387e;
@@ -59,8 +60,7 @@ button.UserInfo:hover {
 button.Admin {
   background-color: inherit;
   color: var(--secondary-light);
-  margin-right: 5px;
-  padding-left: 5px;
+  margin-left: 5px;
   padding-right: 5px;
   border: 1px solid #2c387e;
   border-radius: 5px;
