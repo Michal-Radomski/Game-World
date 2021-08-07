@@ -48,6 +48,7 @@ export default function FormSignUp(props) {
             Email: data.Email,
             Name: data.Name,
             gender: data.gender,
+            isAdmin: false,
           })
           .then(() => {
             console.log("Document successfully added to the DB");

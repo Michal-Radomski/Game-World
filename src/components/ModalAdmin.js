@@ -91,7 +91,7 @@ export default function ModalAdmin() {
           Administration
         </DialogTitle>
         <DialogContent style={{backgroundColor: "whiteSmoke", padding: "16px"}}>
-          <Typography style={{color: "black", margin: "8px 16px"}}>Admin adminstration will be here...</Typography>
+          <Typography style={{color: "black", margin: "8px 16px"}}>List of users:</Typography>
         </DialogContent>
         <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
           <Button autoFocus onClick={handleClose} className="UserInfoOk">
@@ -103,7 +103,7 @@ export default function ModalAdmin() {
   );
 }
 
-// //* Getting data from firestore
+//* Getting data from firestore
 // const userLoggedIn = firebase.auth().currentUser;
 // // const email = userLoggedIn.email;
 // const uid = userLoggedIn?.uid;
