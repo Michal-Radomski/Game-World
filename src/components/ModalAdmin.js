@@ -79,7 +79,7 @@ export default function ModalAdmin() {
 
   return (
     <div>
-      <Button className="UserInfo" onClick={handleClickOpen}>
+      <Button className="Admin" onClick={handleClickOpen}>
         Admin
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
@@ -102,3 +102,30 @@ export default function ModalAdmin() {
     </div>
   );
 }
+
+// //* Getting data from firestore
+// const userLoggedIn = firebase.auth().currentUser;
+// // const email = userLoggedIn.email;
+// const uid = userLoggedIn?.uid;
+// // console.log("userLoggedIn.email:", email, "userLoggedIn.uid:", uid);
+// // Setting up the state
+// const [userInfo, setUserInfo] = useState({
+//   Email: "",
+//   gender: "",
+//   Name: "",
+// });
+// // UseEffect + getting the user's data
+// useEffect(() => {
+//   firebase
+//     .firestore()
+//     .collection("users")
+//     .doc(uid)
+//     .get()
+//     .then((doc) => {
+//       console.log("User's data:", doc.data(), "User's uid:", uid);
+//       setUserInfo(doc.data());
+//     })
+//     .catch((error) => {
+//       console.log("Error getting document:", error);
+//     });
+// }, [uid]);

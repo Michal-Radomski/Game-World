@@ -9,7 +9,6 @@ const ButtonCreateArticle = styled.button`
   background-color: var(--primary);
   color: white !important;
   margin-right: 5px;
-  margin-left: 5px;
   padding-left: 12px;
   padding-right: 12px;
   border: 1px solid white !important;

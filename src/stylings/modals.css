@@ -56,6 +56,22 @@ button.UserInfo:hover {
   color: white;
 }
 
+button.Admin {
+  background-color: inherit;
+  color: var(--secondary-light);
+  margin-right: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid #2c387e;
+  border-radius: 5px;
+  text-decoration: underline;
+}
+button.Admin:hover {
+  background-color: var(--secondary-light);
+  color: white;
+  text-decoration: none;
+}
+
 /* Buttons for LogOut Modal */
 button.LogOutYes {
   padding: 10px 25px;
