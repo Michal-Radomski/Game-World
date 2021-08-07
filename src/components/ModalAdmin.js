@@ -12,6 +12,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import "../stylings/modals.css";
 import firebase from "firebase";
+import styled from "styled-components";
 
 const styles = (theme) => ({
   root: {
@@ -27,6 +28,10 @@ const styles = (theme) => ({
   },
 });
 
+const SpanStyled = styled.span`
+  color: var(--secondary-light);
+  font-weight: bolder;
+`;
 const DialogTitle = withStyles(styles)((props) => {
   const {children, classes, onClose, ...other} = props;
   return (
@@ -77,10 +82,10 @@ export default function ModalAdmin() {
     setOpen(false);
   };
 
-  //* Getting data from firestore
+  // * Getting data from firestore
   const userLoggedIn = firebase.auth().currentUser;
   const uid = userLoggedIn?.uid;
-  console.log("userLoggedIn.uid:", uid);
+  // console.log("userLoggedIn.uid:", uid);
   // Setting up the state
   const [userInfo, setUserInfo] = useState({
     isAdmin: "",
@@ -94,7 +99,7 @@ export default function ModalAdmin() {
       .doc(uid)
       .get()
       .then((doc) => {
-        console.log("User's data - isAdmin:", doc.data().isAdmin, "User's uid:", uid);
+        console.log("User's data - isAdmin:", doc.data().isAdmin, "; User's uid:", uid);
         setUserInfo(doc.data());
       })
       .catch((error) => {
@@ -102,12 +107,13 @@ export default function ModalAdmin() {
       });
   }, [uid]);
 
-  let userRole = "User";
+  let userRole = "";
   if (userInfo.isAdmin === true) {
     userRole = "Admin";
+  } else {
+    userRole = "User";
   }
-
-  console.log("userRole", userRole);
+  // console.log("userRole:", userRole);
 
   if (userRole === "Admin") {
     return (
@@ -124,8 +130,9 @@ export default function ModalAdmin() {
             Administration
           </DialogTitle>
           <DialogContent style={{backgroundColor: "whiteSmoke", padding: "16px"}}>
-            <Typography style={{color: "black", margin: "8px 16px"}}>You have permissions of {userRole}:</Typography>
-            <Typography style={{color: "black", margin: "8px 16px"}}>List of users:</Typography>
+            <Typography style={{color: "black", margin: "8px 16px", textAlign: "center", fontSize: "125%"}}>
+              You have permissions of: <SpanStyled>{userRole}</SpanStyled>{" "}
+            </Typography>
           </DialogContent>
           <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
             <Button autoFocus onClick={handleClose} className="UserInfoOk">
