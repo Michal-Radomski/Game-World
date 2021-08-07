@@ -1,10 +1,10 @@
 import firebase from "firebase";
 import "firebase/auth";
 import "firebase/firestore";
-import {data} from "./Data";
-import {useState, useEffect} from "react";
+import { data } from "./Data";
+import { useState, useEffect } from "react";
 
-const settings = {timestampsInSnapshots: true};
+const settings = { timestampsInSnapshots: true };
 
 //* Original base
 var firebaseConfig = {
@@ -84,6 +84,18 @@ export function useMessages() {
 
   return messages;
 }
+export function rateArticle(article, value) {
+  const currentRating = article.rating;
+  const raters = article.raters.length;
+
+  db.collection("articles")
+    .doc(article.id)
+    .update({
+      raters: firebase.firestore.FieldValue.arrayUnion(auth.currentUser.uid),
+      rating:
+        (currentRating * raters + value) / (raters !== 0 ? raters + 1 : 1),
+    });
+}
 
 export function addComment(article) {
   const form = document.querySelector("#comment__form");
@@ -94,8 +106,6 @@ export function addComment(article) {
   if (auth.currentUser !== null) {
     author = auth.currentUser.email;
   }
-  // article.comments.push({ comment, date, author });
-  console.log(author, comment, date);
   db.collection("articles")
     .doc(article.id)
     .update({
@@ -116,6 +126,8 @@ export const addArticle = (event) => {
   const content = form.content.value;
   const img = form.img.value;
   const comments = [];
+  const raters = [];
+  const rating = 0;
 
   const article = {
     created,
@@ -124,6 +136,8 @@ export const addArticle = (event) => {
     content,
     img,
     comments,
+    rating,
+    raters,
   };
 
   db.collection("articles").add(article);

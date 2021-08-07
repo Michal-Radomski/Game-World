@@ -2,6 +2,7 @@ import React from "react";
 import "./Article.css";
 import Grid from "@material-ui/core/Grid";
 import Comment from "../components/Comment";
+import Score from "../components/Score";
 
 const Article = ({ article }) => {
   if (!article) {
@@ -20,6 +21,7 @@ const Article = ({ article }) => {
           <p className="title">{article.title}</p>
           <p className="context">{article.content}</p>
         </div>
+        <Score article={article} />
         <h2>Comments</h2>d
         <Comment article={article} />
       </Grid>

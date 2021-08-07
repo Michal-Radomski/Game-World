@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import { addComment } from "./Firebase";
 import "./CommentForm.css";
 import { auth } from "./Firebase";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const CommentForm = ({ article }) => {
   const submit = () => {
