@@ -103,10 +103,11 @@ h2 {
 }
 
 .paperInnerStyle {
-  background-color: black;
   padding: 15px;
-  color: white;
-  width: 268px;
+  /* color: white; */
+  /* width: 268px; */
+  width: 320px;
+  height: 100%;
 }
 
 .paperInnerStyle h3 {
