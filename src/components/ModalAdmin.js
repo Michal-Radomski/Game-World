@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import "../stylings/modals.css";
 import firebase from "firebase";
 import styled from "styled-components";
+import ModalAdminContent from "./ModalAdminContent";
 
 const styles = (theme) => ({
   root: {
@@ -130,9 +131,10 @@ export default function ModalAdmin() {
             Administration
           </DialogTitle>
           <DialogContent style={{backgroundColor: "whiteSmoke", padding: "16px"}}>
-            <Typography style={{color: "black", margin: "8px 16px", textAlign: "center", fontSize: "125%"}}>
+            <Typography style={{color: "black", margin: "8px 16px 12px 16px", textAlign: "center", fontSize: "125%"}}>
               You have permissions of: <SpanStyled>{userRole}</SpanStyled>{" "}
             </Typography>
+            <ModalAdminContent />
           </DialogContent>
           <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
             <Button autoFocus onClick={handleClose} className="UserInfoOk">
