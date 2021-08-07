@@ -77,55 +77,65 @@ export default function ModalAdmin() {
     setOpen(false);
   };
 
-  return (
-    <div>
-      <Button className="Admin" onClick={handleClickOpen}>
-        Admin Only
-      </Button>
-      <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
-        <DialogTitle
-          id="customized-dialog-title"
-          onClose={handleClose}
-          style={{backgroundColor: "var(--primary-light)", color: "whiteSmoke"}}
-        >
-          Administration
-        </DialogTitle>
-        <DialogContent style={{backgroundColor: "whiteSmoke", padding: "16px"}}>
-          <Typography style={{color: "black", margin: "8px 16px"}}>List of users:</Typography>
-        </DialogContent>
-        <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
-          <Button autoFocus onClick={handleClose} className="UserInfoOk">
-            Ok
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </div>
-  );
-}
+  //* Getting data from firestore
+  const userLoggedIn = firebase.auth().currentUser;
+  const uid = userLoggedIn?.uid;
+  console.log("userLoggedIn.uid:", uid);
+  // Setting up the state
+  const [userInfo, setUserInfo] = useState({
+    isAdmin: "",
+  });
 
-//* Getting data from firestore
-// const userLoggedIn = firebase.auth().currentUser;
-// // const email = userLoggedIn.email;
-// const uid = userLoggedIn?.uid;
-// // console.log("userLoggedIn.email:", email, "userLoggedIn.uid:", uid);
-// // Setting up the state
-// const [userInfo, setUserInfo] = useState({
-//   Email: "",
-//   gender: "",
-//   Name: "",
-// });
-// // UseEffect + getting the user's data
-// useEffect(() => {
-//   firebase
-//     .firestore()
-//     .collection("users")
-//     .doc(uid)
-//     .get()
-//     .then((doc) => {
-//       console.log("User's data:", doc.data(), "User's uid:", uid);
-//       setUserInfo(doc.data());
-//     })
-//     .catch((error) => {
-//       console.log("Error getting document:", error);
-//     });
-// }, [uid]);
+  // UseEffect + getting the user's data
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection("users")
+      .doc(uid)
+      .get()
+      .then((doc) => {
+        console.log("User's data - isAdmin:", doc.data().isAdmin, "User's uid:", uid);
+        setUserInfo(doc.data());
+      })
+      .catch((error) => {
+        console.log("Error getting document:", error);
+      });
+  }, [uid]);
+
+  let userRole = "User";
+  if (userInfo.isAdmin === true) {
+    userRole = "Admin";
+  }
+
+  console.log("userRole", userRole);
+
+  if (userRole === "Admin") {
+    return (
+      <div>
+        <Button className="Admin" onClick={handleClickOpen}>
+          Admin Only
+        </Button>
+        <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
+          <DialogTitle
+            id="customized-dialog-title"
+            onClose={handleClose}
+            style={{backgroundColor: "var(--primary-light)", color: "whiteSmoke"}}
+          >
+            Administration
+          </DialogTitle>
+          <DialogContent style={{backgroundColor: "whiteSmoke", padding: "16px"}}>
+            <Typography style={{color: "black", margin: "8px 16px"}}>You have permissions of {userRole}:</Typography>
+            <Typography style={{color: "black", margin: "8px 16px"}}>List of users:</Typography>
+          </DialogContent>
+          <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
+            <Button autoFocus onClick={handleClose} className="UserInfoOk">
+              Ok
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </div>
+    );
+  } else {
+    return null;
+  }
+}
