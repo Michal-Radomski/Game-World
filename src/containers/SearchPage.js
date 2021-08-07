@@ -34,6 +34,20 @@ export default function SearchPage({games, articles}){
             const results = games.filter(game => game.name.toLowerCase().includes(phrase));
             resultGameTable = [...resultGameTable, ...results]
         })
+        console.log("table", phraseTable)
+        resultGameTable= resultGameTable.filter(el => phraseTable.map(val => {
+            // console.log("val", val);
+            if(!el.name.toLowerCase().includes(val)) {
+                // console.log("++++", "res el", el.name, "phrase", val);
+                return false;
+            } 
+            // else {
+            //     console.log("----", "res el", el.name, "phrase", val);
+            //     return false;
+            // }
+            
+        }));
+        // console.log("TABLE", resultGameTable);
         return resultGameTable;
     }
     const articlesResult = () => {
