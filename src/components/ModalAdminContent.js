@@ -12,8 +12,11 @@ const SpyingSpan = styled.span`
 `;
 
 const ModalAdminContent = () => {
+  const [userDB, setUserDB] = React.useState([]);
+
   // Getting collection of users from firestore DB
-  setTimeout(function () {
+  React.useEffect(() => {
+    // setTimeout(function () {
     let usersList = [];
     firebase
       .firestore()
@@ -29,11 +32,12 @@ const ModalAdminContent = () => {
           usersList.push(userArray);
         });
       });
+    console.log("usersList:", usersList);
+    setUserDB(usersList);
+    // }, 500);
+  }, []);
 
-    console.log("usersList:", usersList, usersList.length);
-  }, 500);
-
-  return <div style={{backgroundColor: "inherit"}}></div>;
+  return <div style={{backgroundColor: "inherit"}}>{userDB}</div>;
 };
 
 export default ModalAdminContent;
