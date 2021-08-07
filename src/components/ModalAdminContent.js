@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import firebase from "firebase";
 
 const SpyingP = styled.p`
   color: var(--primary-light);
@@ -9,6 +10,19 @@ const SpyingSpan = styled.span`
   color: var(--secondary);
   float: right;
 `;
+
+// Getting collection of users from firestore DB
+setTimeout(function () {
+  firebase
+    .firestore()
+    .collection("users")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log("Collection of Users:", doc.id, " => ", doc.data());
+      });
+    });
+}, 500);
 
 const ModalAdminContent = () => {
   return (
