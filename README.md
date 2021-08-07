@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+<img width="250px" text-align="right" alt="GAMEWORLD logo" src="./src/images/GW-logo.png" />
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[GAMEWORLD Application](https://github.com/infoshareacademy/jfdzr3-projects-game-over) 
 
-## Available Scripts
+### About
 
-In the project directory, you can run:
+GAMEWORLD is a web application developed in ReactJS using Firebase. The information about the games was taken from the IGDB API:
+[IGDB API](https://api-docs.igdb.com/#about) 
+Our application is a website about. This is where users can read about games in articles and on game pages. Users can also create articles, post comments and rate games if they log in.
 
-### `npm start`
+This is a project developed during a 6-months long "Junior Frontend Developer" bootcamp organized by InfoShare Academy. The main goal was to create a complex ReactJS web application using knowledge gained during the course. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+It was created by a team: 
+- [Paulina Milewska](https://github.com/PaulinaMilewska) 
+- [Michał Radomski](https://github.com/Michal-Radomski) 
+- [Paweł Madrak](https://github.com/pawel-madrak)
+- [Piotr Żak](https://github.com/piotrekzak-source)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Features
 
-### `npm test`
+What you can do using GAMEWORLD app:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Sign up and create your profile
+    - create your account using Firebase Authentication
+    - then you can see your data in User profile: name, email, gender, #TODO --MICHAŁ
 
-### `npm run build`
+2. Read the latest articles and information about top games - Homepage:
+    - you can easily reach the content of the article by clicking on the selected article on the autoplay carousel
+    - you can see top rating games in Top game section. When you click on the game field, the game card will be displayed
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    <img alt="homepage photo" src="./src/imagesREADME/homepage.JPG" width="80%">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Sort and filter games in Game catalog:
+    - when you click on link "Game catalog" in menu you can see list of all games in our catalog
+    - you can sort games by rating, release date and follows count
+    - you can find your favorite games by filtering them by platform and genre. You can also only view games that contain video.
+    - all filters and sort work together. When you click on the game field, the game card will be displayed.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    <img alt="game catalog photo" src="./src/imagesREADME/game-catalog.JPG" width="80%">
 
-### `npm run eject`
+4. Read about the game on the game page:
+    - you can check game informations such as: created date, first release date, genres, platforms, game engine and IGDB statistics: rating, number of ratings and number of follows
+    - you can read description and storyline
+    - you can see game screenshots. After clicking on the thumbnail you can see a big image
+    - you can watch video abut game (YouTube embed)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    <div display="flex">
+    <img alt="game page1 photo" src="./src/imagesREADME/game-page1.JPG" width="80%">
+    <img alt="game page2 photo" src="./src/imagesREADME/game-page1.JPG" width="80%">
+    </div>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. See the photo gallery:
+    - when you click on link "Gallery" in menu you can see list of the games screenshots
+    - after clicking on the thumbnail you can see a big image
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    <div display="flex">
+    <img alt="gallery photo" src="./src/imagesREADME/gallery.JPG" width="80%">
+    <img alt="gallery modal photo" src="./src/imagesREADME/gallery-modal.JPG" width="80%">
+    </div>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+6. Search games and articles:
+    - when you write the phrase in search bar in menu and click Enter tab you can find games and articles include search phrase
+    - results are divided into two sections: games and articles
+    - when you click in selected game or article you can read more on the game page or article page
 
-## Learn More
+    <img alt="search page photo" src="./src/imagesREADME/search-page.JPG" width="80%">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+7. Create posts and react on other users' posts #TODO --PAWEŁ
+    - you can create posts that will be visable to all users
+    - then you can go to Your Posts section to see all posts created by you and delete the ones you no longer want to be on the main page
+    - you can comment and react with likes on post created by other users
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Environment, backend & deployment
 
-### Code Splitting
+GAMEWORLD web application was written in ReactJS. We developed it using React Hooks: useState for app state management, useEffect for fetching data and other.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Backend features were implemented using Firebase. We used Firestore Database to store data: users and their data, posts with comments and likes. Authentication allowed us to create sing up & log in system.
 
-### Analyzing the Bundle Size
+GAMEWORLD has been deployed via Firebase Hosting: <a href="https://gameworld-a20b3.web.app/" target="_blank">Link to page</a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Feedback
 
-### Making a Progressive Web App
+If you have any comments on this project feel free to leave them in issues or contact us via GitHub.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Thanks
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+We wanted to thank our trainers <a href="https://github.com/cytrowski">@cytrowski</a> and <a href="https://github.com/jan-hanc-iShare">@jan-hanc-iShare</a> from <a href="https://github.com/infoshareacademy">infoShare Academy</a> for all the help and support they gave us during this project.
