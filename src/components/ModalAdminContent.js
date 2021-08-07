@@ -37,11 +37,33 @@ const ModalAdminContent = () => {
     }, 500);
   }, []);
 
-  function revokeAdmin() {
-    console.log(1);
+  function revokeAdmin(id) {
+    firebase
+      .firestore()
+      .collection("users")
+      .doc(id)
+      .get()
+      .then((doc) => {
+        // console.log("User's data:", doc.data(), "User's uid:", uid);
+        console.log(doc.data());
+      })
+      .catch((error) => {
+        console.log("Error getting document:", error);
+      });
   }
-  function makeAdmin() {
-    console.log(1);
+  function makeAdmin(id) {
+    firebase
+      .firestore()
+      .collection("users")
+      .doc(id)
+      .get()
+      .then((doc) => {
+        // console.log("User's data:", doc.data(), "User's uid:", uid);
+        console.log(doc.data());
+      })
+      .catch((error) => {
+        console.log("Error getting document:", error);
+      });
   }
 
   return (
@@ -49,6 +71,7 @@ const ModalAdminContent = () => {
       {userDB.map((user) => {
         return (
           <p>
+            key={user.id}
             {user.name}
             {user.isAdmin ? (
               <span>
