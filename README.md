@@ -32,7 +32,7 @@ What you can do using GAMEWORLD app:
 
    <img alt="homepage photo" src="./src/imagesREADME/UsersProlife.png">
 
-   - if you are the administrator you have access to the admin panel
+   - if you are the administrator you have access to the admin panel (this is demo, so emails are fake)
 
    <img alt="homepage photo" src="./src/imagesREADME/AdministratorPanel.png">
 
