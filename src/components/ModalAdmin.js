@@ -33,6 +33,7 @@ const SpanStyled = styled.span`
   color: var(--secondary-light);
   font-weight: bolder;
 `;
+
 const DialogTitle = withStyles(styles)((props) => {
   const {children, classes, onClose, ...other} = props;
   return (
@@ -134,7 +135,7 @@ export default function ModalAdmin() {
             <Typography style={{color: "black", margin: "8px 16px 12px 16px", textAlign: "center", fontSize: "125%"}}>
               You have permissions of: <SpanStyled>{userRole}</SpanStyled>{" "}
             </Typography>
-            <ModalAdminContent onRevokeAdmin={handleClose} />
+            <ModalAdminContent onChangeAdmin={handleClose} />
           </DialogContent>
           <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
             <Button autoFocus onClick={handleClose} className="UserInfoOk">
