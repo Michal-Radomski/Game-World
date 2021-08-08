@@ -1,39 +1,32 @@
 import React from "react";
-// import styled from "styled-components";
+import styled from "styled-components";
 import firebase from "firebase";
 
-// const SpyingP = styled.p`
-//   color: var(--primary-light);
-//   margin: 8px 16px;
-// `;
-// const SpyingSpan = styled.span`
-//   color: var(--secondary);
-//   float: right;
-// `;
+const ListUsersH2 = styled.h2`
+  background-color: var(--primary-light);
+  color: white;
+  margin: 8px auto 16px auto;
+`;
+
+const ListUsersP = styled.p`
+  background-color: inherit;
+  color: black;
+  margin: 8px 16px;
+`;
+
+const ListUsersSpan = styled.span`
+  background-color: inherit;
+  color: inherit;
+  float: right;
+`;
+
+const ListUsersButton = styled.button`
+  background-color: inherit;
+  color: red;
+`;
 
 const ModalAdminContent = () => {
   const [userDB, setUserDB] = React.useState([]);
-
-  // Getting collection of users from firestore DB
-  // React.useEffect(() => {
-  //   let usersList = [];
-  //   firebase
-  //     .firestore()
-  //     .collection("users")
-  //     .get()
-  //     .then((querySnapshot) => {
-  //       querySnapshot.forEach((doc) => {
-  //         // console.log("Collection of Users:", doc.id, " => ", doc.data());
-  //         usersList.push({
-  //           id: doc.id,
-  //           isAdmin: doc.data().isAdmin,
-  //           name: doc.data().Name,
-  //         });
-  //       });
-  //     });
-  //   console.log("usersList:", usersList);
-  //   setUserDB(usersList);
-  // }, []);
 
   React.useEffect(() => {
     let usersList = [];
@@ -44,13 +37,15 @@ const ModalAdminContent = () => {
         querySnapshot.forEach((doc) => {
           usersList.push({
             id: doc.id,
+            Email: doc.data().Email,
+            Name: doc.data().Name,
+            gender: doc.data().gender,
             isAdmin: doc.data().isAdmin,
-            name: doc.data().Name,
           });
         });
+        setUserDB(usersList);
       });
     console.log("usersList:", usersList);
-    setUserDB(usersList);
   }, []);
 
   function revokeAdmin(id) {
@@ -67,6 +62,7 @@ const ModalAdminContent = () => {
         console.log("Error getting document:", error);
       });
   }
+
   function makeAdmin(id) {
     firebase
       .firestore()
@@ -82,23 +78,28 @@ const ModalAdminContent = () => {
       });
   }
 
+  console.log("userDB:", userDB);
+
   return (
     <div>
-      <h2>List of Users:</h2>
+      <ListUsersH2>List of Users:</ListUsersH2>
       {userDB.map((user) => {
         return (
-          <p key={user.id}>
-            {user.name}
+          <ListUsersP key={user.id}>
+            {user.Name}&#8239;&#8239;&#8239;&#8239;
+            {user.Email}&#8239;&#8239;&#8239;&#8239;
             {user.isAdmin ? (
-              <span>
-                (role: admin) <button onClick={() => revokeAdmin(user.id)}>Revoke Admin</button>
-              </span>
+              <ListUsersSpan>
+                /role: admin/ &#8239;&#8239;&#8239;{" "}
+                <ListUsersButton onClick={() => revokeAdmin(user.id)}>Revoke Admin</ListUsersButton>
+              </ListUsersSpan>
             ) : (
-              <span>
-                (role: user) <button onClick={() => makeAdmin(user.id)}>Promote to Admin</button>
-              </span>
+              <ListUsersSpan>
+                /role: user/ &#8239;&#8239;&#8239;{" "}
+                <ListUsersButton onClick={() => makeAdmin(user.id)}>Promote to Admin</ListUsersButton>
+              </ListUsersSpan>
             )}
-          </p>
+          </ListUsersP>
         );
       })}
     </div>
