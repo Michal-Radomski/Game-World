@@ -90,7 +90,8 @@ What you can do using GAMEWORLD app:
    - then you can go to Your Posts section to see all posts created by you and delete the ones you no longer want to be on
      the main page
    - you can comment and react with likes on post created by other users
-8. - Creation of the project footer with buttons from the material UI leading to subpages
+8. Create footer and subpages:
+   - Creation of the project footer with buttons from the material UI leading to subpages
    - Creation of a subpage with information about the project creators
    - Creation of a subpage with contact form for users. The form sends data to firebase database, then messages are presented on the subpage messages
    - Creation of messages subpage
