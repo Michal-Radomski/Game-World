@@ -3,8 +3,8 @@ import styled from "styled-components";
 import firebase from "firebase";
 
 const ListUsersH2 = styled.h2`
-  background-color: var(--primary-light);
-  color: white;
+  background-color: inherit;
+  color: black;
   margin: 8px auto 16px auto;
 `;
 
@@ -21,8 +21,29 @@ const ListUsersSpan = styled.span`
 `;
 
 const ListUsersButton = styled.button`
-  background-color: inherit;
-  color: red;
+  background-color: var(--primary-light);
+  color: white !important;
+  padding-left: 8px;
+  padding-right: 8px;
+  border: 1px solid white !important;
+  border-radius: 5px;
+  min-width: 160px;
+  box-sizing: border-box !important;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: center;
+  display: inline-flex;
+  &:hover {
+    background-color: var(--secondary);
+    color: white !important;
+    transition: 0.3s all;
+    border: 1px solid var(--secondary) !important;
+    filter: brightness(100%) !important;
+  }
 `;
 
 const ModalAdminContent = () => {
@@ -90,12 +111,12 @@ const ModalAdminContent = () => {
             {user.Email}&#8239;&#8239;&#8239;&#8239;
             {user.isAdmin ? (
               <ListUsersSpan>
-                /role: admin/ &#8239;&#8239;&#8239;{" "}
+                (role: admin) &#8239;&#8239;&#8239;
                 <ListUsersButton onClick={() => revokeAdmin(user.id)}>Revoke Admin</ListUsersButton>
               </ListUsersSpan>
             ) : (
               <ListUsersSpan>
-                /role: user/ &#8239;&#8239;&#8239;{" "}
+                (role: user) &#8239;&#8239;&#8239;
                 <ListUsersButton onClick={() => makeAdmin(user.id)}>Promote to Admin</ListUsersButton>
               </ListUsersSpan>
             )}
