@@ -71,10 +71,10 @@ export default function FormSignUp(props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <p className="firstLine">
-        Fields marked<span> * </span>are required
+        Fields marked<span className="modalForm"> * </span>are required
       </p>
       <label htmlFor="name">
-        Name:<span> * </span>
+        Name:<span className="modalForm"> * </span>
       </label>
       <input
         className="formInput"
@@ -83,7 +83,7 @@ export default function FormSignUp(props) {
         {...register("Name", {required: true, maxLength: 80})}
       />
       <label htmlFor="email">
-        Email:<span> * </span>
+        Email:<span className="modalForm"> * </span>
       </label>
       <input
         className="formInput"
@@ -92,7 +92,7 @@ export default function FormSignUp(props) {
         {...register("Email", {required: true, pattern: /^\S+@\S+$/i})}
       />
       <label htmlFor="password">
-        Password:<span> * </span>
+        Password:<span className="modalForm"> * </span>
       </label>
       <input
         className="formInput"
@@ -106,7 +106,7 @@ export default function FormSignUp(props) {
       />
       {errors.password && <p style={{color: "red"}}>{errors.password.message}</p>}
       <label htmlFor="confirmPassword">
-        Confirm password:<span> * </span>
+        Confirm password:<span className="modalForm"> * </span>
       </label>
       <input
         className="formInput"

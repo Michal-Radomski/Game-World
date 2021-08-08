@@ -36,10 +36,10 @@ export default function FormLogIn(props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <p className="firstLine">
-        Fields marked<span> * </span>are required
+        Fields marked<span className="modalForm"> * </span>are required
       </p>
       <label htmlFor="email">
-        Email:<span> * </span>
+        Email:<span className="modalForm"> * </span>
       </label>
       <input
         className="formInput"
@@ -48,7 +48,7 @@ export default function FormLogIn(props) {
         {...register("Email", {required: true, pattern: /^\S+@\S+$/i})}
       />
       <label htmlFor="password">
-        Password:<span> * </span>
+        Password:<span className="modalForm"> * </span>
       </label>
       <input
         className="formInput"

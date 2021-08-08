@@ -15,8 +15,8 @@ label {
   text-align: left;
   display: block;
 }
-p span,
-label span {
+p span.modalForm,
+label span.modalForm {
   font-weight: bold;
   color: var(--secondary) !important;
 }
