@@ -74,13 +74,14 @@ const ModalAdminContent = () => {
       .firestore()
       .collection("users")
       .doc(id)
-      .get()
+      .update({
+        isAdmin: false,
+      })
       .then((doc) => {
-        console.log("User's data:", doc.data(), "User's uid:", id);
         console.log(doc.data());
       })
       .catch((error) => {
-        console.log("Error getting document:", error);
+        console.error("Error updating document: ", error);
       });
   }
 
@@ -89,13 +90,14 @@ const ModalAdminContent = () => {
       .firestore()
       .collection("users")
       .doc(id)
-      .get()
+      .update({
+        isAdmin: true,
+      })
       .then((doc) => {
-        // console.log("User's data:", doc.data(), "User's uid:", uid);
         console.log(doc.data());
       })
       .catch((error) => {
-        console.log("Error getting document:", error);
+        console.error("Error updating document: ", error);
       });
   }
 
