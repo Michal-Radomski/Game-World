@@ -42,6 +42,7 @@ export const Score = ({ article }) => {
   useEffect(() => {
     if (article.raters.includes(auth.currentUser?.uid)) {
       setHasCommented(true);
+      setValue(article.rating);
     } else {
       setHasCommented(false);
     }
