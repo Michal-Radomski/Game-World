@@ -49,6 +49,25 @@ const filterByPlatform = (games, platform) => {
     ios: "iOS",
     xone: "Xbox One",
     nSwitch: "Nintendo Switch",
+    amiga: "Amiga",
+    dos: "PC DOS",
+    xbox: "Xbox",
+    xone: "Xbox One",
+    ps2: "PlayStation 2",
+    ps4: "PlayStation 4",
+    ps5: "PlayStation 5",
+    pvita: "PlayStation Vita",
+    wii: "Wii",
+    wiiu: "Wii U",
+    nes: "Nintendo Entertainment System (NES)",
+    snes: "Super Nintendo Entertainment System (SNES)",
+    n3ds: "Nintendo 3DS",
+    xseries: "Xbox Series",
+    c64: "Commodore C64/128",
+    mobile: "Mobile",
+    msx: "MSX",
+    atari7800: "Atari 7800",
+    gameboy: "Game Boy",
     all: "all",
   };
   const filterProperty = types[platform];
@@ -65,6 +84,18 @@ const filterByGenre = (games, genre) => {
     platform: "Platform",
     shooter: "Shooter",
     adventure: "Adventure",
+    indie: "Indie",
+    tbs: "Turn-based strategy (TBS)",
+    tactical: "Tactical",
+    simulator: "Simulator",
+    racing: "Racing",
+    sport: "Sport",
+    puzzle: "Puzzle",
+    moba: "MOBA",
+    rts: "Real Time Strategy (RTS)",
+    card: "Card & Board Game",
+    fighting: "Fighting",
+    music: "Music",
     all: "all",
   };
 //   console.log("GGGG", games.follows);
@@ -135,23 +166,6 @@ export default function GameCatalog({ topGames }) {
               Follows
             </option>
           </select>
-          {/* <select
-            className="select-games"
-            onChange={(e) => setFilterType(e.target.value)}
-          >
-            <option className="option" value="name">
-              Filter by...
-            </option>
-            <option className="option" value="storyline">
-              Storyline
-            </option>
-            <option className="option" value="videos">
-              Videos
-            </option>
-            <option className="option" value="rating">
-              Rating
-            </option>
-          </select> */}
           <select
             className="select-games"
             onChange={(e) => setFilterPlatform(e.target.value)}
@@ -159,23 +173,62 @@ export default function GameCatalog({ topGames }) {
             <option className="option" value="all">
               Filter platform
             </option>
+            <option className="option" value="xbox">
+            Xbox
+            </option>
+            <option className="option" value="xone">
+            Xbox One
+            </option>
+            <option className="option" value="ps2">
+            PlayStation 2
+            </option>
+            <option className="option" value="ps4">
+            PlayStation 4
+            </option>
+            <option className="option" value="ps5">
+            PlayStation 5
+            </option>
+            <option className="option" value="pvita">
+            PlayStation Vita
+            </option>
+            <option className="option" value="wii">
+            Wii
+            </option>
             <option className="option" value="mac">
               Mac
             </option>
             <option className="option" value="linux">
               Linux
             </option>
-            <option className="option" value="pc">
-              PC
-            </option>
-            <option className="option" value="playStation">
-              PlayStation
-            </option>
             <option className="option" value="ios">
               iOS
             </option>
-            <option className="option" value="dreamcast">
-              Dreamcast
+            <option className="option" value="amiga">
+            Amiga
+            </option>
+            <option className="option" value="pc">
+            PC
+            </option>
+            <option className="option" value="dos">
+            PC DOS
+            </option>
+            <option className="option" value="n3ds">
+            Nintendo 3DS
+            </option>
+            <option className="option" value="xseries">
+            Xbox Series
+            </option>
+            <option className="option" value="c64">
+            Commodore C64/128
+            </option>
+            <option className="option" value="msx">
+            MSX
+            </option>
+            <option className="option" value="atari7800">
+            Atari 7800
+            </option>
+            <option className="option" value="gameboy">
+            Game Boy
             </option>
           </select>
           <select
@@ -199,6 +252,42 @@ export default function GameCatalog({ topGames }) {
             </option>
             <option className="option" value="adventure">
               Adventure
+            </option>
+            <option className="option" value="indie">
+              Indie
+            </option>
+            <option className="option" value="tbs">
+            Turn-based strategy
+            </option>
+            <option className="option" value="tactical">
+            Tactical
+            </option>
+            <option className="option" value="simulator">
+            Simulator
+            </option>
+            <option className="option" value="racing">
+            Racing
+            </option>
+            <option className="option" value="sport">
+            Sport
+            </option>
+            <option className="option" value="puzzle">
+            Puzzle
+            </option>
+            <option className="option" value="moba">
+            MOBA
+            </option>
+            <option className="option" value="rts">
+            Real Time Strategy
+            </option>
+            <option className="option" value="card">
+            Card & Board Game
+            </option>
+            <option className="option" value="fighting">
+            Fighting
+            </option>
+            <option className="option" value="music">
+            Music
             </option>
           </select>
           <div className="checkbox select-games">

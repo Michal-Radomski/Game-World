@@ -13,10 +13,6 @@ body {
   background-color: black;
 }
 
-div#root {
-  overflow-x: hidden;
-}
-
 .App {
   text-align: center;
 }
@@ -476,6 +472,9 @@ iframe {
   }
 }
 @media screen and (max-width: 600px) {
+    div#root {
+      overflow-x: hidden;
+    }
     .game-img img, .game-data {
       width: 88vw;
     }
