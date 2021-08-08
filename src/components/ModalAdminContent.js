@@ -15,15 +15,33 @@ const ModalAdminContent = () => {
   const [userDB, setUserDB] = React.useState([]);
 
   // Getting collection of users from firestore DB
+  // React.useEffect(() => {
+  //   let usersList = [];
+  //   firebase
+  //     .firestore()
+  //     .collection("users")
+  //     .get()
+  //     .then((querySnapshot) => {
+  //       querySnapshot.forEach((doc) => {
+  //         // console.log("Collection of Users:", doc.id, " => ", doc.data());
+  //         usersList.push({
+  //           id: doc.id,
+  //           isAdmin: doc.data().isAdmin,
+  //           name: doc.data().Name,
+  //         });
+  //       });
+  //     });
+  //   console.log("usersList:", usersList);
+  //   setUserDB(usersList);
+  // }, []);
+
   React.useEffect(() => {
     let usersList = [];
     firebase
       .firestore()
       .collection("users")
-      .get()
-      .then((querySnapshot) => {
+      .onSnapshot((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          // console.log("Collection of Users:", doc.id, " => ", doc.data());
           usersList.push({
             id: doc.id,
             isAdmin: doc.data().isAdmin,
@@ -66,6 +84,7 @@ const ModalAdminContent = () => {
 
   return (
     <div>
+      <h2>List of Users:</h2>
       {userDB.map((user) => {
         return (
           <p key={user.id}>
