@@ -12,7 +12,7 @@ const SignOut = (userID) => {
     .signOut()
     .then(() => {
       console.log(`User ID: ${userID} was logged out`);
-      alert("You will be automatically logget out \n Please login in a moment ...");
+      alert("You will be automatically logged out \n Please login in a moment ...");
     })
     .catch((error) => {
       console.log(error);
