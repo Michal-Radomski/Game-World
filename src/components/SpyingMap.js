@@ -25,12 +25,12 @@ const SpyingMap = () => {
     fetch("https://ipwhois.app/json/?objects=ip,country,city,latitude,longitude")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log("Fetched geolocation data:", data);
         setUserInfo(data);
       });
   }, []);
 
-  console.log(23, "userInfo:", userInfo);
+  // console.log("userInfo:", userInfo);
   if (userInfo === null) {
     return <p>Loading...</p>;
   }

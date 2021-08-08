@@ -3,7 +3,7 @@
 button.SignUp {
   background-color: var(--secondary);
   color: white;
-  margin-right: 5px;
+  /* margin-right: 5px; */
   padding-left: 12px;
   padding-right: 12px;
   border: 1px solid darkblue;
@@ -31,7 +31,7 @@ button.LogIn:hover {
 button.LogOut {
   background-color: var(--secondary);
   color: white;
-  margin-right: 5px;
+  /* margin-right: 5px; */
   padding-left: 12px;
   padding-right: 12px;
   border: 1px solid #2c387e;
@@ -46,6 +46,7 @@ button.UserInfo {
   background-color: var(--primary-light);
   color: white;
   margin-right: 5px;
+  margin-left: 5px;
   padding-left: 12px;
   padding-right: 12px;
   border: 1px solid #2c387e;
@@ -54,6 +55,21 @@ button.UserInfo {
 button.UserInfo:hover {
   background-color: var(--secondary-light);
   color: white;
+}
+
+button.Admin {
+  background-color: inherit;
+  color: var(--secondary-light);
+  margin-left: 5px;
+  padding-right: 5px;
+  border: 1px solid #2c387e;
+  border-radius: 5px;
+  text-decoration: underline;
+}
+button.Admin:hover {
+  background-color: var(--secondary-light);
+  color: white;
+  text-decoration: none;
 }
 
 /* Buttons for LogOut Modal */

@@ -8,10 +8,9 @@ import MenuBookIcon from "@material-ui/icons/MenuBook";
 const ButtonCreateArticle = styled.button`
   background-color: var(--primary);
   color: white !important;
-  margin-right: 5px;
-  margin-left: 5px;
   padding-left: 12px;
   padding-right: 12px;
+  margin-left: 5px;
   border: 1px solid white !important;
   border-radius: 5px;
   font-size: 0.875rem;

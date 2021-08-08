@@ -8,11 +8,13 @@ import ModalLogIn from "./ModalLogIn";
 import LogOutModal from "./ModalLogOut";
 import UserProfileModal from "./ModalUserProfile";
 import CreateArticleButton from "./CreateArticleButton";
+import ModalAdmin from "./ModalAdmin";
 
 const DivUser = styled.div`
   color: var(--secondary);
   margin-left: auto;
   margin-right: auto;
+
   @media only screen and (max-width: 1300px) {
     display: none;
   }
@@ -36,15 +38,13 @@ export default function CurrentUser() {
     });
   }, []);
 
-  // Previous version
-  // return <DivUser>{currentUser ? `You are logged in as: ${currentUser}` : "No user is currently logged in"}</DivUser>;
-
   if (currentUser) {
     return (
       <>
         <DivUser>
           You are logged in as: <SpanUser>{currentUser}</SpanUser>
         </DivUser>
+        <ModalAdmin />
         <CreateArticleButton />
         <UserProfileModal />
         <LogOutModal />

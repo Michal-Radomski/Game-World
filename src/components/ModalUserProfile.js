@@ -79,7 +79,7 @@ export default function UserProfileModal() {
     setOpen(false);
   };
 
-  //* Getting data from firestore
+  // * Getting data from firestore
   const userLoggedIn = firebase.auth().currentUser;
   // const email = userLoggedIn.email;
   const uid = userLoggedIn?.uid;
@@ -89,6 +89,7 @@ export default function UserProfileModal() {
     Email: "",
     gender: "",
     Name: "",
+    isAdmin: "",
   });
   // UseEffect + getting the user's data
   useEffect(() => {
@@ -98,13 +99,18 @@ export default function UserProfileModal() {
       .doc(uid)
       .get()
       .then((doc) => {
-        console.log("User's data:", doc.data(), "User's uid:", uid);
+        // console.log("User's data:", doc.data(), "User's uid:", uid);
         setUserInfo(doc.data());
       })
       .catch((error) => {
         console.log("Error getting document:", error);
       });
   }, [uid]);
+
+  let userRole = "User";
+  if (userInfo.isAdmin === true) {
+    userRole = "Admin";
+  }
 
   return (
     <div>
@@ -128,6 +134,9 @@ export default function UserProfileModal() {
           </Typography>
           <Typography style={{color: "black", margin: "8px 16px"}}>
             You have set your gender as: &nbsp;<span className="UserProfileSpan">{userInfo.gender}</span>
+          </Typography>
+          <Typography style={{color: "black", margin: "8px 16px"}}>
+            User permissions are set to: &nbsp;<span className="UserProfileSpan">{userRole}</span>
           </Typography>
           <div style={{borderTop: "2px solid gray ", marginLeft: 16, marginRight: 16}}></div>
           <Typography style={{color: "gray", margin: "8px 16px 5px 16px"}}>For Geeks only:</Typography>
