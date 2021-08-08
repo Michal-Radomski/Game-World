@@ -77,8 +77,8 @@ const ModalAdminContent = () => {
       .update({
         isAdmin: false,
       })
-      .then((doc) => {
-        console.log(doc.data());
+      .then(() => {
+        console.log("Document successfully updated!");
       })
       .catch((error) => {
         console.error("Error updating document: ", error);
@@ -93,8 +93,8 @@ const ModalAdminContent = () => {
       .update({
         isAdmin: true,
       })
-      .then((doc) => {
-        console.log(doc.data());
+      .then(() => {
+        console.log("Document successfully updated!");
       })
       .catch((error) => {
         console.error("Error updating document: ", error);
