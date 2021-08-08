@@ -85,11 +85,28 @@ What you can do using GAMEWORLD app:
 
    <img alt="search page photo" src="./src/imagesREADME/search-page.JPG" width="80%">
 
-7. Create posts and react on other users' posts #TODO --PAWEŁ
+7. Create posts and react on other users' posts
+
    - you can create posts that will be visable to all users
+     <img alt="search page photo" src="./src/imagesREADME/create-article.JPG" width="80%">
    - then you can go to Your Posts section to see all posts created by you and delete the ones you no longer want to be on
      the main page
-   - you can comment and react with likes on post created by other users
+     <img alt="search page photo" src="./src/imagesREADME/articles.JPG" width="80%">
+   - you can comment and rate with stars on posts created by other users
+
+   <div display="flex">
+   <img alt="gallery photo" src="./src/imagesREADME/article_1.JPG" width="80%">
+   <img alt="gallery modal photo" src="./src/imagesREADME/article_2.JPG" width="80%">
+   </div>
+
+8. Create footer,subpages and contact form:
+   - Creation of the project footer with buttons from the material UI leading to subpages
+   - Creation of a subpage with information about the project creators
+   - Creation of a subpage with contact form for users. The form sends data to firebase database, then messages are presented on the subpage messages
+   - Creation of messages subpage
+     <img alt="contact form" src="./src/imagesREADME/Contact form.JPG" width="80%">
+     <img alt="Footer" src="./src/imagesREADME/Footer.JPG" width="80%">
+     <img alt="aboutus" src="./src/imagesREADME/aboutus.JPG" width="80%">
 
 ### Environment, backend & deployment
 

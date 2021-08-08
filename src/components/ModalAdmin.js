@@ -134,7 +134,7 @@ export default function ModalAdmin() {
             <Typography style={{color: "black", margin: "8px 16px 12px 16px", textAlign: "center", fontSize: "125%"}}>
               You have permissions of: <SpanStyled>{userRole}</SpanStyled>{" "}
             </Typography>
-            <ModalAdminContent />
+            <ModalAdminContent onRevokeAdmin={handleClose} />
           </DialogContent>
           <DialogActions style={{backgroundColor: "whiteSmoke", float: "right"}}>
             <Button autoFocus onClick={handleClose} className="UserInfoOk">

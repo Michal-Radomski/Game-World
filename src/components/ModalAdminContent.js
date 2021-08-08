@@ -46,7 +46,10 @@ const ListUsersButton = styled.button`
   }
 `;
 
-const ModalAdminContent = () => {
+const ModalAdminContent = ({onRevokeAdmin}) => {
+  const userLoggedIn = firebase.auth().currentUser;
+  const uid = userLoggedIn?.uid;
+
   const [userDB, setUserDB] = React.useState([]);
 
   React.useEffect(() => {
@@ -79,6 +82,7 @@ const ModalAdminContent = () => {
       })
       .then(() => {
         console.log("Document successfully updated!");
+        onRevokeAdmin();
       })
       .catch((error) => {
         console.error("Error updating document: ", error);
@@ -95,6 +99,7 @@ const ModalAdminContent = () => {
       })
       .then(() => {
         console.log("Document successfully updated!");
+        onRevokeAdmin();
       })
       .catch((error) => {
         console.error("Error updating document: ", error);
@@ -106,25 +111,27 @@ const ModalAdminContent = () => {
   return (
     <div>
       <ListUsersH2>List of Users:</ListUsersH2>
-      {userDB.map((user) => {
-        return (
-          <ListUsersP key={user.id}>
-            {user.Name}&#8239;&#8239;&#8239;&#8239;
-            {user.Email}&#8239;&#8239;&#8239;&#8239;
-            {user.isAdmin ? (
-              <ListUsersSpan>
-                (role: admin) &#8239;&#8239;&#8239;
-                <ListUsersButton onClick={() => revokeAdmin(user.id)}>Revoke Admin</ListUsersButton>
-              </ListUsersSpan>
-            ) : (
-              <ListUsersSpan>
-                (role: user) &#8239;&#8239;&#8239;
-                <ListUsersButton onClick={() => makeAdmin(user.id)}>Promote to Admin</ListUsersButton>
-              </ListUsersSpan>
-            )}
-          </ListUsersP>
-        );
-      })}
+      {userDB
+        .filter((user) => user.id !== uid)
+        .map((user, index) => {
+          return (
+            <ListUsersP key={index}>
+              {user.Name}&#8239;&#8239;&#8239;&#8239;
+              {user.Email}&#8239;&#8239;&#8239;&#8239;
+              {user.isAdmin ? (
+                <ListUsersSpan>
+                  (role: admin) &#8239;&#8239;&#8239;
+                  <ListUsersButton onClick={() => revokeAdmin(user.id)}>Revoke Admin</ListUsersButton>
+                </ListUsersSpan>
+              ) : (
+                <ListUsersSpan>
+                  (role: user) &#8239;&#8239;&#8239;
+                  <ListUsersButton onClick={() => makeAdmin(user.id)}>Promote to Admin</ListUsersButton>
+                </ListUsersSpan>
+              )}
+            </ListUsersP>
+          );
+        })}
     </div>
   );
 };
