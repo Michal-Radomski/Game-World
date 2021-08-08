@@ -16,25 +16,23 @@ const ModalAdminContent = () => {
 
   // Getting collection of users from firestore DB
   React.useEffect(() => {
-    setTimeout(function () {
-      let usersList = [];
-      firebase
-        .firestore()
-        .collection("users")
-        .get()
-        .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            // console.log("Collection of Users:", doc.id, " => ", doc.data());
-            usersList.push({
-              id: doc.id,
-              isAdmin: doc.data().isAdmin,
-              name: doc.data().Name,
-            });
+    let usersList = [];
+    firebase
+      .firestore()
+      .collection("users")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // console.log("Collection of Users:", doc.id, " => ", doc.data());
+          usersList.push({
+            id: doc.id,
+            isAdmin: doc.data().isAdmin,
+            name: doc.data().Name,
           });
         });
-      console.log("usersList:", usersList);
-      setUserDB(usersList);
-    }, 500);
+      });
+    console.log("usersList:", usersList);
+    setUserDB(usersList);
   }, []);
 
   function revokeAdmin(id) {
@@ -44,7 +42,7 @@ const ModalAdminContent = () => {
       .doc(id)
       .get()
       .then((doc) => {
-        // console.log("User's data:", doc.data(), "User's uid:", uid);
+        console.log("User's data:", doc.data(), "User's uid:", id);
         console.log(doc.data());
       })
       .catch((error) => {
@@ -70,8 +68,7 @@ const ModalAdminContent = () => {
     <div>
       {userDB.map((user) => {
         return (
-          <p>
-            key={user.id}
+          <p key={user.id}>
             {user.name}
             {user.isAdmin ? (
               <span>
