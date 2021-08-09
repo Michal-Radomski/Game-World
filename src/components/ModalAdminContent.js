@@ -1,3 +1,5 @@
+// Component for Admin administration - content
+
 import React from "react";
 import styled from "styled-components";
 import firebase from "firebase";
@@ -46,18 +48,18 @@ const ListUsersButton = styled.button`
   }
 `;
 
-const ModalAdminContent = ({onRevokeAdmin}) => {
+const ModalAdminContent = ({onChangeAdmin}) => {
   const userLoggedIn = firebase.auth().currentUser;
   const uid = userLoggedIn?.uid;
 
   const [userDB, setUserDB] = React.useState([]);
 
   React.useEffect(() => {
-    let usersList = [];
     firebase
       .firestore()
       .collection("users")
       .onSnapshot((querySnapshot) => {
+        let usersList = [];
         querySnapshot.forEach((doc) => {
           usersList.push({
             id: doc.id,
@@ -68,8 +70,8 @@ const ModalAdminContent = ({onRevokeAdmin}) => {
           });
         });
         setUserDB(usersList);
+        console.log("usersList:", usersList);
       });
-    console.log("usersList:", usersList);
   }, []);
 
   function revokeAdmin(id) {
@@ -82,7 +84,7 @@ const ModalAdminContent = ({onRevokeAdmin}) => {
       })
       .then(() => {
         console.log("Document successfully updated!");
-        onRevokeAdmin();
+        onChangeAdmin();
       })
       .catch((error) => {
         console.error("Error updating document: ", error);
@@ -99,14 +101,14 @@ const ModalAdminContent = ({onRevokeAdmin}) => {
       })
       .then(() => {
         console.log("Document successfully updated!");
-        onRevokeAdmin();
+        onChangeAdmin();
       })
       .catch((error) => {
         console.error("Error updating document: ", error);
       });
   }
 
-  console.log("userDB:", userDB);
+  // console.log("userDB:", userDB);
 
   return (
     <div>

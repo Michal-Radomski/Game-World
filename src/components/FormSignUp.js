@@ -64,6 +64,7 @@ export default function FormSignUp(props) {
         let errorCode = error.code;
         let errorMessage = error.message;
         console.log(errorCode, errorMessage);
+        alert(errorCode, errorMessage);
       });
   };
   console.log(errors);
