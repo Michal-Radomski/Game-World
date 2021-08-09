@@ -118,6 +118,8 @@ h2 {
   display: flex;
   align-items: flex-start;
   padding: 30px 20px;
+  max-width: 1520px;
+  margin: 0 auto;
 }
 
 .sidebarHeader {
@@ -294,6 +296,18 @@ h3.galleryHeader {
 input[type="checkbox"] {
   margin-right: 2vw;
 }
+.miniature {
+  padding: 6px 8px;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: center;
+}
 
 iframe {
   max-width: 95vw;
@@ -446,6 +460,10 @@ iframe {
   .sidebar {
     display: none;
   }
+
+  .miniature {
+    display: block;
+  }
 }
 .video-responsive {
   max-width: 100vw;
@@ -489,7 +507,6 @@ iframe {
       display: block;
     }
     .checkbox {
-      max-width: 71vw;
       justify-content: flex-start;
     }
     .checkbox label {

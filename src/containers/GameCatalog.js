@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { changeUnixTimeToDate } from "../components/Helper";
 import { changeOriginalImageSize } from "../components/Helper";
@@ -49,10 +48,8 @@ const filterByPlatform = (games, platform) => {
     ios: "iOS",
     xone: "Xbox One",
     nSwitch: "Nintendo Switch",
-    amiga: "Amiga",
     dos: "PC DOS",
     xbox: "Xbox",
-    xone: "Xbox One",
     ps2: "PlayStation 2",
     ps4: "PlayStation 4",
     ps5: "PlayStation 5",
@@ -71,7 +68,7 @@ const filterByPlatform = (games, platform) => {
     all: "all",
   };
   const filterProperty = types[platform];
-  const filtered = filterProperty == "all" ? games : [...games].filter((val) =>
+  const filtered = filterProperty === "all" ? games : [...games].filter((val) =>
     val.platforms.includes(filterProperty)
   );
   return filtered;
@@ -98,9 +95,8 @@ const filterByGenre = (games, genre) => {
     music: "Music",
     all: "all",
   };
-//   console.log("GGGG", games.follows);
   const filterProperty = types[genre];
-  const filtered = filterProperty == "all" ? games : [...games].filter((val) =>
+  const filtered = filterProperty === "all" ? games : [...games].filter((val) =>
     val.genres.includes(filterProperty)
   );
   return filtered;
@@ -303,11 +299,8 @@ export default function GameCatalog({ topGames }) {
           const humanDateFormat = changeUnixTimeToDate(game.first_release_date);
           return (
             <Link to={`/games/${game.game_id}`} key={index}>
-              {/* <a href="#" onClick={() => onGameSelect(game.game_id)}> */}
               <li className="container-catalog">
-                {/* TODO remove Button */}
-                {/* <Button onClick={() => onGameSelect(game.game_id)} type="link" block> */}
-                <Button>
+                <div className="miniature">
                   <img
                     className="topGameImg-catalog brightness shadow"
                     src={changeOriginalImageSize(
@@ -364,9 +357,8 @@ export default function GameCatalog({ topGames }) {
                       </div>
                     </div>
                   </div>
-                </Button>
+                </div>
               </li>
-              {/* </a> */}
             </Link>
           );
         })}

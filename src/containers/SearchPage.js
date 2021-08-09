@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { changeUnixTimeToDate } from "../components/Helper";
 import { changeOriginalImageSize } from "../components/Helper";
@@ -27,8 +26,6 @@ export default function SearchPage({games, articles}){
     // console.log("Search qqq ", searchQuery);
     const phrase = decodeURIComponent(searchQuery);    
     // console.log("Decode ", typeof phrase, phrase);
-    const phraseTable = phrase.toLowerCase().split(" ");
-    // console.log("Table ", phraseTable);
 
     function Loading (){
         return(<div className="loader"></div>);
@@ -68,11 +65,8 @@ export default function SearchPage({games, articles}){
                     );
                     return (
                         <Link to={`/games/${game.game_id}`} key={index}>
-                            {/* <a href="#" onClick={() => onGameSelect(game.game_id)}> */}
                             <li className="container-catalog">
-                                {/* TODO remove Button */}
-                                {/* <Button onClick={() => onGameSelect(game.game_id)} type="link" block> */}
-                                <Button>
+                                <div className="miniature">
                                     <img
                                         className="topGameImg-catalog brightness shadow"
                                         src={changeOriginalImageSize(
@@ -108,9 +102,8 @@ export default function SearchPage({games, articles}){
                                         </div>
                                         </div>
                                     </div>
-                                </Button>
+                                </div>
                             </li>
-                            {/* </a> */}
                         </Link>
                     );
                 })}
@@ -122,9 +115,7 @@ export default function SearchPage({games, articles}){
                     return (
                         <Link to={`/articles/${article.id}`} key={index}>
                             <li className="container-catalog">
-                                {/* TODO remove Button */}
-                                {/* <Button onClick={() => onGameSelect(game.game_id)} type="link" block> */}
-                                <Button>
+                                <div className="miniature">
                                     <img src={article.img} alt={article.title} 
                                     className="topGameImg-catalog brightness shadow"
                                     style={{width: "270px"}}
@@ -137,9 +128,8 @@ export default function SearchPage({games, articles}){
                                             </h4>
                                         </div>
                                     </div>
-                                </Button>
+                                </div>
                             </li>
-                            {/* </a> */}
                         </Link>
                     )
                 })}
