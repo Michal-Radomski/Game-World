@@ -47,7 +47,6 @@ export default function Gallery() {
     const topGames = useTopGames();
     function changeOriginalImageSize(image, size) {
         const splitImage = image.split("thumb");
-        // console.log(splitImage);
         return `https://${splitImage[0]}${size}${splitImage[1]}`;
     }
     const modalClasses = useModalStyles();

@@ -17,7 +17,6 @@ function getModalStyle() {
         top: `${top}%`,
         left: `${left}%`,
         transform: `translate(-${top}%, -${left}%)`,
-        // maxWidth: "100vw",
     };
 }
 
@@ -92,7 +91,6 @@ export default function Game({ games }) {
                             })}
                         </div>
                         {game.game_engines && <div>
-                            {/* game_engines */}
                             <span className="game-header">Game engines:</span>
                             {game.game_engines.map((engines, index) => {
                                 return (
