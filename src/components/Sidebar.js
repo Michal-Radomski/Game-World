@@ -9,7 +9,7 @@ export function Sidebar() {
     <>
       <div className="sidebar" style={{position: "sticky", top: "0px"}}>
         <h2 className="sidebarHeader">Menu</h2>
-        <div className="content-sidebar" style={{color: "white", width: "210px"}}>
+        <div className="content-sidebar" style={{color: "white"}}>
           <ul>
             <li className="MenuItem2">
               <Link to="/articles">
