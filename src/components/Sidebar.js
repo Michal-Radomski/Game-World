@@ -9,29 +9,29 @@ export function Sidebar() {
     <>
       <div className="sidebar" style={{position: "sticky", top: "0px"}}>
         <h2 className="sidebarHeader">Menu</h2>
-          <div className="content-sidebar" style={{color: "white"}}>
-            <ul>
-              <li className="MenuItem2">
-                <Link to="/articles">
-                  <ImportContactsIcon style={{float: "left"}} />
-                  <span>&nbsp;&nbsp;&nbsp;Articles</span>
-                </Link>
-              </li>
-              <li className="MenuItem2">
-                <Link to="/games">
-                  <SportsEsportsIcon style={{float: "left"}} />
-                  <span>&nbsp;&nbsp;&nbsp;Game catalog</span>
-                </Link>
-              </li>
-              <li className="MenuItem2">
-                <Link to="/gallery">
-                  <WallpaperIcon style={{float: "left"}} />
-                  <span>&nbsp;&nbsp;&nbsp;Gallery</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
+        <div className="content-sidebar" style={{color: "white", width: "210px"}}>
+          <ul>
+            <li className="MenuItem2">
+              <Link to="/articles">
+                <ImportContactsIcon style={{float: "left"}} />
+                <span>&nbsp;&nbsp;&nbsp;Articles</span>
+              </Link>
+            </li>
+            <li className="MenuItem2">
+              <Link to="/games">
+                <SportsEsportsIcon style={{float: "left"}} />
+                <span>&nbsp;&nbsp;&nbsp;Game catalog</span>
+              </Link>
+            </li>
+            <li className="MenuItem2">
+              <Link to="/gallery">
+                <WallpaperIcon style={{float: "left"}} />
+                <span>&nbsp;&nbsp;&nbsp;Gallery</span>
+              </Link>
+            </li>
+          </ul>
         </div>
+      </div>
     </>
   );
 }
