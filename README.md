@@ -13,7 +13,7 @@ API: [IGDB API](https://api-docs.igdb.com/#about). Our application is a website 
 games in articles and on game pages. Users can also create articles, post comments and rate games if they log in.
 
 This is a project developed during a 6-months long "Junior Frontend Developer" bootcamp organized by InfoShare Academy. The
-main goal was to create a complex ReactJS web application using knowledge gained during the course.
+main goal of the project was to create a complex ReactJS web application using knowledge gained during the course.
 
 It was created by a team of 4 people:
 
@@ -24,7 +24,7 @@ It was created by a team of 4 people:
 
 ### Features
 
-What you can do using **GAMEWORLD** app:
+What you can do using the **GAMEWORLD** app:
 
 1. Sign up and create your profile
 
@@ -119,8 +119,7 @@ useEffect for fetching data and other.
 Backend features were implemented using Firebase. We used Firestore Database to store data: users and their data, posts with
 comments and likes. Authentication allowed us to create sing up & log in system.
 
-GAMEWORLD has been deployed via Firebase Hosting: <a href="https://gameworld-a20b3.web.app/" target="_blank">Link to
-page</a>.
+GAMEWORLD has been deployed via Firebase Hosting: <a href="https://gameworld-a20b3.web.app/" target="_blank">Link to the webpage</a>.
 
 ### Notes, ToDo List & Issues
 
