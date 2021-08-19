@@ -2,7 +2,7 @@
 
 ![GAMEWORLD Logo!](/src/images/GW-logo.png "GAMEWORLD Logo")
 
-**GAMEWORLD** Application original repository (in a case of a fork): 
+**GAMEWORLD** Application original repository (in a case of a fork):  
 <https://github.com/infoshareacademy/jfdzr3-projects-game-over>.
 
 **GAMEWORLD** Application website: <https://gameworld-a20b3.web.app>.
