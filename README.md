@@ -119,7 +119,7 @@ useEffect for fetching data and other.
 Backend features were implemented using Firebase. We used Firestore Database to store data: users and their data, posts with
 comments and likes. Authentication allowed us to create sing up & log in system.
 
-GAMEWORLD has been deployed via Firebase Hosting: <a href="https://gameworld-a20b3.web.app/" target="_blank">Link to the webpage</a>.
+GAMEWORLD has been deployed via Firebase Hosting: <a href="https://gameworld-a20b3.web.app/" target="_blank">**link to the app page**</a>.
 
 ### Notes, ToDo List & Issues
 
