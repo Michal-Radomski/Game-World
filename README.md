@@ -1,10 +1,11 @@
 # GAMEWORLD
 
-<img width="220px" text-align="right" alt="GAMEWORLD logo" src="./src/images/GW-logo.png" />
+![GAMEWORLD Logo!](/src/images/GW-logo.png "GAMEWORLD Logo")
 
-**GAMEWORLD** Application repository: <https://github.com/infoshareacademy/jfdzr3-projects-game-over>.
+**GAMEWORLD** Application original repository (in a case of a fork):
+<https://github.com/infoshareacademy/jfdzr3-projects-game-over>.
 
-**GAMEWORLD** Application website: <https://gameworld-a20b3.web.app/>.
+**GAMEWORLD** Application website: <https://gameworld-a20b3.web.app>.
 
 ## About
 
@@ -119,7 +120,8 @@ useEffect for fetching data and other.
 Backend features were implemented using Firebase. We used Firestore Database to store data: users and their data, posts with
 comments and likes. Authentication allowed us to create sing up & log in system.
 
-GAMEWORLD has been deployed via Firebase Hosting: <a href="https://gameworld-a20b3.web.app/" target="_blank">**link to the app page**</a>.
+GAMEWORLD has been deployed via Firebase Hosting: <a href="https://gameworld-a20b3.web.app/" target="_blank">**link to the
+app page**</a>.
 
 ### Notes, ToDo List & Issues
 
@@ -136,7 +138,8 @@ GAMEWORLD has been deployed via Firebase Hosting: <a href="https://gameworld-a20
 - [Material-UI](https://material-ui.com/) - most elements of the UI,
 - [Styled Components](https://styled-components.com/) - component for styling the application,
 - [Firebase JavaScript SDK](https://firebase.google.com/docs/reference/js) - SDK of Firestore,
-- [Leaflet](https://leafletjs.com/) - rendering a map.
+- [Leaflet](https://leafletjs.com/) - rendering a map,
+- [Font Awesome](https://fontawesome.com/) - an icon used to logo and fonts.
 
 ### Feedback
 
