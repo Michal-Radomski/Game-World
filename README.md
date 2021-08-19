@@ -1,8 +1,10 @@
+# GAMEWORLD
+
 <img width="250px" text-align="right" alt="GAMEWORLD logo" src="./src/images/GW-logo.png" />
 
 [GAMEWORLD Application](https://github.com/infoshareacademy/jfdzr3-projects-game-over)
 
-### About
+## About
 
 GAMEWORLD is a web application developed in ReactJS using Firebase. The information about the games was taken from the IGDB
 API: [IGDB API](https://api-docs.igdb.com/#about) Our application is a website about. This is where users can read about
@@ -30,9 +32,9 @@ What you can do using GAMEWORLD app:
    - there is some information about your hardware
    - there is also geolocation (based on fetching data): you can see your IP address, city and country
 
-   <img alt="homepage photo" src="./src/imagesREADME/UsersProlife.png">
+   <img alt="homepage photo" src="./src/imagesREADME/UsersProfile.png">
 
-   - if you are the administrator you have access to the admin panel (this is demo, so emails are fake)
+   - if you are the administrator you have access to the admin panel **(this is demo, so emails are fake)**
 
    <img alt="homepage photo" src="./src/imagesREADME/AdministratorPanel.png">
 
@@ -55,7 +57,7 @@ What you can do using GAMEWORLD app:
 
 4. Read about the game on the game page:
 
-   - you can check game informations such as: created date, first release date, genres, platforms, game engine and IGDB
+   - you can check game information such as: created date, first release date, genres, platforms, game engine and IGDB
      statistics: rating, number of ratings and number of follows
    - you can read description and storyline
    - you can see game screenshots. After clicking on the thumbnail you can see a big image
@@ -87,11 +89,10 @@ What you can do using GAMEWORLD app:
 
 7. Create posts and react on other users' posts
 
-   - you can create posts that will be visable to all users
+   - you can create posts that will be visible to all users
      <img alt="search page photo" src="./src/imagesREADME/create-article.JPG" width="80%">
    - then you can go to Your Posts section to see all posts created by you and delete the ones you no longer want to be on
-     the main page
-     <img alt="search page photo" src="./src/imagesREADME/articles.JPG" width="80%">
+     the main page <img alt="search page photo" src="./src/imagesREADME/articles.JPG" width="80%">
    - you can comment and rate with stars on posts created by other users
 
    <div display="flex">
@@ -102,11 +103,11 @@ What you can do using GAMEWORLD app:
 8. Create footer,subpages and contact form:
    - Creation of the project footer with buttons from the material UI leading to subpages
    - Creation of a subpage with information about the project creators
-   - Creation of a subpage with contact form for users. The form sends data to firebase database, then messages are presented on the subpage messages
-   - Creation of messages subpage
-     <img alt="contact form" src="./src/imagesREADME/Contact form.JPG" width="80%">
+   - Creation of a subpage with contact form for users. The form sends data to firebase database, then messages are presented
+     on the subpage messages
+   - Creation of messages subpage <img alt="contact form" src="./src/imagesREADME/Contact form.JPG" width="80%">
      <img alt="Footer" src="./src/imagesREADME/Footer.JPG" width="80%">
-     <img alt="aboutus" src="./src/imagesREADME/aboutus.JPG" width="80%">
+     <img alt="AboutUs" src="./src/imagesREADME/AboutUs.JPG" width="80%">
 
 ### Environment, backend & deployment
 
@@ -118,6 +119,14 @@ comments and likes. Authentication allowed us to create sing up & log in system.
 
 GAMEWORLD has been deployed via Firebase Hosting: <a href="https://gameworld-a20b3.web.app/" target="_blank">Link to page</a>
 
+### Notes/ ToDo List/ Issues
+
+1. 3d-react-carousal will be replaced with a different library.
+
+### Built With
+
+- [Firebase JavaScript SDK](https://firebase.google.com/docs/reference/js) - SDK of Firestore,
+
 ### Feedback
 
 If you have any comments on this project feel free to leave them in issues or contact us via GitHub.
@@ -128,3 +137,7 @@ We wanted to thank our trainers <a href="https://github.com/cytrowski">@cytrowsk
 <a href="https://github.com/jan-hanc-iShare">@jan-hanc-iShare</a> from
 <a href="https://github.com/infoshareacademy">infoShare Academy</a> for all the help and support they gave us during this
 project.
+
+### License
+
+[MIT](https://choosealicense.com/licenses/mit/)
