@@ -1,19 +1,21 @@
 # GAMEWORLD
 
-<img width="250px" text-align="right" alt="GAMEWORLD logo" src="./src/images/GW-logo.png" />
+<img width="220px" text-align="right" alt="GAMEWORLD logo" src="./src/images/GW-logo.png" />
 
-[GAMEWORLD Application](https://github.com/infoshareacademy/jfdzr3-projects-game-over)
+**GAMEWORLD** Application repository: <https://github.com/infoshareacademy/jfdzr3-projects-game-over>.
+
+**GAMEWORLD** Application website: <https://gameworld-a20b3.web.app/>.
 
 ## About
 
 GAMEWORLD is a web application developed in ReactJS using Firebase. The information about the games was taken from the IGDB
-API: [IGDB API](https://api-docs.igdb.com/#about) Our application is a website about. This is where users can read about
+API: [IGDB API](https://api-docs.igdb.com/#about). Our application is a website about. This is where users can read about
 games in articles and on game pages. Users can also create articles, post comments and rate games if they log in.
 
 This is a project developed during a 6-months long "Junior Frontend Developer" bootcamp organized by InfoShare Academy. The
 main goal was to create a complex ReactJS web application using knowledge gained during the course.
 
-It was created by a team:
+It was created by a team of 4 people:
 
 - [Paulina Milewska](https://github.com/PaulinaMilewska)
 - [Michał Radomski](https://github.com/Michal-Radomski)
@@ -22,7 +24,7 @@ It was created by a team:
 
 ### Features
 
-What you can do using GAMEWORLD app:
+What you can do using **GAMEWORLD** app:
 
 1. Sign up and create your profile
 
@@ -34,7 +36,7 @@ What you can do using GAMEWORLD app:
 
    <img alt="homepage photo" src="./src/imagesREADME/UsersProfile.png">
 
-   - if you are the administrator you have access to the admin panel **(this is demo, so emails are fake)**
+   - if you are the administrator you have access to the admin panel **_(this is demo, so emails are fake)_**
 
    <img alt="homepage photo" src="./src/imagesREADME/AdministratorPanel.png">
 
@@ -117,15 +119,25 @@ useEffect for fetching data and other.
 Backend features were implemented using Firebase. We used Firestore Database to store data: users and their data, posts with
 comments and likes. Authentication allowed us to create sing up & log in system.
 
-GAMEWORLD has been deployed via Firebase Hosting: <a href="https://gameworld-a20b3.web.app/" target="_blank">Link to page</a>
+GAMEWORLD has been deployed via Firebase Hosting: <a href="https://gameworld-a20b3.web.app/" target="_blank">Link to
+page</a>.
 
-### Notes/ ToDo List/ Issues
+### Notes, ToDo List & Issues
 
 1. 3d-react-carousal will be replaced with a different library.
 
 ### Built With
 
+- [React](https://reactjs.org/) - building user interfaces,
+- [React Router](https://reactrouter.com/) - declarative routing for React,
+- [React Icons](https://react-icons.github.io/react-icons) - to include popular icons in a React project,
+- [React Query](https://react-query.tanstack.com/) - fetching, caching for React,
+- [React Swipeable Views](https://react-swipeable-views.com/) - component for swipeable views in React,
+- [React Hook Form](https://react-hook-form.com/) - forms for React,
+- [Material-UI](https://material-ui.com/) - most elements of the UI,
+- [Styled Components](https://styled-components.com/) - component for styling the application,
 - [Firebase JavaScript SDK](https://firebase.google.com/docs/reference/js) - SDK of Firestore,
+- [Leaflet](https://leafletjs.com/) - rendering a map.
 
 ### Feedback
 
