@@ -52,7 +52,7 @@ const ListUsersButton = styled.button`
       background: var(--secondary-light);
       color: white;
       &:hover {
-        background: var(--primary-light);
+        background: var(--primary);
         color: white;
       }
     `}
