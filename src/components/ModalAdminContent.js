@@ -1,7 +1,7 @@
 // Component for Admin administration - content
 
 import React from "react";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import firebase from "firebase";
 
 const ListUsersH2 = styled.h2`
@@ -46,6 +46,16 @@ const ListUsersButton = styled.button`
     border: 1px solid var(--secondary) !important;
     filter: brightness(100%) !important;
   }
+  ${(props) =>
+    props.revoke &&
+    css`
+      background: var(--secondary-light);
+      color: white;
+      &:hover {
+        background: var(--primary-light);
+        color: white;
+      }
+    `}
 `;
 
 const ModalAdminContent = ({onChangeAdmin}) => {
@@ -123,7 +133,9 @@ const ModalAdminContent = ({onChangeAdmin}) => {
               {user.isAdmin ? (
                 <ListUsersSpan>
                   (role: admin) &#8239;&#8239;&#8239;
-                  <ListUsersButton onClick={() => revokeAdmin(user.id)}>Revoke Admin</ListUsersButton>
+                  <ListUsersButton revoke onClick={() => revokeAdmin(user.id)}>
+                    Revoke Admin
+                  </ListUsersButton>
                 </ListUsersSpan>
               ) : (
                 <ListUsersSpan>
