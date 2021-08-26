@@ -10,8 +10,8 @@
 ## About
 
 GAMEWORLD is a web application developed in ReactJS using Firebase. The information about the games was taken from the IGDB
-API: [IGDB API](https://api-docs.igdb.com/#about). Our application is a website about. This is where users can read about
-games in articles and on game pages. Users can also create articles, post comments and rate games if they log in.
+API: [IGDB API](https://api-docs.igdb.com/#about). Users can read about the games in articles or on the pages of the game. In
+addition, they can also create articles, post comments, and rate games if they are logged in.
 
 This is a project developed during a 6-months long "Junior Frontend Developer" bootcamp organized by InfoShare Academy. The
 main goal of the project was to create a complex ReactJS web application using knowledge gained during the course.
@@ -25,7 +25,7 @@ It was created by a team of 4 people:
 
 ### Features
 
-What you can do using the **GAMEWORLD** app:
+You can do using the **GAMEWORLD** app:
 
 1. Sign up and create your profile
 
@@ -94,7 +94,7 @@ What you can do using the **GAMEWORLD** app:
 
    - you can create posts that will be visible to all users
      <img alt="search page photo" src="./src/imagesREADME/create-article.JPG" width="80%">
-   - then you can go to Your Posts section to see all posts created by you and delete the ones you no longer want to be on
+   - then you can go to your posts section to see all posts created by you and delete the ones you no longer want to be on
      the main page <img alt="search page photo" src="./src/imagesREADME/articles.JPG" width="80%">
    - you can comment and rate with stars on posts created by other users
 
